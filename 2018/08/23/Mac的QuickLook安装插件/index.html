@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        Ding&#39;s Blog
+        Mac的QuickLook安装插件｜Ding&#39;s Blog
         
     </title>
 
-    <link rel="canonical" href="http://dgz19971210.github.io/tags/Blog/page/2/">
+    <link rel="canonical" href="http://dgz19971210.github.io/2018/08/23/Mac的QuickLook安装插件/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -43,7 +43,7 @@
 <!-- hack iOS CSS :active style -->
 <body ontouchstart="" class="animated fadeIn">
 <!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "false" data-istags="true
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
 " data-ishome = "false" >
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -123,348 +123,207 @@
 </script>
 
 <!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="/img/post-bg-coffee.jpeg">
+
+
 <style>
-    .intro-header .site-heading {
-        margin: 50px;
-    }
     
     header.intro-header {
         background-image: url('/img/post-bg-coffee.jpeg')
     }
+
     
 </style>
 
-<!-- Page Header -->
 <header class="intro-header">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading text-center">
-                    <h1>archives</h1>
-                    <span class="subheading">可以根据归档日期检索所有文件</span>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>Mac的QuickLook安装插件</h1>
+                    
+                    <span class="meta">
+                         作者 Ding|轻尘
+                        <span>
+                          日期 2018-08-23
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#Blog"
+                           title="Blog">Blog</a>
+                        
+                        <a class="tag" href="/tags/#Mac"
+                           title="Mac">Mac</a>
+                        
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <div class="post-title-haojen">
+        <span>
+            Mac的QuickLook安装插件
+        </span>
+    </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <!-- archive list -->
-            
-				
-				
-				
-					
-					
-					<div class="archive archive-year" data-date="2018">
-						<h2 class="archive-title">
-						<span class="fa fa-archive">
-							<a href="/archives/2018">2018</a>
-						</span>
-						</h2>
-				
-				
-					
-					
-					<div class="archive archive-month" data-date="201808">
-						<h3 class="archive-title">
-							<a href="/archives/2018/08">08</a>
-						</h3>
-				
-				<div class="one-tag-list">
-                <div class="post-preview">
-                    <a href="/2018/08/23/Mac下终端走代理/">
-                        <h4 class="post-title">
-                            Mac下终端走代理
-                        </h4>
-                        
-                    </a>
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h1 id="QuickLook安装插件"><a href="#QuickLook安装插件" class="headerlink" title="QuickLook安装插件"></a>QuickLook安装插件</h1><hr>
+<h2 id="参考博客"><a href="#参考博客" class="headerlink" title="参考博客"></a>参考博客</h2><p><a href="https://www.jianshu.com/p/7421f7a03e07" target="_blank" rel="noopener">越前君</a><br><a href="https://www.jianshu.com/p/34d5e66dcf52" target="_blank" rel="noopener">crazy一笑</a></p>
+<h2 id="安装Homebrew"><a href="#安装Homebrew" class="headerlink" title="安装Homebrew"></a>安装Homebrew</h2><ul>
+<li><p>终端输入：<code>$ /usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</code></p>
+</li>
+<li><p>若要卸载在终端把刚才的安装代码最后的install改为 <code>uninstall</code> 即可</p>
+</li>
+</ul>
+<h2 id="安装QuickLook插件"><a href="#安装QuickLook插件" class="headerlink" title="安装QuickLook插件"></a>安装QuickLook插件</h2><ol>
+<li><p>安装QLColorCode</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">homebrew cask install qlcolorcode</span><br></pre></td></tr></table></figure>
+<p> 功能：预览代码语法高亮，（同时需要安装Highlight库，命令：<code>brew install highlight</code>）</p>
+</li>
+<li><p>安装qlImageSize</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">homebrew cask install qlimagesize</span><br></pre></td></tr></table></figure>
+<p> 功能：预览图片，同时显示图像大小和分辨率</p>
+</li>
+<li><p>安装QLMarkdown</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">homebrew cask install QLMarkdown</span><br></pre></td></tr></table></figure>
+<p> 功能：预览Markdown文件</p>
+</li>
+<li><p>安装QuickLookJSON</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew cask install quicklook-json</span><br></pre></td></tr></table></figure>
+<p> 功能：预览格式化的 JSON 文件</p>
+</li>
+<li><p>安装QLStephen</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew cask install qlstephen</span><br></pre></td></tr></table></figure>
+<p> 功能：预览无扩展名的纯文本文件</p>
+</li>
+<li><p>安装BetterZipQL</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew cask install betterzipql</span><br></pre></td></tr></table></figure>
+<p> 功能：预览Zip压缩文件的信息和目录</p>
+</li>
+<li><p>安装QLVideo</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew cask install qlvideo</span><br></pre></td></tr></table></figure>
+<p> 功能：预览 .mkv 等非原生支持的视频格式</p>
+</li>
+</ol>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2018/08/23/Mac下终端走代理/" data-toggle="tooltip" data-placement="top"
+                           title="Mac下终端走代理">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2018/08/22/Mac-终端设置/" data-toggle="tooltip" data-placement="top"
+                           title="Mac 终端设置">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+                <!-- disqus 评论框 start -->
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
                 </div>
-				<hr>
-				</div>
-            
-				
-				
-				
-				
-				<div class="one-tag-list">
-                <div class="post-preview">
-                    <a href="/2018/08/23/Mac的QuickLook安装插件/">
-                        <h4 class="post-title">
-                            Mac的QuickLook安装插件
-                        </h4>
-                        
-                    </a>
+                <!-- disqus 评论框 end -->
+                
+
+
+                <!--加入新的评论系统-->
+                
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#QuickLook安装插件"><span class="toc-text">QuickLook安装插件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#参考博客"><span class="toc-text">参考博客</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装Homebrew"><span class="toc-text">安装Homebrew</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装QuickLook插件"><span class="toc-text">安装QuickLook插件</span></a></li></ol></li></ol>
                 </div>
-				<hr>
-				</div>
-            
-				
-				
-				
-				
-				<div class="one-tag-list">
-                <div class="post-preview">
-                    <a href="/2018/08/22/Mac-终端设置/">
-                        <h4 class="post-title">
-                            Mac 终端设置
-                        </h4>
-                        
-                    </a>
-                </div>
-				<hr>
-				</div>
-            
-				
-				
-				
-				
-				<div class="one-tag-list">
-                <div class="post-preview">
-                    <a href="/2018/08/17/Hexo博客从Windows迁移到Mac/">
-                        <h4 class="post-title">
-                            Hexo博客从Windows迁移到Mac
-                        </h4>
-                        
-                    </a>
-                </div>
-				<hr>
-				</div>
-            
-				
-				
-				
-				
-				<div class="one-tag-list">
-                <div class="post-preview">
-                    <a href="/2018/08/17/Mac常用软件/">
-                        <h4 class="post-title">
-                            Mac常用软件
-                        </h4>
-                        
-                    </a>
-                </div>
-				<hr>
-				</div>
-            
-				
-				
-				
-				
-				<div class="one-tag-list">
-                <div class="post-preview">
-                    <a href="/2018/08/10/VMWare-14-安装MacOS-X-10-11-md/">
-                        <h4 class="post-title">
-                            VMWare 14 安装MacOS X 10.11.md
-                        </h4>
-                        
-                    </a>
-                </div>
-				<hr>
-				</div>
-            
-				
-				
-				
-				
-				<div class="one-tag-list">
-                <div class="post-preview">
-                    <a href="/2018/08/04/系统引导修复/">
-                        <h4 class="post-title">
-                            系统引导修复
-                        </h4>
-                        
-                    </a>
-                </div>
-				<hr>
-				</div>
-            
-				
-				
-				
-				
-					
-					</div><!--month-->
-					
-					
-					<div class="archive archive-month" data-date="201807">
-						<h3 class="archive-title">
-							<a href="/archives/2018/07">07</a>
-						</h3>
-				
-				<div class="one-tag-list">
-                <div class="post-preview">
-                    <a href="/2018/07/25/希码学习/">
-                        <h4 class="post-title">
-                            希码学习
-                        </h4>
-                        
-                    </a>
-                </div>
-				<hr>
-				</div>
-            
-				
-				
-				
-				
-				<div class="one-tag-list">
-                <div class="post-preview">
-                    <a href="/2018/07/24/Linux知识整理/">
-                        <h4 class="post-title">
-                            Linux知识整理
-                        </h4>
-                        
-                    </a>
-                </div>
-				<hr>
-				</div>
-            
-				
-				
-				
-				
-				<div class="one-tag-list">
-                <div class="post-preview">
-                    <a href="/2018/07/16/Ubuntu下修改Python版本/">
-                        <h4 class="post-title">
-                            Ubuntu下使用Python的坑
-                        </h4>
-                        
-                    </a>
-                </div>
-				<hr>
-				</div>
-            
-				
-				
-				
-				
-				<div class="one-tag-list">
-                <div class="post-preview">
-                    <a href="/2018/07/09/推荐个双拼吧/">
-                        <h4 class="post-title">
-                            推荐个双拼吧
-                        </h4>
-                        
-                    </a>
-                </div>
-				<hr>
-				</div>
-            
-				
-				
-				
-				
-				<div class="one-tag-list">
-                <div class="post-preview">
-                    <a href="/2018/07/08/网络系统集成/">
-                        <h4 class="post-title">
-                            网络系统集成
-                        </h4>
-                        
-                    </a>
-                </div>
-				<hr>
-				</div>
-            
-				
-				
-				
-				
-				<div class="one-tag-list">
-                <div class="post-preview">
-                    <a href="/2018/07/08/热点共享VPN/">
-                        <h4 class="post-title">
-                            热点共享VPN
-                        </h4>
-                        
-                    </a>
-                </div>
-				<hr>
-				</div>
-            
-				
-				
-				
-				
-				<div class="one-tag-list">
-                <div class="post-preview">
-                    <a href="/2018/07/07/搜索引擎使用/">
-                        <h4 class="post-title">
-                            搜索引擎使用
-                        </h4>
-                        
-                    </a>
-                </div>
-				<hr>
-				</div>
-            
-				
-				
-				
-				
-				<div class="one-tag-list">
-                <div class="post-preview">
-                    <a href="/2018/07/07/快速搭建个人博客/">
-                        <h4 class="post-title">
-                            快速搭建个人博客
-                        </h4>
-                        
-                        <h4 class="post-subtitle">
-                            Hexo+Github搭建个人博客
-                        </h4>
-                        
-                    </a>
-                </div>
-				<hr>
-				</div>
-            
-				
-				
-				
-				
-				<div class="one-tag-list">
-                <div class="post-preview">
-                    <a href="/2018/07/07/第一篇博客/">
-                        <h4 class="post-title">
-                            Hello 2018
-                        </h4>
-                        
-                        <h4 class="post-subtitle">
-                            "Hello World, There is Ding's Blog!"
-                        </h4>
-                        
-                    </a>
-                </div>
-				<hr>
-				</div>
-            
-				
-				
-				
-				
-				<div class="one-tag-list">
-                <div class="post-preview">
-                    <a href="/2018/07/07/Git指令整理/">
-                        <h4 class="post-title">
-                            Git指令
-                        </h4>
-                        
-                        <h4 class="post-subtitle">
-                            不适合阅读的整理的一些个人常用的 Git 指令
-                        </h4>
-                        
-                    </a>
-                </div>
-				<hr>
-				</div>
-            
+            </div>
         </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#Blog"
+                           title="Blog">Blog</a>
+                        
+                        <a class="tag" href="/tags/#Mac"
+                           title="Mac">Mac</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <div style="margin-top: 20px;">
+                    <h5 class="text-center">FRIENDS</h5>
+                    <ul class="list-inline text-center">
+                        
+                        <li><a href="https://node.kg.qq.com/personal?uid=609a9981252b318935">檐猫</a></li>
+                        
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+
     </div>
+</article>
+
+
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "dings-blog";
+    var disqus_identifier = "http://dgz19971210.github.io/2018/08/23/Mac的QuickLook安装插件/";
+    var disqus_url = "http://dgz19971210.github.io/2018/08/23/Mac的QuickLook安装插件/";
+
+    (function () {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+
+
+
+
 
 <!-- Footer -->
 <!-- Footer -->

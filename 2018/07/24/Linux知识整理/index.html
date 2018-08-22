@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="轻尘的个人博客">
+    <meta name="keyword" content="轻尘,Ding,ding">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="/img/d.ico">
+    <link rel="alternate" type="application/atom+xml" title="Ding" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        Linux知识整理｜Ding&#39;s Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://dgz19971210.github.io/2018/07/24/Linux知识整理/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('/img/post-bg-coffee.jpeg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    Ding
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+                        
+							
+                        <li>
+                            <a href="/Tags/">Tags</a>
+                        </li>
+							
+						
+                    
+					
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="/img/post-bg-coffee.jpeg">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('/img/post-bg-coffee.jpeg')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>Linux知识整理</h1>
+                    
+                    <span class="meta">
+                         作者 Ding|轻尘
+                        <span>
+                          日期 2018-07-24
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#Blog"
+                           title="Blog">Blog</a>
+                        
+                        <a class="tag" href="/tags/#整理"
+                           title="整理">整理</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            Linux知识整理
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <blockquote>
+<p>前言：整理巩固一下Linux的知识</p>
+</blockquote>
+<h1 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h1><hr>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><ul>
+<li><p>特点：多用户多任务、良好的兼容性、可移植性强、稳定性高、界面美观</p>
+</li>
+<li><p>版本：X.Y.Z  主版本号、次版本号(偶数是正式版本，奇数是测试版本不稳定)、修改次数</p>
+</li>
+<li><p>系统结构</p>
+<p>   |             Linux系统结构              |<br>   | :————————————:|<br>   |                应用程序                |<br>   | 应用程序                     X  Window |<br>   |                Shell层                 |<br>   |                  内核                  |</p>
+</li>
+</ul>
+<pre><code>1. Shell层：用户与内核之间的桥梁。
+2. 内核：操作系统的核心，管理着整个计算机的软硬件资源。
+3. 分区：至少要有两个分区  swap分区和 根分区。
+4. 文件管理：ext4文件系统
+5. 设备管理：  
+    * 字符设备：以字符为单位进行输入输出，CPU能直接进行读写。      打印机，扫描仪，声卡、显卡、鼠标、键盘等
+    * 块设备：以数据块为单位进行输入输出，CPU不能直接进行读写，要经过缓冲区。    硬盘、光盘、U盘
+    * 网络设备：以数据包进行数据交换。网卡
+    * 注：无论是哪类设备，Linux都统一当做文件来处理
+</code></pre><hr>
+<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><pre><code>命令提示符
+    [root@centos  ~]#
+    [ding@centos  ~]$
+  用户名、主机名、目录名、提示符
+
+命令格式
+    命令名 [选项] [参数]
+
+
+注销  exit    Ctrl+D
+重启  reboot   shutdown -r now    注：-r的选项是reboot
+关机  halt     shutdown -h now    注：-h的选项是halt 
+
+查看时间：date
+修改时间：date 184512302017     点数 月份 年
+显示日历：cal  可加参数 [年份],查看全年日历
+
+pwd 显示当前目绝对路径
+
+cd 切换目录
+
+ls  -l  显示详细信息(文件类型、权限、所有者、组群、文件大小、修改时间、文件名)
+    -a  显示所有文件和目录
+
+cat   显示文本文件内容
+    -n 在内容前显示行号
+
+more/less 文件   分屏显示文件(文件过长时，一屏幕一屏幕的显示)
+            按空格 显示下一屏， 按回车 显示下一行， 按q 退出more命令
+
+tail [选项] 文件    显示文本结尾部分
+     -n 10 文件名  显示文件的倒数10行
+head命令与tail相同
+
+man 命令名    显示命令的手册页帮助信息，按q退出man   命令不懂找男人
+命令名 --help  显示命令的帮助信息(非所有命令都有此选项)   
+
+clear   清屏
+
+wc [选项] 文件     按顺序显示： 行数 单词数 字符数 文件名
+    -c    显示文件的字符数    char
+    -l    显示文件的行数      low
+    -w    显示文件的单词数    word
+
+&gt; 输出重定向   &lt; 输入重定向   &gt;&gt; 附加输出重定向     错误重定向：结果显示在屏幕上，错误信息重定向到指定文件用  2&gt;
+                                                            结果和错误信息都重定向到指定文件用  &amp;&gt;
+
+创建f1文件： cat &gt;f1    进入输入界面，到文本的下一行按 Ctrl+D 结束输入
+
+附加输出重定向：   cat &gt;&gt;f1  在f1后追加内容
+
+管道  |  前一个命令的执行结果是后一个命令的执行条件   ls  | wc -l    统计当前目录下的文件和目录总数
+
+history 5  查看最近执行的 5条命令 命令上限1000
+!! 命令 再次执行上一条命令，!5 执行history中 5 对应的命令
+
+别名：alias vi=&apos;vim&apos;
+</code></pre><hr>
+<h2 id="vim编辑器"><a href="#vim编辑器" class="headerlink" title="vim编辑器"></a>vim编辑器</h2><pre><code>命令模式：刚进入vi时的模式
+文本模式：i
+最后行模式：按 [shift和冒号] 进入
+
+输入文本   [命令模式下]
+    i/I  a/A  o/O
+
+查找字符串  [命令模式下]
+    /字符串    从头往下找，找到则停在字符串首字母上
+    ？字符串   从当前位置往下找，找到停在字符串首字母上
+       n      继续查找满足条件的字符串
+       N      改变查找方向，继续查找满足条件的字符串
+
+撤销与重复   [命令模式下]
+    u  撤销上一步操作
+    .  重复上一步操作
+
+文本块操作
+    set nu       显示行号
+    set nonu     不显示行号
+    n1,n2 co n3  将 [n1,n2]行，复制到n3行之下
+    n1,n2 m n3   将 [n1,n2]行，移动到n3行之下
+    n1,n2 d      删除 [n1,n2]行
+    n1,n2 s/字符串1/字符串2/g      将[n1,n2]行中所有的 [字符串1] 用 [字符串2] 替换
+
+保存与退出
+    [命令模式下] 连续按两次 z 保存并退出
+
+    [最后行模式下]
+        :w 文件  保存为指定的文件
+        :q       退出，若文件有改动则提示
+        :q!      不保存直接退出
+        :wq      存盘并退出
+        :x       存盘并退出
+</code></pre><hr>
+<h2 id="运行级别"><a href="#运行级别" class="headerlink" title="运行级别"></a>运行级别</h2><ul>
+<li><p>配置文件在  /etc/inittab  默认运行级别为 5<br>  | 数字|模式 |<br>  |:-:|:——|<br>  | 0| 关机 |<br>  | 1|  单用户模式  |<br>  | 2|  多用户模式，不提供NFS  |<br>  | 3| 完整的多用户模式，仅提供<code>字符界面</code>  |<br>  | 4|  保留的运行级别    |<br>  | 5|  完整的多用户模式，自动启动<code>图形化用户界面</code> |<br>  | 6|  重新启动  | </p>
+</li>
+<li><p>GNOME环境下：<code>Ctrl+Alt+[F2-F6]</code> 回到字符界面</p>
+</li>
+<li>字符界面下：按<code>Alt+F1</code> 回到 GNOME桌面</li>
+</ul>
+<hr>
+<h2 id="用户和群组"><a href="#用户和群组" class="headerlink" title="用户和群组"></a>用户和群组</h2><pre><code>超级用户：UID 0        所属组群 GID 0
+系统用户  UID 1-499    所属组群 GID 1-499
+普通用户  UID 500-     所属组群 GID 500
+
+用户账号信息文件：/etc/passwd
+        文件内容：root:x:0:0:root:/root:/bin/bash
+            用户名 密码 UID GID 全名 主文件夹
+
+用户密码信息文件：/etc/shadow
+
+组群账号信息文件：/etc/group
+        文件内容：root:x:0:
+                 bin:x:1:bin,daemon     组群名 组群密码 组群管理员密码  以此组群为附加组群的用户列表
+
+组群密码信息文件：/etc/gshadow
+        文件内容：root:::                     加密密码字段为 !!
+                 bin:::bin,daemon     组群名 组群加密密码 组群管理员密码  以此组群为附加组群的用户列表
+</code></pre><ul>
+<li><p><code>useradd</code>  创建用户账号 超级用户才能使用</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">​        -c  全名</span><br><span class="line">        -d  主目录</span><br><span class="line">        -g  指定用户的主要组群</span><br><span class="line">        -G  指定用户的附加组群</span><br><span class="line">        -u  指定用户的UID</span><br><span class="line">        -M  只创建用户，不创建主目录</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>passwd</code>     设置或修改密码 以及 密码属性</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">​        -d  删除用户密码</span><br><span class="line">        -l  锁定用户</span><br><span class="line">        -u  解除锁定</span><br><span class="line">        -S  显示指定用户账号的状态</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>usermod</code> [选项]  用户名    修改用户属性 超级用户才能使用</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">​        -c 全名        指定用户的全称</span><br><span class="line">        -d 主目录      指定用户的主目录</span><br><span class="line">        -g                 指定用户的主要组群</span><br><span class="line">        -G 组群ID或组群名   指定用户的附加组群</span><br><span class="line">        -u 用户ID      指定用户的UID</span><br><span class="line">        -l 用户名      指定用户的新名称</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>userdel</code>     删除用户账号 超级用户才能使用</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">​        -r  删除用户的账号和主目录，无此选项则保留主目录</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>su [-][用户名]</code>    </p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">切换用户, `-` 选项表示切换到用户的主目录    </span><br><span class="line">无用户名参数则切换到root用户</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>id [用户名]</code> 查看用户的 UID、GID 和 用户所属组群</p>
+</li>
+<li><p><code>groupadd [选项] 组群名</code>    新建组群，只有超级用户才能使用</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">​         -g 组群id     指定组群的GID</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>groupmod</code> [选项] 组群名    新建组群，只有超级用户才能使用</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">​         -g 组群id     指定组群的GID </span><br><span class="line">         -n 组群名     指定组群的新名字</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>groupdel</code> 组群名   删除组群，只有root用户才能使用</p>
+</li>
+</ul>
+<hr>
+<h2 id="批量创建多个用户"><a href="#批量创建多个用户" class="headerlink" title="批量创建多个用户"></a>批量创建多个用户</h2><ol>
+<li><p>创建 students 组群  </p>
+<pre><code>` # groupadd -g 600 students`
+</code></pre></li>
+<li><p>创建用户信息文件  </p>
+<pre><code>使用文本编辑器编辑 /etc/passwd   编辑好后保存为students.txt
+student1:x:601:600::/home/student1:/bin/bash
+student2:x:602:600::/home/student2:/bin/bash
+</code></pre></li>
+<li><p>创建用户密码,保存为password.txt  </p>
+<pre><code><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">student1:123456</span><br><span class="line">student2:123456</span><br></pre></td></tr></table></figure>
+</code></pre></li>
+<li><p>批量创建用户账号  </p>
+<pre><code>`# newusers &lt; students.txt `      
+文件已经追加到 /etc/passwd ，系统已经在 /home 目录中为每位用户创建了主目录
+</code></pre></li>
+<li><p>暂时取消 shadow 加密  </p>
+<pre><code>` # pwunconv`
+</code></pre></li>
+<li><p>为用户设置密码  </p>
+<pre><code>`# chpasswd &lt; passwd.txt `  
+</code></pre><p> 密码追加到了/etc/shadow  在passwd文件内能看到密码</p>
+</li>
+<li><p>恢复 shadow 加密<br> <code># pwconv</code></p>
+</li>
+<li><p>批量创建的用户，主目录中都缺少 <code>.bash_profile</code> 和 <code>.bashrc</code></p>
+</li>
+</ol>
+<hr>
+<h2 id="文件系统"><a href="#文件系统" class="headerlink" title="文件系统"></a>文件系统</h2><ul>
+<li><p>挂载：将存储介质的内容映射到指定的目录，此目录为该设备的挂载点。一个挂载的点一次只能挂载一个设备</p>
+<p>​    <code>/etc/fstab</code>  保存着文件系统 开机自动挂载信息  </p>
+<pre><code>`/etc/mtab `  保存着当前系统中 文件系统的挂载信息
+</code></pre></li>
+<li><p>文件分类：普通文件、目录文件、链接文件、设备文件</p>
+</li>
+<li><p>文件布局：</p>
+<p>  |    目录    | 功能                                                 |<br>  | :——–: | :————————————————— |<br>  |     /      | Linux目录结构的起点                                  |<br>  |    bin     | 存放可执行命令，如chmod、data                        |<br>  |    boot    | 存放系统启动时所需要的文件，包括内核和引导装载程序   |<br>  |    dev     | 存放所有的设备文件，如cdrom光盘文件                  |<br>  |    etc     | 存放系统配置文件，如passwd、fstab                    |<br>  |    home    | 包含所有普通用户的主目录                             |<br>  |    lib     | 包含系统二进制文件所需要的共享库                     |<br>  | lost+found | 存放文件系统发生故障后无法归位的文件                 |<br>  |   media    | 移动存储戒指的默认挂载点                             |<br>  |    mnt     | 用于临时挂载文件系统                                 |<br>  |    proc    | 存放进程的运行信息，由内核在内存中产生               |<br>  |    root    | 超级用户的主目录                                     |<br>  |    sbin    | 存放系统管理命令，一般只有超级用户才能使用           |<br>  |  selinux   | 存放SELinux的相关文件                                |<br>  |    tmp     | 存放公用的临时文件                                   |<br>  |    usr     | 存放应用程序及相关文件                               |<br>  |    vsr     | 存放系统中经常变化的文件，如系统日志文件，用户邮件等 |</p>
+</li>
+</ul>
+<ul>
+<li>文件扩展名<ol>
+<li>系统文件<br> |  后缀  |  文件  |<br> | :—: | :—- |<br> |.rpm|RPM软件包文件|<br> |.conf|系统配置文件|<br> |.lock |锁定文件|</li>
+<li>归档和压缩文件<br> |  后缀  |  文件  |<br> | :—: | :—- |<br> |.zip   |zip压缩文件|<br> |.tar   |归档文件|<br> |.gz    |gzip命令产生的压缩文件|<br> |.bz2   |bzip2命令产生的压缩文件|</li>
+<li>程序和脚本文件<br> |  后缀  |  文件  |<br> | :—: | :—- |<br> |.c   |C语言源程序代码文件|<br> |.cpp | C++语言源程序代码文件|<br> |.o   |程序对象文件|<br> |.so  | 库文件|<br> |.sh  | Shell脚本文件|</li>
+</ol>
+</li>
+</ul>
+<pre><code>4. 多媒体文件
+    |  后缀  |  文件  |
+    | :---: | :---- |
+    |.gif   | gif图像文件|
+    | .jpg  |  GPEG图像文件|
+    |.png  |  png图像文件|
+    |.htm或html|   HTML超文本文件|
+    |.wav|    音频波形文件|
+</code></pre><hr>
+<h2 id="权限"><a href="#权限" class="headerlink" title="权限"></a>权限</h2><ul>
+<li><p>读取权限：r 、写入权限：w 、执行权限：x</p>
+</li>
+<li><p>字母表示法<br>  <code>- rwx rwx rwx</code> 文件权限一共10个字符，中间无空格</p>
+<ul>
+<li><p>第一个字符：文件类型。    </p>
+<p>  |  字符  | 文件类型 |<br>  | :—: | :—- |<br>  | - | 普通文件 |<br>  | d | 目录文件 |<br>  | l | 连接文件 |<br>  | b | 块设备文件 |<br>  | c | 字符设备文件 |</p>
+</li>
+<li><p>后面每三个一组，分别表示 当前用户 u，用户所在的组 g，其他 o</p>
+</li>
+</ul>
+</li>
+<li><p>数字表示法<br>  |  权限  | 数字 |<br>  | :—: | :—-: |<br>  | r/读  | 4 |<br>  | w/写  | 2 |<br>  | x/执行 | 1 |</p>
+</li>
+<li><p>修改权限</p>
+<ol>
+<li>chmod 数字模式 文件<br> <code>chmod 755 file</code></li>
+<li>chmod 功能模式 文件<br> <code>chmod g-w file</code></li>
+</ol>
+<ul>
+<li><p>功能模式</p>
+<ul>
+<li><p>对象：<br>  <code>u</code> 文件所有者 user<br>  <code>g</code> 同组用户   group<br>  <code>o</code> 其他用户   other  </p>
+</li>
+<li><p>操作符:<br>  <code>+</code> 增加权限<br>  <code>-</code> 删除权限<br>  <code>=</code> 赋予权限  </p>
+</li>
+<li>权限：<br>  r/读：4<br>  w/写：2<br>  x/执行：1  </li>
+</ul>
+</li>
+<li><p><code>chgrp  组群 文件</code> ：改变文件所属组群</p>
+</li>
+<li><p><code>chown 文件所有者[:组群] 文件</code> ：改变文件所有者，并可一并修改文件的所属组群<br>  <code># chown ding:ding f1</code> ：把文件f1的 所有者 和 组群 一并改为 ding</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="基础文件命令"><a href="#基础文件命令" class="headerlink" title="基础文件命令"></a>基础文件命令</h2><ul>
+<li><p>创建目录  mkdir</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mkdir [选项] 目录  </span><br><span class="line">        -m 创建目录的同时设置目录的访问权限</span><br><span class="line">        -p 一次创建多级目录      </span><br><span class="line">例：</span><br><span class="line">    mkdir -p ding/f</span><br><span class="line">    rmdir -p ding/f</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>移动或重命名目录   mv</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mv [选项] 源文件或目录 目标文件或目录</span><br><span class="line">    -b   若存在同名文件，则在覆盖之前备份原来的文件</span><br><span class="line">    -f   强制覆盖同名文件</span><br><span class="line">例：</span><br><span class="line">    mv pict picture  改名</span><br><span class="line">    mv file ding/    将file文件移动到ding目录</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>复制文件或目录   cp</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cp [选项] 源文件或目录 目标文件或目录</span><br><span class="line">    -b   若存在同名文件，则在覆盖之前备份原来的文件</span><br><span class="line">    -f   强制覆盖同名文件</span><br><span class="line">    -r/-R  按递归方式，保留原目录结构复制文件</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除文件或目录   rm</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">rm [选项] 文件或目录</span><br><span class="line">    -f      强制删除，不需要确认</span><br><span class="line">    -r/-R   按递归方式删除目录</span><br><span class="line">    i       再次确认是否删除</span><br><span class="line">例：</span><br><span class="line">    rm -rf /*</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>立链接文件，默认硬链接  ln </p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ln [选项] 目标文件 链接文件</span><br><span class="line">    -b  若存在同名，则覆盖前先备份</span><br><span class="line">    -s  建立符号链接文件</span><br><span class="line">例：</span><br><span class="line">    ln -s /etc/passwd passwd.lnk</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查找：find 查找文件/grep 查找内容</p>
+<ol>
+<li><p>find   查找文件或目录</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">find [路径] 表达式    从指定路径开始向下搜索满足表达式的文件和目录。不指定路径，则查找当前目录</span><br><span class="line">    -name 文件           按文件名查找，可使用通配符       locate 与 find -name相同</span><br><span class="line">    -group 组群名        查找文件所属组群为指定组群的文件</span><br><span class="line">    -user 用户名         查找文件所有者为指定用户的文件</span><br><span class="line">    -type 文件类型       按文件类型查找，d为目录文件，l为链接文件</span><br><span class="line">    -size [+|-]文件大小  查找指定大小的文件，+ 表示超过，-表示不足</span><br><span class="line">例：     </span><br><span class="line">    find -name f*   从当前目录查找 f 开头的文件</span><br><span class="line">    find /etc -name fs*  </span><br><span class="line">    find -type l</span><br><span class="line">    find -size +100k</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>grep   查找指定文件中的字符串</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">grep [选项] 字符串 文件列表      从指定文件中查找符合条件的字符串，默认显示字符串所在的行</span><br><span class="line">    -n     显示行号</span><br><span class="line">    -v     显示不包含指定字符串的行</span><br><span class="line">    -i     查找是不区分大小写</span><br><span class="line">例：</span><br><span class="line">    grep -n root /etc/passwd   查找passwd中包含 root 的行，并显示行号</span><br></pre></td></tr></table></figure>
+<p> 显示文件大小，默认以KB为单位  du</p>
+<pre><code>du [选项] [目录或文件]
+    -a  显示指定目录及所有子目录和文件的大小，默认只显示目录的大小
+    -h  以易读的方式显示目录或文件的大小，加上单位
+    -s  只显示指定目录的大小，而不显示子目录的大小
+例：
+    du -sh /home/ding
+</code></pre> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">---</span><br><span class="line">## 归档和压缩  </span><br><span class="line"></span><br><span class="line">* tar [] 文件名</span><br><span class="line">    |命令|选项|功能|</span><br><span class="line">    |:--:|:-:|:----|</span><br><span class="line">    | tar|选项| 归档/压缩文件 文件或目录列表|  </span><br><span class="line">    |    |-c | 创建归档文件|  </span><br><span class="line">    |    |-t | 显示归档文件的内容  |</span><br><span class="line">    |    |-x | 还原归档文件中的目录  |</span><br><span class="line">    |    |-v | 显示归档命令的执行过程 | </span><br><span class="line">    |    |-z | 采用gzip方式压缩/解压缩归档文件  |</span><br><span class="line">    |    |-j | 采用bzip2方式压缩/解压缩归档文件|</span><br><span class="line">    |    |-f | tar命令必须的选项|</span><br><span class="line"></span><br><span class="line">    例：  </span><br><span class="line">        `tar -cf etc.tar /etc/*.conf`  </span><br><span class="line">        `tar -czf etc.tar.gz /etc/*.conf`</span><br><span class="line"></span><br><span class="line">* gzip [] 文件名</span><br><span class="line">    |命令|选项|功能|</span><br><span class="line">    |:--:|:-:|:----|</span><br><span class="line">    | gzip|    |压缩或解压文件|</span><br><span class="line">    | gzip|[选项]|文件或目录 |</span><br><span class="line">    |     | -d | 解压缩文件，相当于gunzip命令|</span><br><span class="line">    |     | -r | 参数为目录是，按目录结构递归压缩目录中的所有文件|</span><br><span class="line">    |     | -v | 显示文件的压缩比例|</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    例：</span><br><span class="line">        `gzip 文件名` 压缩或解压缩格式为 .gz的文件。压缩完后会删除源文件</span><br><span class="line">        `gzip *`    压缩当前目录所有文件，没有归档功能，压缩多个文件时每个都是.gz压缩文件</span><br><span class="line">    </span><br><span class="line">* bzip2 [] 文件名</span><br><span class="line">    |命令|选项|功能|</span><br><span class="line">    |:--:|:-:|:----|</span><br><span class="line">    | bzip2|    |压缩或解压文件|</span><br><span class="line">    |bzip2 |[选项]| 文件或目录|       </span><br><span class="line">    |      |  -d | 解压缩文件，相当于bunzip2命令|</span><br><span class="line">    |      |  -v | 显示文件的压缩比例|</span><br><span class="line"></span><br><span class="line">    例：</span><br><span class="line">        `bzip2 文件名` 压缩或解压缩格式为 .bz2的文件。压缩完后会删除源文件</span><br><span class="line">        `bzip2 *.bz2` 解压当前文件夹所有bz2文件`</span><br><span class="line"></span><br><span class="line">* `zip [选项] 压缩文件 文件列表`</span><br><span class="line"></span><br><span class="line">        -m  压缩完后删除源文件</span><br><span class="line">        -r  地柜压缩</span><br><span class="line"></span><br><span class="line">        例：</span><br><span class="line">            zip file.zip *</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">* `unzip [选项] 压缩文件`     解压缩.zip文件</span><br><span class="line"></span><br><span class="line">        -l       查看压缩文件所包含的文件</span><br><span class="line">        -t       测试压缩文件是否已损坏</span><br><span class="line">        -d 目录名   指定解压缩的目标目录 </span><br><span class="line">        -n       不覆盖同名文件</span><br><span class="line">        -o       强制覆盖同名文件</span><br><span class="line">        例：</span><br><span class="line">            unzip -d dir file.zip   解压到dir目录</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line">## RPM软件包</span><br><span class="line"></span><br><span class="line">​    安装RPM软件包</span><br><span class="line">        rpm -i[选项] 软件包文件</span><br><span class="line">            -v      显示安装过程</span><br><span class="line">            -h      以 # 表示安装进度</span><br><span class="line">            -replacepkgs    重复安装软件包  </span><br><span class="line"></span><br><span class="line">    查询RPM软件包</span><br><span class="line">        rpm -q[选项] 软件包</span><br><span class="line">            -l      查询已安装软件包所包含的所有文件</span><br><span class="line">            -i      查询已安装软件包的详细信息</span><br><span class="line">            -a      查询已安装的所有软件包</span><br><span class="line">            -f 文件名  查询指定文件所属的软件包</span><br><span class="line">    </span><br><span class="line">    删除RPM软件包</span><br><span class="line">        rpm -e 软件包</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">---</span><br><span class="line">## YUM命令管理软件包</span><br><span class="line"></span><br><span class="line">    安装软件包/软件包集</span><br><span class="line">        yum install 软件包名</span><br><span class="line">        yum groupinstall 软件包集名</span><br><span class="line">    </span><br><span class="line">    安装vsftpd软件包</span><br><span class="line">        yum install vsftpd</span><br><span class="line">    </span><br><span class="line">    查询软件包/软件包集信息</span><br><span class="line">        yum info 软件包名</span><br><span class="line">        yum groupinfo 软件包集名</span><br><span class="line">    </span><br><span class="line">    查询vsftpd软件包的信息</span><br><span class="line">        yum info vsftpd</span><br><span class="line">    </span><br><span class="line">    删除软件包/软件包集</span><br><span class="line">        yum remove 软件包名     删除RPM软件包</span><br><span class="line">        yum groupremove 软件包集名     删除RPM软件包集</span><br><span class="line">        yum remove vsftpd     删除vsftpd软件包</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">---</span><br><span class="line">## 进程管理</span><br><span class="line"></span><br><span class="line">* 进程：是具有独立功能的程序的一次运行过程</span><br><span class="line"></span><br><span class="line">* 一个程序可启动多个进程，一个进程可调用多个程序</span><br><span class="line"></span><br><span class="line">* 进程的优先级的取值范围：-20~19</span><br><span class="line"></span><br><span class="line">* 进程的状态：</span><br></pre></td></tr></table></figure>
+<p>​    就绪状态：进程已获得除CPU外的运行所需的全部资源<br> 运行状态：进程占用CPU正在运行<br> 等待状态：进程正在等待某一事件或某一资源</p>
+<p> 进程同步：相关进程为协作文成同一任务而引起的直接制约关系<br> 进程互斥：进程间因竞争系统资源而引起的间接制约关系<br> 进程死锁：对资源保持请求、对资源的循环等待、对资源的非抢占式分配、资源的独占使用</p>
+<p> 挂起状态：正在运行的进程，因为某个原因失去CPU而暂时停止运行、<br> 终止状态：进程已结束<br> 休眠状态：进程主动暂时停止运行<br> 僵死状态：进程已停止运行，但是相关控制信息仍保留</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">* 作业：</span><br><span class="line"></span><br><span class="line">    1. 概念  </span><br><span class="line">        正在执行的一个或多个相关进程可形成一个作业  </span><br><span class="line">        一个作业可启动多个进程  </span><br><span class="line">        作业分前台作业和后台作业  </span><br><span class="line"></span><br><span class="line">    2. Shell的命令的末尾加上一个 &amp; 符号，将启动一个后台作业</span><br><span class="line"></span><br><span class="line">```shell</span><br><span class="line">    jobs [选项]   显示当前所有的作业</span><br><span class="line">        -p     仅显示作业号</span><br><span class="line">        -l     显示进程号和作业号</span><br><span class="line">    bg [作业号]   将前台作业切换到后台运行，若未指定作业号，则将当前作业切换到后台</span><br><span class="line">    fg [作业号]   将前台作业切换到前台运行，若未指定作业号，则将当前作业切换到前台</span><br><span class="line">  </span><br><span class="line">    例：</span><br><span class="line">        vi f1       编辑文件f1</span><br><span class="line">        Ctrl z      挂起vi</span><br><span class="line">        jobs -l     显示进程号和作业号</span><br><span class="line">        bg 1        将作业切换到后台</span><br><span class="line">        Ctrl z      挂起vi</span><br><span class="line">        fg 1        将作业再切换到前台</span><br><span class="line">  </span><br><span class="line">    ps [选项]     显示进程的状态，无选项时显示当前用户在当前终端启动的进程</span><br><span class="line">        -a      显示当前终端上所有的进程</span><br><span class="line">        -A      显示系统所有进程，包括其他用户进程和系统进程</span><br><span class="line">        -l      显示进程的详细信息、包括父进程号、进程优先级等</span><br><span class="line">        u       显示包括进程的所有者在内的详细信息</span><br><span class="line">        x       显示后台进程的信息</span><br><span class="line">        -t 终端号 显示指定终端上的进程信息</span><br><span class="line">  </span><br><span class="line">    pstree [选项]   以树形图显示进程之间的相互关系</span><br><span class="line">            -a      显示启动进程的命令行</span><br><span class="line">            -n      按照进程号进行排序</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p>终止正在运行的进程，超级用户可终止所有进程，普通用户只能终止自己的进程</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">kill % 作业号</span><br><span class="line">kill [选项] 进程号    选项填数字</span><br><span class="line">    HUP   1    终端断线</span><br><span class="line">    INT   2    中断（同 Ctrl + C）</span><br><span class="line">    QUIT  3    退出（同 Ctrl + \）</span><br><span class="line">    TERM  5    终止</span><br><span class="line">    KILL  9    强制终止</span><br><span class="line">    CONT  8    继续（与STOP相反， fg/bg命令）</span><br><span class="line">    STOP  9    暂停（同 Ctrl + Z）</span><br><span class="line">例：</span><br><span class="line">    kill -9 2638   强行终止2638进程</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h2 id="进程调度"><a href="#进程调度" class="headerlink" title="进程调度"></a>进程调度</h2><ul>
+<li><p>at调度</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">at [选项] [时间]</span><br><span class="line">    -l  显示等待执行的调度作业</span><br><span class="line">    -d  删除指定的调度作业</span><br><span class="line">进程的执行时间可表示为：1.绝对计时法：HH:MM(24时制)、HH:MM(12时制加AM/PM) 日期写在时间后面，格式为：月日年</span><br><span class="line">例：</span><br><span class="line">    at 23:59 01012018</span><br><span class="line">    at&gt;wall Happy New Year!      输入at调度后会出现 at&gt; 提示符， 输入完成后按 Ctrl D</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>batch调度</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">在系统空间时运行，适合时间上要求不高，但运行时占系统资源较多的工作 </span><br><span class="line">输入batch还是出现 at&gt; 提示符， 输入完成后按 Ctrl D</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>cron调度</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">at和batch调度的命令智能执行一次，cron调度能重复执行</span><br><span class="line">cron调度与crond进程、crontab命令和crontab配置文件有关</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>crontab配制文件</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">保存在/var/spool/cron 目录中，文件名与用户名相同</span><br><span class="line">也即halen用户的crontab配置文件为/vwr/spool/crontab/helen</span><br><span class="line">crontab配置文件保留cron调度的内容，每行表示一个调度任务，每个调度任务包括六项字段</span><br><span class="line">  字段：   分钟   时    日期    月份      星期          命令   (倒着：星期，月日时分)</span><br><span class="line">取值范围： 0-59  0-23  01-31   01-12  0-6(0是星期天)  </span><br><span class="line"></span><br><span class="line">"-"符号表示一段时间    ","符号表示指定时间，如5,15,25     "/"表示时间的间隔，如日期栏中输入 */3 表示每隔三天</span><br></pre></td></tr></table></figure>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">crontab [选项]   管理crontab配置文件</span><br><span class="line">        -e  创建并编辑crontab配置文件</span><br><span class="line">        -l  显示crontab配置文件的内容</span><br><span class="line">        -r  删除crontab配置文件</span><br></pre></td></tr></table></figure>
+<ul>
+<li>crond 进程  <pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crond进程在系统启动时自动启动，并一直运行在后台，负责检测crontab配置文件，并按照其设置内容定期重复执行cron的调度工作</span><br></pre></td></tr></table></figure>
+</code></pre></li>
+</ul>
+</li>
+<li><p>实施系统监视的Shell命令</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">who [选项]   查看当前已登录的所有用户</span><br><span class="line">    -H  显示出信息标题行</span><br><span class="line"></span><br><span class="line">top [-d 秒数]   动态显示CPU利用率、内存利用率和考必过状态等相关信息，默认每5s更新显示信息。-d 秒数 可以指定更新间隔</span><br><span class="line"></span><br><span class="line">free [选项]     显示内存和交换分区的使用情况</span><br><span class="line">    -m    以MB为单位显示，默认以KB为单位</span><br><span class="line">    -t    增加显示内存和交换分区的总数和信息</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h2 id="思考题-cron调度"><a href="#思考题-cron调度" class="headerlink" title="思考题  (cron调度)"></a>思考题  (cron调度)</h2><pre><code>(1) 下午4:50删除/abc 目录下的全部子目录和全部文件
+      50 16 * * * rm -rf /abc/*
+
+(2) 早8:00--下午6:00 每小时一次将/xyz 目录下 x1 文件的最后5行加入到/backup 目录下的 back01.txt
+      0 8-18 * * *  tail -5 /xyz/x1 &gt;&gt; /backup/back01.txt
+
+(3) 每周一下午5:50将/data 目录下的所有目录和文件归档并压缩为文件 backup.tar.gz
+      50 17 * * 1 tar -czvf backup.tar.gz /data         v是显示执行过程 
+                                                        f是必带选项 
+                                                        c是归档 
+                                                        z是gzip压缩
+</code></pre>
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2018/07/25/希码学习/" data-toggle="tooltip" data-placement="top"
+                           title="希码学习">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2018/07/16/Ubuntu下修改Python版本/" data-toggle="tooltip" data-placement="top"
+                           title="Ubuntu下使用Python的坑">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+                <!-- disqus 评论框 start -->
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
+                </div>
+                <!-- disqus 评论框 end -->
+                
+
+
+                <!--加入新的评论系统-->
+                
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux"><span class="toc-text">Linux</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#简介"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#命令"><span class="toc-text">命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vim编辑器"><span class="toc-text">vim编辑器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#运行级别"><span class="toc-text">运行级别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用户和群组"><span class="toc-text">用户和群组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#批量创建多个用户"><span class="toc-text">批量创建多个用户</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件系统"><span class="toc-text">文件系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#权限"><span class="toc-text">权限</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基础文件命令"><span class="toc-text">基础文件命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#进程调度"><span class="toc-text">进程调度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#思考题-cron调度"><span class="toc-text">思考题  (cron调度)</span></a></li></ol></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#Blog"
+                           title="Blog">Blog</a>
+                        
+                        <a class="tag" href="/tags/#整理"
+                           title="整理">整理</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <div style="margin-top: 20px;">
+                    <h5 class="text-center">FRIENDS</h5>
+                    <ul class="list-inline text-center">
+                        
+                        <li><a href="https://node.kg.qq.com/personal?uid=609a9981252b318935">檐猫</a></li>
+                        
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "dings-blog";
+    var disqus_identifier = "http://dgz19971210.github.io/2018/07/24/Linux知识整理/";
+    var disqus_url = "http://dgz19971210.github.io/2018/07/24/Linux知识整理/";
+
+    (function () {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/dgz19971210">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/dgz19971210">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://www.facebook.com/100011668193436">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/dgz19971210">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Ding 2018
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://dgz19971210.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-122001025-1';
+    var _gaDomain = 'ding.gq';
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    var _baId = '960ff1a63fe6560d36e1793d804b529b';
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?" + _baId;
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="/img/avatar.png">
+</body>
+
+</html>

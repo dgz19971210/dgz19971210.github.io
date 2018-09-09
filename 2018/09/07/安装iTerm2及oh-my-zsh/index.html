@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        搜索引擎使用｜Ding&#39;s Blog
+        安装iTerm2及oh-my-zsh｜Ding&#39;s Blog
         
     </title>
 
-    <link rel="canonical" href="http://dgz19971210.github.io/2018/07/07/搜索引擎使用/">
+    <link rel="canonical" href="http://dgz19971210.github.io/2018/09/07/安装iTerm2及oh-my-zsh/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -145,21 +145,21 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>搜索引擎使用</h1>
+                    <h1>安装iTerm2及oh-my-zsh</h1>
                     
                     <span class="meta">
                          作者 Ding|轻尘
                         <span>
-                          日期 2018-07-07
+                          日期 2018-09-07
                          </span>
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/tags/#教程"
-                           title="教程">教程</a>
+                        <a class="tag" href="/tags/#Blog"
+                           title="Blog">Blog</a>
                         
-                        <a class="tag" href="/tags/#搜索引擎"
-                           title="搜索引擎">搜索引擎</a>
+                        <a class="tag" href="/tags/#Mac"
+                           title="Mac">Mac</a>
                         
                     </div>
                 </div>
@@ -168,7 +168,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            搜索引擎使用
+            安装iTerm2及oh-my-zsh
         </span>
     </div>
 </header>
@@ -179,115 +179,72 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <blockquote>
-<p>记录一些搜索引擎使用技巧</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">表达式</th>
-<th style="text-align:left">用途</th>
-<th style="text-align:left">实例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">“”(双引号)</td>
-<td style="text-align:left">搜索词放在双引号中，代表完全匹配搜索</td>
-<td style="text-align:left">“keyword”</td>
-</tr>
-<tr>
-<td style="text-align:center">*（通配符）</td>
-<td style="text-align:left">代表任何文字，比如想查找“锤*手机”，可以搜索到锤子手机，锤xx手机等</td>
-<td style="text-align:left">“锤*手机”</td>
-</tr>
-<tr>
-<td style="text-align:center">+（与）</td>
-<td style="text-align:left">搜索所有包含关键词“keyword1”和“keyword2**”的中文网页</td>
-<td style="text-align:left">“keyword1 keyword2” 或者“keyword1+keyword2”</td>
-</tr>
-<tr>
-<td style="text-align:center">-（非）(A -B)</td>
-<td style="text-align:left">搜索去除keyword2的keyword1</td>
-<td style="text-align:left">“keyword1 -keyword2”</td>
-</tr>
-<tr>
-<td style="text-align:center">OR(或)</td>
-<td style="text-align:left">搜索 A 或者 B</td>
-<td style="text-align:left">“keyword1 OR keyword2”</td>
-</tr>
-<tr>
-<td style="text-align:center">~keyword1</td>
-<td style="text-align:left">搜索它的同义词</td>
-<td style="text-align:left">~喜欢</td>
-</tr>
-<tr>
-<td style="text-align:center">~keyword1-keyword2</td>
-<td style="text-align:left">只搜索同义词,不要原词</td>
-<td style="text-align:left">~WORD-WORD</td>
-</tr>
-<tr>
-<td style="text-align:center">site:</td>
-<td style="text-align:left">搜索指定域名的内容</td>
-<td style="text-align:left">site:<a href="http://www.github.com" target="_blank" rel="noopener">www.github.com</a> keyword 或者keyword site:<a href="http://www.github.com" target="_blank" rel="noopener">www.github.com</a></td>
-</tr>
-<tr>
-<td style="text-align:center">filetype:</td>
-<td style="text-align:left">限制搜索的词语是网页中链接内包含的关键词</td>
-<td style="text-align:left">filetype:pdf ios开发</td>
-</tr>
-<tr>
-<td style="text-align:center">link:</td>
-<td style="text-align:left">搜索网页中含有某链接的结果,实例中的结果为包含百度这个链接的页面</td>
-<td style="text-align:left">link:<a href="http://baidu.com" target="_blank" rel="noopener">http://baidu.com</a></td>
-</tr>
-<tr>
-<td style="text-align:center">inurl:</td>
-<td style="text-align:left">搜索网站地址中包含关键词词的结果</td>
-<td style="text-align:left">inurl:搜索引擎优化</td>
-</tr>
-<tr>
-<td style="text-align:center">intitle</td>
-<td style="text-align:left">搜索标题中包含关键词词的结果</td>
-<td style="text-align:left">intitle:搜索引擎优化</td>
-</tr>
-<tr>
-<td style="text-align:center">related:</td>
-<td style="text-align:left">搜索相关网站</td>
-<td style="text-align:left">related:qidian.com</td>
-</tr>
-<tr>
-<td style="text-align:center">intext:</td>
-<td style="text-align:left">限制搜索的词语是网页内文包含的关键词</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:center">index of</td>
-<td style="text-align:left">根据输入的内容返回一些资源列表</td>
-<td style="text-align:left">index of mp3</td>
-</tr>
-<tr>
-<td style="text-align:center">inanchor:keyword</td>
-<td style="text-align:left">指令返回的结果是导入链接锚文字中包含搜索词的页面</td>
-<td style="text-align:left">inanchor:关于我们</td>
-</tr>
-<tr>
-<td style="text-align:center">-filetype:</td>
-<td style="text-align:left">-filetype:SOMEFILETYPE = 剔除指定文件类型</td>
-<td style="text-align:left">-filetype:SOMEFILETYPE</td>
-</tr>
-<tr>
-<td style="text-align:center">allinanchor:</td>
-<td style="text-align:left">限制搜索的词语是网页中链接内包含的关键词（可使用多个关键词）</td>
-<td style="text-align:left">allinanchor:keyword1 keyword2</td>
-</tr>
-<tr>
-<td style="text-align:center">allintext:</td>
-<td style="text-align:left">限制搜索的词语是网页内文包含的关键词（可使用多个关键词）</td>
-<td style="text-align:left">allintext:keyword1 keyword2</td>
-</tr>
-</tbody>
-</table>
+                <h1 id="安装iTerm2及oh-my-zsh"><a href="#安装iTerm2及oh-my-zsh" class="headerlink" title="安装iTerm2及oh-my-zsh"></a>安装iTerm2及oh-my-zsh</h1><ul>
+<li>参考文档：<a href="https://juejin.im/post/5a815edd5188251c85636034" target="_blank" rel="noopener">WenBo丨星空灬</a></li>
+</ul>
+<ol>
+<li><p>安装 <a href="https://www.iterm2.com/downloads.html" target="_blank" rel="noopener">iTerm2</a></p>
+</li>
+<li><p>安装powerline</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 没有安装pip先安装pip</span><br><span class="line"><span class="meta">#</span> sudo easy_install pip</span><br><span class="line"></span><br><span class="line">// 之后安装powerline（这里可能会报错，可以参考问题解决）</span><br><span class="line"><span class="meta">#</span> pip install powerline-status</span><br><span class="line"></span><br><span class="line">// 若报错则执行下列命令</span><br><span class="line"><span class="meta">#</span> pip install powerline-status --user -U</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装oh-my-zsh</p>
+</li>
+<li><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装字体库fonts</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 克隆字体库到本地</span><br><span class="line"><span class="meta">#</span> git clone https://github.com/powerline/fonts.git</span><br><span class="line"></span><br><span class="line">// 安装字体</span><br><span class="line"><span class="meta">#</span> cd fonts</span><br><span class="line"><span class="meta">#</span> ./install.sh</span><br></pre></td></tr></table></figure>
+<p>安装成功后输出：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">➜  fonts git:(master) ./install.sh</span><br><span class="line">Copying fonts...</span><br><span class="line">Powerline fonts installed to /Users/WENBO/Library/Fonts</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>导入配色</p>
+<ul>
+<li><p>下载solarized：<code># git clone https://github.com/altercation/solarized</code></p>
+</li>
+<li><p>进入<code>solarized/iterm2-colors-solarized</code> 文件夹，双击<code>Solarized Dark.itermcolors</code>和<code>Solarized Light.itermcolors</code>进行安装导入</p>
+</li>
+<li><p>安装后进入<code>iTerm状态栏 Profiles-&gt; Open Profiles -&gt; Edit Profiles -&gt; Color-&gt;Color Presets -&gt; 选择Solarized Dark主题</code> </p>
+</li>
+</ul>
+</li>
+<li><p>使用主题agnoster</p>
+<ul>
+<li><p>下载主题</p>
+</li>
+<li><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 克隆主题到本地</span><br><span class="line"><span class="meta">#</span> git clone  https://github.com/fcamblor/oh-my-zsh-agnoster-fcamblor</span><br><span class="line"></span><br><span class="line">// 安装主题</span><br><span class="line"><span class="meta">#</span> cd oh-my-zsh-agnoster-fcamblor</span><br><span class="line"><span class="meta">#</span> ./install</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编辑<code>~/.zshrc</code>文件，将<code>ZSH_THEME</code>的值改为<code>agnoster</code></p>
+</li>
+</ul>
+</li>
+<li><p>添加指令高亮效果：<a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fzsh-users%2Fzsh-syntax-highlighting" target="_blank" rel="noopener">zsh-syntax-highlighting</a></p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 克隆项目到本地</span><br><span class="line"><span class="meta">#</span> git clone git://github.com/zsh-users/zsh-syntax-highlighting.git</span><br><span class="line"></span><br><span class="line">// 编辑.zshrc文件，在最后添加如下内容</span><br><span class="line">source /Users/ding/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh</span><br><span class="line">plugins=(zsh-syntax-highlighting)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>解决oh-my-zsh对于<code>.bash_profile</code>自定义的配置失效问题</p>
+<ul>
+<li><p>修改 oh-my-zsh 的配置文件<code>.zshrc</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> vim ~/.zshrc</span><br><span class="line"></span><br><span class="line">// 在最后添加配置</span><br><span class="line">source ~/.bash_profile</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>终端执行：<code># source ~/.zshrc</code></p>
+</li>
+</ul>
+</li>
+<li><p>解决 oh-my-zsh 的socks5代理问题</p>
+<ul>
+<li><p>设置代理</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">// 编辑配置文件</span><br><span class="line"><span class="meta">#</span> vim ~/.zshrc</span><br><span class="line"></span><br><span class="line">// 添加配置</span><br><span class="line">alias proxy='export all_proxy=socks5://127.0.0.1:1086'</span><br><span class="line">alias unproxy='unset all_proxy'</span><br><span class="line"></span><br><span class="line">// 另一种带提示的配置</span><br><span class="line">proxy () &#123;</span><br><span class="line">  export http_proxy="http://127.0.0.1:1086"</span><br><span class="line">  export https_proxy="http://127.0.0.1:1086"</span><br><span class="line">  echo "HTTP Proxy on"</span><br><span class="line">&#125;</span><br><span class="line">noproxy () &#123;</span><br><span class="line">  unset http_proxy</span><br><span class="line">  unset https_proxy</span><br><span class="line">  echo "HTTP Proxy off"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>保存退出并重新加载资源：<code># sourse ~/.zshrc</code></p>
+</li>
+<li><p>验证ip</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 二者皆可</span><br><span class="line"><span class="meta">#</span> curl ip.cn</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> curl cip.cc</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>iTerm2快捷键</p>
+<p>|        说明        |                        快捷键                        |<br>| :—————-: | :————————————————–: |<br>|      新建标签      |                     command + t                      |<br>|      关闭标签      |                     command + w                      |<br>|      切换标签      |                 command + 数字/左右                  |<br>|      切换全屏      |                   command + enter                    |<br>|        查找        |                     command + f                      |<br>|      垂直分屏      |                     command + d                      |<br>|      水平分屏      |                 command + shift + d                  |<br>|      切换屏幕      | command + option + 方向键 command + [ 或 command + ] |<br>|    查看历史命令    |                     command + ;                      |<br>|   查看剪切板历史   |                 command + shift + h                  |<br>|     清除当前行     |                       ctrl + u                       |<br>|       到行首       |                       ctrl + a                       |<br>|       到行尾       |                       ctrl + e                       |<br>|      前进后退      |            ctrl + f/b (相当于左右方向键)             |<br>|     上一条命令     |                       ctrl + p                       |<br>|    搜索命令历史    |                       ctrl + r                       |<br>| 删除当前光标的字符 |                       ctrl + d                       |<br>| 删除光标之前的字符 |                       ctrl + h                       |<br>| 删除光标之前的单词 |                       ctrl + w                       |<br>|   删除到文本末尾   |                       ctrl + k                       |<br>|   交换光标处文本   |                       ctrl + t                       |<br>|       清屏1        |                     command + r                      |<br>|       清屏2        |                       ctrl + l                       |</p>
+</li>
+</ol>
 
                 <hr>
                 
@@ -295,14 +252,14 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/2018/07/08/热点共享VPN/" data-toggle="tooltip" data-placement="top"
-                           title="热点共享VPN">&larr; Previous Post</a>
+                        <a href="/2018/09/09/个人简历/" data-toggle="tooltip" data-placement="top"
+                           title="个人简历">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/2018/07/07/快速搭建个人博客/" data-toggle="tooltip" data-placement="top"
-                           title="快速搭建个人博客">Next Post &rarr;</a>
+                        <a href="/2018/09/05/JetBrains系列软件激活/" data-toggle="tooltip" data-placement="top"
+                           title="JetBrains系列软件激活">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -324,7 +281,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#安装iTerm2及oh-my-zsh"><span class="toc-text">安装iTerm2及oh-my-zsh</span></a></li></ol>
                 </div>
             </div>
         </div>
@@ -346,11 +303,11 @@
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/#教程"
-                           title="教程">教程</a>
+                        <a class="tag" href="/tags/#Blog"
+                           title="Blog">Blog</a>
                         
-                        <a class="tag" href="/tags/#搜索引擎"
-                           title="搜索引擎">搜索引擎</a>
+                        <a class="tag" href="/tags/#Mac"
+                           title="Mac">Mac</a>
                         
                     </div>
                 </section>
@@ -379,8 +336,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "dings-blog";
-    var disqus_identifier = "http://dgz19971210.github.io/2018/07/07/搜索引擎使用/";
-    var disqus_url = "http://dgz19971210.github.io/2018/07/07/搜索引擎使用/";
+    var disqus_identifier = "http://dgz19971210.github.io/2018/09/07/安装iTerm2及oh-my-zsh/";
+    var disqus_url = "http://dgz19971210.github.io/2018/09/07/安装iTerm2及oh-my-zsh/";
 
     (function () {
         var dsq = document.createElement('script');

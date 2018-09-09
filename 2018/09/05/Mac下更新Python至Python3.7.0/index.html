@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        搜索引擎使用｜Ding&#39;s Blog
+        Mac下更新Python至Python3.7.0｜Ding&#39;s Blog
         
     </title>
 
-    <link rel="canonical" href="http://dgz19971210.github.io/2018/07/07/搜索引擎使用/">
+    <link rel="canonical" href="http://dgz19971210.github.io/2018/09/05/Mac下更新Python至Python3.7.0/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -145,21 +145,24 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>搜索引擎使用</h1>
+                    <h1>Mac下更新Python至Python3.7.0</h1>
                     
                     <span class="meta">
                          作者 Ding|轻尘
                         <span>
-                          日期 2018-07-07
+                          日期 2018-09-05
                          </span>
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/tags/#教程"
-                           title="教程">教程</a>
+                        <a class="tag" href="/tags/#Blog"
+                           title="Blog">Blog</a>
                         
-                        <a class="tag" href="/tags/#搜索引擎"
-                           title="搜索引擎">搜索引擎</a>
+                        <a class="tag" href="/tags/#Mac"
+                           title="Mac">Mac</a>
+                        
+                        <a class="tag" href="/tags/#Python"
+                           title="Python">Python</a>
                         
                     </div>
                 </div>
@@ -168,7 +171,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            搜索引擎使用
+            Mac下更新Python至Python3.7.0
         </span>
     </div>
 </header>
@@ -179,115 +182,25 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <blockquote>
-<p>记录一些搜索引擎使用技巧</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">表达式</th>
-<th style="text-align:left">用途</th>
-<th style="text-align:left">实例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">“”(双引号)</td>
-<td style="text-align:left">搜索词放在双引号中，代表完全匹配搜索</td>
-<td style="text-align:left">“keyword”</td>
-</tr>
-<tr>
-<td style="text-align:center">*（通配符）</td>
-<td style="text-align:left">代表任何文字，比如想查找“锤*手机”，可以搜索到锤子手机，锤xx手机等</td>
-<td style="text-align:left">“锤*手机”</td>
-</tr>
-<tr>
-<td style="text-align:center">+（与）</td>
-<td style="text-align:left">搜索所有包含关键词“keyword1”和“keyword2**”的中文网页</td>
-<td style="text-align:left">“keyword1 keyword2” 或者“keyword1+keyword2”</td>
-</tr>
-<tr>
-<td style="text-align:center">-（非）(A -B)</td>
-<td style="text-align:left">搜索去除keyword2的keyword1</td>
-<td style="text-align:left">“keyword1 -keyword2”</td>
-</tr>
-<tr>
-<td style="text-align:center">OR(或)</td>
-<td style="text-align:left">搜索 A 或者 B</td>
-<td style="text-align:left">“keyword1 OR keyword2”</td>
-</tr>
-<tr>
-<td style="text-align:center">~keyword1</td>
-<td style="text-align:left">搜索它的同义词</td>
-<td style="text-align:left">~喜欢</td>
-</tr>
-<tr>
-<td style="text-align:center">~keyword1-keyword2</td>
-<td style="text-align:left">只搜索同义词,不要原词</td>
-<td style="text-align:left">~WORD-WORD</td>
-</tr>
-<tr>
-<td style="text-align:center">site:</td>
-<td style="text-align:left">搜索指定域名的内容</td>
-<td style="text-align:left">site:<a href="http://www.github.com" target="_blank" rel="noopener">www.github.com</a> keyword 或者keyword site:<a href="http://www.github.com" target="_blank" rel="noopener">www.github.com</a></td>
-</tr>
-<tr>
-<td style="text-align:center">filetype:</td>
-<td style="text-align:left">限制搜索的词语是网页中链接内包含的关键词</td>
-<td style="text-align:left">filetype:pdf ios开发</td>
-</tr>
-<tr>
-<td style="text-align:center">link:</td>
-<td style="text-align:left">搜索网页中含有某链接的结果,实例中的结果为包含百度这个链接的页面</td>
-<td style="text-align:left">link:<a href="http://baidu.com" target="_blank" rel="noopener">http://baidu.com</a></td>
-</tr>
-<tr>
-<td style="text-align:center">inurl:</td>
-<td style="text-align:left">搜索网站地址中包含关键词词的结果</td>
-<td style="text-align:left">inurl:搜索引擎优化</td>
-</tr>
-<tr>
-<td style="text-align:center">intitle</td>
-<td style="text-align:left">搜索标题中包含关键词词的结果</td>
-<td style="text-align:left">intitle:搜索引擎优化</td>
-</tr>
-<tr>
-<td style="text-align:center">related:</td>
-<td style="text-align:left">搜索相关网站</td>
-<td style="text-align:left">related:qidian.com</td>
-</tr>
-<tr>
-<td style="text-align:center">intext:</td>
-<td style="text-align:left">限制搜索的词语是网页内文包含的关键词</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:center">index of</td>
-<td style="text-align:left">根据输入的内容返回一些资源列表</td>
-<td style="text-align:left">index of mp3</td>
-</tr>
-<tr>
-<td style="text-align:center">inanchor:keyword</td>
-<td style="text-align:left">指令返回的结果是导入链接锚文字中包含搜索词的页面</td>
-<td style="text-align:left">inanchor:关于我们</td>
-</tr>
-<tr>
-<td style="text-align:center">-filetype:</td>
-<td style="text-align:left">-filetype:SOMEFILETYPE = 剔除指定文件类型</td>
-<td style="text-align:left">-filetype:SOMEFILETYPE</td>
-</tr>
-<tr>
-<td style="text-align:center">allinanchor:</td>
-<td style="text-align:left">限制搜索的词语是网页中链接内包含的关键词（可使用多个关键词）</td>
-<td style="text-align:left">allinanchor:keyword1 keyword2</td>
-</tr>
-<tr>
-<td style="text-align:center">allintext:</td>
-<td style="text-align:left">限制搜索的词语是网页内文包含的关键词（可使用多个关键词）</td>
-<td style="text-align:left">allintext:keyword1 keyword2</td>
-</tr>
-</tbody>
-</table>
+                <h1 id="Mac下更新Python至Python3-7-0"><a href="#Mac下更新Python至Python3-7-0" class="headerlink" title="Mac下更新Python至Python3.7.0"></a>Mac下更新Python至Python3.7.0</h1><p>前言：</p>
+<pre><code>因Mac自带的Python版本为Python2.7.10，但Python2几乎要淘汰了，所以更新到Python3.7.0版本。
+</code></pre><h2 id="所需环境"><a href="#所需环境" class="headerlink" title="所需环境"></a>所需环境</h2><ol>
+<li>已安装Homebrew</li>
+</ol>
+<h2 id="更新步骤"><a href="#更新步骤" class="headerlink" title="更新步骤"></a>更新步骤</h2><ol>
+<li><p>从Homebrew安装Python，默认安装最新版</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> brew install python</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置别名</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">打开 .bash_profile 文件</span><br><span class="line"><span class="meta">#</span> vim ~/.bash_profile</span><br><span class="line"></span><br><span class="line">添加别名，可用 which 查询python和python3的安装路径</span><br><span class="line">alias python2="/usr/bin/python"</span><br><span class="line">alias python3="/usr/local/bin/python3"</span><br><span class="line">alias python=python3</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使修改后的设置生效</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> source ~/.bash_profile</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>测试Python的版本</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> pyhton -V       或    </span><br><span class="line"><span class="meta">#</span> python -version</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
 
                 <hr>
                 
@@ -295,14 +208,14 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/2018/07/08/热点共享VPN/" data-toggle="tooltip" data-placement="top"
-                           title="热点共享VPN">&larr; Previous Post</a>
+                        <a href="/2018/09/05/JetBrains系列软件激活/" data-toggle="tooltip" data-placement="top"
+                           title="JetBrains系列软件激活">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/2018/07/07/快速搭建个人博客/" data-toggle="tooltip" data-placement="top"
-                           title="快速搭建个人博客">Next Post &rarr;</a>
+                        <a href="/2018/08/23/Mac下终端走代理/" data-toggle="tooltip" data-placement="top"
+                           title="Mac下终端走代理">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -324,7 +237,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Mac下更新Python至Python3-7-0"><span class="toc-text">Mac下更新Python至Python3.7.0</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#所需环境"><span class="toc-text">所需环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#更新步骤"><span class="toc-text">更新步骤</span></a></li></ol></li></ol>
                 </div>
             </div>
         </div>
@@ -346,11 +259,14 @@
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/#教程"
-                           title="教程">教程</a>
+                        <a class="tag" href="/tags/#Blog"
+                           title="Blog">Blog</a>
                         
-                        <a class="tag" href="/tags/#搜索引擎"
-                           title="搜索引擎">搜索引擎</a>
+                        <a class="tag" href="/tags/#Mac"
+                           title="Mac">Mac</a>
+                        
+                        <a class="tag" href="/tags/#Python"
+                           title="Python">Python</a>
                         
                     </div>
                 </section>
@@ -379,8 +295,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "dings-blog";
-    var disqus_identifier = "http://dgz19971210.github.io/2018/07/07/搜索引擎使用/";
-    var disqus_url = "http://dgz19971210.github.io/2018/07/07/搜索引擎使用/";
+    var disqus_identifier = "http://dgz19971210.github.io/2018/09/05/Mac下更新Python至Python3.7.0/";
+    var disqus_url = "http://dgz19971210.github.io/2018/09/05/Mac下更新Python至Python3.7.0/";
 
     (function () {
         var dsq = document.createElement('script');

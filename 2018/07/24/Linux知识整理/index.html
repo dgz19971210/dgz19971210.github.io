@@ -26,6 +26,13 @@
 
 
 
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
 
 
 
@@ -112,11 +119,11 @@
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux知识整理">
-<meta property="og:url" content="https://dgz19971210.github.io/2018/07/24/Linux知识整理/index.html">
+<meta property="og:url" content="https://ding.gq/2018/07/24/Linux知识整理/index.html">
 <meta property="og:site_name" content="Ding&#39;s Blog">
 <meta property="og:description" content="前言：整理巩固一下Linux的知识  Linux 简介 特点：多用户多任务、良好的兼容性、可移植性强、稳定性高、界面美观  版本：X.Y.Z  主版本号、次版本号(偶数是正式版本，奇数是测试版本不稳定)、修改次数  系统结构    |             Linux系统结构              |   | :————————————:|   |                应用程序">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-21T17:30:16.066Z">
+<meta property="og:updated_time" content="2018-09-24T03:32:51.754Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux知识整理">
 <meta name="twitter:description" content="前言：整理巩固一下Linux的知识  Linux 简介 特点：多用户多任务、良好的兼容性、可移植性强、稳定性高、界面美观  版本：X.Y.Z  主版本号、次版本号(偶数是正式版本，奇数是测试版本不稳定)、修改次数  系统结构    |             Linux系统结构              |   | :————————————:|   |                应用程序">
@@ -126,7 +133,7 @@
 
 
 
-  <link rel="canonical" href="https://dgz19971210.github.io/2018/07/24/Linux知识整理/"/>
+  <link rel="canonical" href="https://ding.gq/2018/07/24/Linux知识整理/"/>
 
 
 
@@ -340,10 +347,10 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://dgz19971210.github.io/2018/07/24/Linux知识整理/">
+    <link itemprop="mainEntityOfPage" href="https://ding.gq/2018/07/24/Linux知识整理/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Ding|轻尘">
+      <meta itemprop="name" content="轻尘">
       <meta itemprop="description" content="轻尘的个人博客">
       <meta itemprop="image" content="https://ws1.sinaimg.cn/large/006iOFs0gy1fvjwd4y3tuj30rs0se41c.jpg">
     </span>
@@ -399,11 +406,29 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-09-22 01:30:16" itemprop="dateModified" datetime="2018-09-22T01:30:16+08:00">2018-09-22</time>
+                <time title="修改时间：2018-09-24 11:32:51" itemprop="dateModified" datetime="2018-09-24T11:32:51+08:00">2018-09-24</time>
               
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -773,7 +798,7 @@ student2:x:602:600::/home/student2:/bin/bash
     -s  只显示指定目录的大小，而不显示子目录的大小
 例：
     du -sh /home/ding
-</code></pre> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">---</span><br><span class="line">## 归档和压缩  </span><br><span class="line"></span><br><span class="line">* tar [] 文件名</span><br><span class="line">    |命令|选项|功能|</span><br><span class="line">    |:--:|:-:|:----|</span><br><span class="line">    | tar|选项| 归档/压缩文件 文件或目录列表|</span><br><span class="line">    |    |-c | 创建归档文件|</span><br><span class="line">    |    |-t | 显示归档文件的内容  |</span><br><span class="line">    |    |-x | 还原归档文件中的目录  |</span><br><span class="line">    |    |-v | 显示归档命令的执行过程 |</span><br><span class="line">    |    |-z | 采用gzip方式压缩/解压缩归档文件  |</span><br><span class="line">    |    |-j | 采用bzip2方式压缩/解压缩归档文件|</span><br><span class="line">    |    |-f | tar命令必须的选项|</span><br><span class="line"></span><br><span class="line">    例：  </span><br><span class="line">        `tar -cf etc.tar /etc/*.conf`  </span><br><span class="line">        `tar -czf etc.tar.gz /etc/*.conf`</span><br><span class="line"></span><br><span class="line">* gzip [] 文件名</span><br><span class="line">    |命令|选项|功能|</span><br><span class="line">    |:--:|:-:|:----|</span><br><span class="line">    | gzip|    |压缩或解压文件|</span><br><span class="line">    | gzip|[选项]|文件或目录 |</span><br><span class="line">    |     | -d | 解压缩文件，相当于gunzip命令|</span><br><span class="line">    |     | -r | 参数为目录是，按目录结构递归压缩目录中的所有文件|</span><br><span class="line">    |     | -v | 显示文件的压缩比例|</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    例：</span><br><span class="line">        `gzip 文件名` 压缩或解压缩格式为 .gz的文件。压缩完后会删除源文件</span><br><span class="line">        `gzip *`    压缩当前目录所有文件，没有归档功能，压缩多个文件时每个都是.gz压缩文件</span><br><span class="line"></span><br><span class="line">* bzip2 [] 文件名</span><br><span class="line">    |命令|选项|功能|</span><br><span class="line">    |:--:|:-:|:----|</span><br><span class="line">    | bzip2|    |压缩或解压文件|</span><br><span class="line">    |bzip2 |[选项]| 文件或目录|</span><br><span class="line">    |      |  -d | 解压缩文件，相当于bunzip2命令|</span><br><span class="line">    |      |  -v | 显示文件的压缩比例|</span><br><span class="line"></span><br><span class="line">    例：</span><br><span class="line">        `bzip2 文件名` 压缩或解压缩格式为 .bz2的文件。压缩完后会删除源文件</span><br><span class="line">        `bzip2 *.bz2` 解压当前文件夹所有bz2文件`</span><br><span class="line"></span><br><span class="line">* `zip [选项] 压缩文件 文件列表`</span><br><span class="line"></span><br><span class="line">        -m  压缩完后删除源文件</span><br><span class="line">        -r  地柜压缩</span><br><span class="line">    </span><br><span class="line">        例：</span><br><span class="line">            zip file.zip *</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">* `unzip [选项] 压缩文件`     解压缩.zip文件</span><br><span class="line"></span><br><span class="line">        -l       查看压缩文件所包含的文件</span><br><span class="line">        -t       测试压缩文件是否已损坏</span><br><span class="line">        -d 目录名   指定解压缩的目标目录 </span><br><span class="line">        -n       不覆盖同名文件</span><br><span class="line">        -o       强制覆盖同名文件</span><br><span class="line">        例：</span><br><span class="line">            unzip -d dir file.zip   解压到dir目录</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line">## RPM软件包</span><br><span class="line"></span><br><span class="line">    安装RPM软件包</span><br><span class="line">        rpm -i[选项] 软件包文件</span><br><span class="line">            -v      显示安装过程</span><br><span class="line">            -h      以 # 表示安装进度</span><br><span class="line">            -replacepkgs    重复安装软件包  </span><br><span class="line"></span><br><span class="line">    查询RPM软件包</span><br><span class="line">        rpm -q[选项] 软件包</span><br><span class="line">            -l      查询已安装软件包所包含的所有文件</span><br><span class="line">            -i      查询已安装软件包的详细信息</span><br><span class="line">            -a      查询已安装的所有软件包</span><br><span class="line">            -f 文件名  查询指定文件所属的软件包</span><br><span class="line">    </span><br><span class="line">    删除RPM软件包</span><br><span class="line">        rpm -e 软件包</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">---</span><br><span class="line">## YUM命令管理软件包</span><br><span class="line"></span><br><span class="line">    安装软件包/软件包集</span><br><span class="line">        yum install 软件包名</span><br><span class="line">        yum groupinstall 软件包集名</span><br><span class="line">    </span><br><span class="line">    安装vsftpd软件包</span><br><span class="line">        yum install vsftpd</span><br><span class="line">    </span><br><span class="line">    查询软件包/软件包集信息</span><br><span class="line">        yum info 软件包名</span><br><span class="line">        yum groupinfo 软件包集名</span><br><span class="line">    </span><br><span class="line">    查询vsftpd软件包的信息</span><br><span class="line">        yum info vsftpd</span><br><span class="line">    </span><br><span class="line">    删除软件包/软件包集</span><br><span class="line">        yum remove 软件包名     删除RPM软件包</span><br><span class="line">        yum groupremove 软件包集名     删除RPM软件包集</span><br><span class="line">        yum remove vsftpd     删除vsftpd软件包</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line">## 进程管理</span><br><span class="line"></span><br><span class="line">* 进程：是具有独立功能的程序的一次运行过程</span><br><span class="line"></span><br><span class="line">* 一个程序可启动多个进程，一个进程可调用多个程序</span><br><span class="line"></span><br><span class="line">* 进程的优先级的取值范围：-20~19</span><br><span class="line"></span><br><span class="line">* 进程的状态：</span><br></pre></td></tr></table></figure>
+</code></pre> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">---</span><br><span class="line">## 归档和压缩  </span><br><span class="line"></span><br><span class="line">* tar [] 文件名</span><br><span class="line">    |命令|选项|功能|</span><br><span class="line">    |:--:|:-:|:----|</span><br><span class="line">    | tar|选项| 归档/压缩文件 文件或目录列表|</span><br><span class="line">    |    |-c | 创建归档文件|</span><br><span class="line">    |    |-t | 显示归档文件的内容  |</span><br><span class="line">    |    |-x | 还原归档文件中的目录  |</span><br><span class="line">    |    |-v | 显示归档命令的执行过程 |</span><br><span class="line">    |    |-z | 采用gzip方式压缩/解压缩归档文件  |</span><br><span class="line">    |    |-j | 采用bzip2方式压缩/解压缩归档文件|</span><br><span class="line">    |    |-f | tar命令必须的选项|</span><br><span class="line"></span><br><span class="line">    例：  </span><br><span class="line">        `tar -cf etc.tar /etc/*.conf`  </span><br><span class="line">        `tar -czf etc.tar.gz /etc/*.conf`</span><br><span class="line"></span><br><span class="line">* gzip [] 文件名</span><br><span class="line">    |命令|选项|功能|</span><br><span class="line">    |:--:|:-:|:----|</span><br><span class="line">    | gzip|    |压缩或解压文件|</span><br><span class="line">    | gzip|[选项]|文件或目录 |</span><br><span class="line">    |     | -d | 解压缩文件，相当于gunzip命令|</span><br><span class="line">    |     | -r | 参数为目录是，按目录结构递归压缩目录中的所有文件|</span><br><span class="line">    |     | -v | 显示文件的压缩比例|</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    例：</span><br><span class="line">        `gzip 文件名` 压缩或解压缩格式为 .gz的文件。压缩完后会删除源文件</span><br><span class="line">        `gzip *`    压缩当前目录所有文件，没有归档功能，压缩多个文件时每个都是.gz压缩文件</span><br><span class="line"></span><br><span class="line">* bzip2 [] 文件名</span><br><span class="line">    |命令|选项|功能|</span><br><span class="line">    |:--:|:-:|:----|</span><br><span class="line">    | bzip2|    |压缩或解压文件|</span><br><span class="line">    |bzip2 |[选项]| 文件或目录|</span><br><span class="line">    |      |  -d | 解压缩文件，相当于bunzip2命令|</span><br><span class="line">    |      |  -v | 显示文件的压缩比例|</span><br><span class="line"></span><br><span class="line">    例：</span><br><span class="line">        `bzip2 文件名` 压缩或解压缩格式为 .bz2的文件。压缩完后会删除源文件</span><br><span class="line">        `bzip2 *.bz2` 解压当前文件夹所有bz2文件`</span><br><span class="line"></span><br><span class="line">* `zip [选项] 压缩文件 文件列表`</span><br><span class="line"></span><br><span class="line">        -m  压缩完后删除源文件</span><br><span class="line">        -r  地柜压缩</span><br><span class="line">        </span><br><span class="line">        例：</span><br><span class="line">            zip file.zip *</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">* `unzip [选项] 压缩文件`     解压缩.zip文件</span><br><span class="line"></span><br><span class="line">        -l       查看压缩文件所包含的文件</span><br><span class="line">        -t       测试压缩文件是否已损坏</span><br><span class="line">        -d 目录名   指定解压缩的目标目录 </span><br><span class="line">        -n       不覆盖同名文件</span><br><span class="line">        -o       强制覆盖同名文件</span><br><span class="line">        例：</span><br><span class="line">            unzip -d dir file.zip   解压到dir目录</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line">## RPM软件包</span><br><span class="line"></span><br><span class="line">    安装RPM软件包</span><br><span class="line">        rpm -i[选项] 软件包文件</span><br><span class="line">            -v      显示安装过程</span><br><span class="line">            -h      以 # 表示安装进度</span><br><span class="line">            -replacepkgs    重复安装软件包  </span><br><span class="line">    </span><br><span class="line">    查询RPM软件包</span><br><span class="line">        rpm -q[选项] 软件包</span><br><span class="line">            -l      查询已安装软件包所包含的所有文件</span><br><span class="line">            -i      查询已安装软件包的详细信息</span><br><span class="line">            -a      查询已安装的所有软件包</span><br><span class="line">            -f 文件名  查询指定文件所属的软件包</span><br><span class="line">    </span><br><span class="line">    删除RPM软件包</span><br><span class="line">        rpm -e 软件包</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">---</span><br><span class="line">## YUM命令管理软件包</span><br><span class="line"></span><br><span class="line">    安装软件包/软件包集</span><br><span class="line">        yum install 软件包名</span><br><span class="line">        yum groupinstall 软件包集名</span><br><span class="line">    </span><br><span class="line">    安装vsftpd软件包</span><br><span class="line">        yum install vsftpd</span><br><span class="line">    </span><br><span class="line">    查询软件包/软件包集信息</span><br><span class="line">        yum info 软件包名</span><br><span class="line">        yum groupinfo 软件包集名</span><br><span class="line">    </span><br><span class="line">    查询vsftpd软件包的信息</span><br><span class="line">        yum info vsftpd</span><br><span class="line">    </span><br><span class="line">    删除软件包/软件包集</span><br><span class="line">        yum remove 软件包名     删除RPM软件包</span><br><span class="line">        yum groupremove 软件包集名     删除RPM软件包集</span><br><span class="line">        yum remove vsftpd     删除vsftpd软件包</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line">## 进程管理</span><br><span class="line"></span><br><span class="line">* 进程：是具有独立功能的程序的一次运行过程</span><br><span class="line"></span><br><span class="line">* 一个程序可启动多个进程，一个进程可调用多个程序</span><br><span class="line"></span><br><span class="line">* 进程的优先级的取值范围：-20~19</span><br><span class="line"></span><br><span class="line">* 进程的状态：</span><br></pre></td></tr></table></figure>
 <p>​    就绪状态：进程已获得除CPU外的运行所需的全部资源<br> 运行状态：进程占用CPU正在运行<br> 等待状态：进程正在等待某一事件或某一资源</p>
 <p> 进程同步：相关进程为协作文成同一任务而引起的直接制约关系<br> 进程互斥：进程间因竞争系统资源而引起的间接制约关系<br> 进程死锁：对资源保持请求、对资源的循环等待、对资源的非抢占式分配、资源的独占使用</p>
 <p> 挂起状态：正在运行的进程，因为某个原因失去CPU而暂时停止运行、<br> 终止状态：进程已结束<br> 休眠状态：进程主动暂时停止运行<br> 僵死状态：进程已停止运行，但是相关控制信息仍保留</p>
@@ -838,10 +863,10 @@ student2:x:602:600::/home/student2:/bin/bash
       <div>
         <ul class="post-copyright">
   <li class="post-copyright-author">
-    <strong>本文作者： </strong>Ding|轻尘</li>
+    <strong>本文作者： </strong>轻尘</li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://dgz19971210.github.io/2018/07/24/Linux知识整理/" title="Linux知识整理">https://dgz19971210.github.io/2018/07/24/Linux知识整理/</a>
+    <a href="https://ding.gq/2018/07/24/Linux知识整理/" title="Linux知识整理">https://ding.gq/2018/07/24/Linux知识整理/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
@@ -950,9 +975,9 @@ student2:x:602:600::/home/student2:/bin/bash
             
               <img class="site-author-image" itemprop="image"
                 src="https://ws1.sinaimg.cn/large/006iOFs0gy1fvjwd4y3tuj30rs0se41c.jpg"
-                alt="Ding|轻尘" />
+                alt="轻尘" />
             
-              <p class="site-author-name" itemprop="name">Ding|轻尘</p>
+              <p class="site-author-name" itemprop="name">轻尘</p>
               <p class="site-description motion-element" itemprop="description">轻尘的个人博客</p>
           </div>
 
@@ -980,7 +1005,21 @@ student2:x:602:600::/home/student2:/bin/bash
                     
                       
                     
-                    <span class="site-state-item-count">2</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -1021,7 +1060,11 @@ student2:x:602:600::/home/student2:/bin/bash
                     
                       
                     
-                    <span class="site-state-item-count">14</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">16</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -1120,7 +1163,7 @@ student2:x:602:600::/home/student2:/bin/bash
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Ding|轻尘</span>
+  <span class="author" itemprop="copyrightHolder">轻尘</span>
 
   
     <span class="post-meta-divider">|</span>
@@ -1309,7 +1352,7 @@ student2:x:602:600::/home/student2:/bin/bash
   
     <script type="text/javascript">
       var disqus_config = function () {
-        this.page.url = 'https://dgz19971210.github.io/2018/07/24/Linux知识整理/';
+        this.page.url = 'https://ding.gq/2018/07/24/Linux知识整理/';
         this.page.identifier = '2018/07/24/Linux知识整理/';
         this.page.title = 'Linux知识整理';
         };

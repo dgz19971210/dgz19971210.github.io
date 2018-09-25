@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://ding.gq/2018/09/24/Hexo-Next%E4%B8%BB%E9%A2%98%E8%B0%83%E6%95%99/</loc>
+    <lastmod>2018-09-25T06:24:17.801Z</lastmod>
+  </url>  <url>
+    <loc>https://ding.gq/2018/09/07/%E5%AE%89%E8%A3%85iTerm2%E5%8F%8Aoh-my-zsh/</loc>
+    <lastmod>2018-09-24T15:32:51.546Z</lastmod>
+  </url>  <url>
+    <loc>https://ding.gq/2018/08/23/Mac%E7%9A%84QuickLook%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6/</loc>
+    <lastmod>2018-09-24T15:29:34.355Z</lastmod>
+  </url>  <url>
     <loc>https://ding.gq/2018/07/09/%E5%8F%8C%E6%8B%BC%E8%BE%93%E5%85%A5%E6%B3%95/</loc>
     <lastmod>2018-09-24T14:09:51.869Z</lastmod>
   </url>  <url>
@@ -46,9 +55,6 @@
     <loc>https://ding.gq/2018/07/07/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</loc>
     <lastmod>2018-09-24T03:29:03.329Z</lastmod>
   </url>  <url>
-    <loc>https://ding.gq/2018/09/07/%E5%AE%89%E8%A3%85iTerm2%E5%8F%8Aoh-my-zsh/</loc>
-    <lastmod>2018-09-21T17:32:21.862Z</lastmod>
-  </url>  <url>
     <loc>https://ding.gq/2018/07/16/Ubuntu%E4%B8%8B%E4%BF%AE%E6%94%B9Python%E7%89%88%E6%9C%AC/</loc>
     <lastmod>2018-09-21T17:31:20.194Z</lastmod>
   </url>  <url>
@@ -63,9 +69,6 @@
   </url>  <url>
     <loc>https://ding.gq/2018/08/17/Mac%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/</loc>
     <lastmod>2018-09-21T17:28:22.217Z</lastmod>
-  </url>  <url>
-    <loc>https://ding.gq/2018/08/23/Mac%E7%9A%84QuickLook%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6/</loc>
-    <lastmod>2018-09-21T17:28:16.909Z</lastmod>
   </url>  <url>
     <loc>https://ding.gq/2018/09/05/Mac%E4%B8%8B%E6%9B%B4%E6%96%B0Python%E8%87%B3Python3.7.0/</loc>
     <lastmod>2018-09-21T17:28:10.696Z</lastmod>

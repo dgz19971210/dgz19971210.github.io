@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://ding.gq/"/>
-  <updated>2018-09-25T11:33:00.238Z</updated>
+  <updated>2018-09-25T12:06:41.546Z</updated>
   <id>https://ding.gq/</id>
   
   <author>
@@ -18,12 +18,12 @@
   
   <entry>
     <title>Hexo Next主题调教</title>
-    <link href="https://ding.gq/title.html"/>
-    <id>https://ding.gq/title.html</id>
+    <link href="https://ding.gq/Hexo-Next%E4%B8%BB%E9%A2%98%E8%B0%83%E6%95%99.html"/>
+    <id>https://ding.gq/Hexo-Next主题调教.html</id>
     <published>2018-09-24T14:17:19.000Z</published>
-    <updated>2018-09-25T11:33:00.238Z</updated>
+    <updated>2018-09-25T12:06:41.546Z</updated>
     
-    <content type="html"><![CDATA[<h2 id=""><a href="#" class="headerlink" title=""></a><blockquote class="blockquote-center"><p>前言</p></blockquote></h2><p>​        突然想给自己的博客换主题，以前用的是 <code>Anisina</code> ，现在想换成 <code>Next</code> 了，毕竟以前的主题用的人不太多，想要自己打造要被折磨死。所以决定下狠心，换成 <code>Next</code> 了，直接一步到位。但就算是 Next 也让我折腾了两天，各种翻文档，搜博客，终于把自己想要的给折腾出来了。可算是花了些功夫，在这里记录一下我博客主题的配置方式，主要时插件的安装和设置，十分费心力，这里放上安装方式和参考博客。</p><h2 id="-1"><a href="#-1" class="headerlink" title=""></a><blockquote class="blockquote-center"><p>Hexo - Next 6.0配置</p></blockquote></h2><h3 id="根目录下的-config-yml"><a href="#根目录下的-config-yml" class="headerlink" title="根目录下的_config.yml"></a>根目录下的<code>_config.yml</code></h3><ul><li>博客站点的配置文件</li></ul><h3 id="Next主题下的-config-yml"><a href="#Next主题下的-config-yml" class="headerlink" title="Next主题下的 _config.yml"></a>Next主题下的 <code>_config.yml</code></h3><ul><li>Next 主题的配置文件</li></ul><h3 id="Next-插件的安装"><a href="#Next-插件的安装" class="headerlink" title="Next 插件的安装"></a>Next 插件的安装</h3><ul><li><p>Github官方文档：<a href="https://github.com/theme-next" target="_blank" rel="noopener">https://github.com/theme-next</a></p></li><li><p>Algolia搜索插件</p><ul><li><p><a href="https://github.com/theme-next/hexo-theme-next/blob/master/docs/ALGOLIA-SEARCH.md" target="_blank" rel="noopener">官方文档教程</a> | <a href="https://www.jianshu.com/p/00f4bc425249" target="_blank" rel="noopener">简书教程</a> | <a href="https://juejin.im/post/5af3f9d1518825673e35a6eb" target="_blank" rel="noopener">掘金教程</a></p></li><li><p>在<a href="https://link.jianshu.com/?t=https%3A%2F%2Fwww.algolia.com%2F" target="_blank" rel="noopener">Algolia官网</a>注册并在indices中添加一个index，记住填写的名字</p></li><li><p>在ApiKey中找到Search-Only API Key，再点击ALL API KEYS找到对应的Key并将personal_blog添加进去，在ACL中勾选如下，点击更新：</p><p><img src="https://upload-images.jianshu.io/upload_images/5999132-33c0996fd2b3e81d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/602" alt=""></p></li><li><p>修改站点配置文件，添加内容如下，在红线处填入你的Algolia中的Key，apikey即为Search-Only API Key：</p><p><img src="https://upload-images.jianshu.io/upload_images/5999132-252dfadd66ed1de6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/630" alt=""></p></li><li><p>修改 Next 主题配置文件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">algolia_search:</span><br><span class="line">enable: true</span><br></pre></td></tr></table></figure></li><li><p>安装插件</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-algolia --save</span><br></pre></td></tr></table></figure></li><li><p>配置环境变量</p></li><li><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export HEXO_ALGOLIA_INDEXING_KEY=你的API Key</span><br></pre></td></tr></table></figure></li><li><p>更新index</p></li><li><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo algolia</span><br></pre></td></tr></table></figure></li><li><p>若出现下列画面则成功</p><p><img src="https://upload-images.jianshu.io/upload_images/5999132-3870537e6625fc42.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/500" alt=""></p></li><li><p>然后在站点配置中找到package.json， 把里面的hexo-algolia， 換成 “hexo-algolia”: “^0.2.0”，如图：</p><p><img src="https://upload-images.jianshu.io/upload_images/5999132-a343e8a0df3b0df5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/507" alt=""></p></li></ul></li><li><p><code>encrypt</code> 加密插件</p><ul><li><p>参考教程：<a href="https://blog.bill.moe/encrypt/" target="_blank" rel="noopener">Bill Yang’s Blog</a> | [官方教程]</p></li><li><p>安装：<code>npm install hexo-encrypt --save</code></p></li><li><p>修改站点配置文件<code>_config.yml</code>，添加：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">encrypt:</span><br><span class="line">password: 123456</span><br></pre></td></tr></table></figure><p>此处的密码为默认密码，博客可以设置独立密码，在未设置独立密码时使用默认密码</p></li><li><p>在<code>package.json</code> 中修改插件的版本号为：<code>&quot;hexo-encrypt&quot;: &quot;^0.2.0&quot;</code></p></li><li><p>在写博客时，在需要加密的文章的头部加入下列代码：</p></li><li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">encrypt: true</span><br><span class="line">enc_pwd: 123456</span><br></pre></td></tr></table></figure><p>此处的独立密码可不加</p></li></ul></li><li><p>hexo-symbols-count-time 插件</p><ul><li><p><a href="https://github.com/theme-next/hexo-symbols-count-time" target="_blank" rel="noopener">官方文档</a></p></li><li><p>Next主题自带了本插件，无需下载</p></li><li><p>站点配置：</p></li><li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">symbols_count_time:</span><br><span class="line">  symbols: true # 文章字数</span><br><span class="line">  time: true # 阅读时长</span><br><span class="line">  total_symbols: true # 所有文章总字数</span><br><span class="line">  total_time: true # 所有文章阅读中时长</span><br></pre></td></tr></table></figure></li><li><p>Next主题配置</p></li><li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">symbols_count_time:</span><br><span class="line">  separated_meta: true  # 是否换行显示 字数统计 及 阅读时长</span><br><span class="line">  item_text_post: true  # 文章 字数统计 阅读时长 使用图标 还是 文本表示</span><br><span class="line">  item_text_total: false # 博客底部统计 字数统计 阅读时长 使用图标 还是 文本表示</span><br><span class="line">  awl: 4</span><br><span class="line">  wpm: 275</span><br></pre></td></tr></table></figure></li></ul></li><li><p>Hexo-leancloud-counter-security</p><ul><li><p>教程：<a href="https://github.com/theme-next/hexo-leancloud-counter-security" target="_blank" rel="noopener">官方文档</a></p></li><li><p>作用：访问记数插件和评论系统</p></li><li><p>注册 <a href="https://leancloud.cn" target="_blank" rel="noopener">leancloud</a> 账号，并在主题配置文件中填入 <code>appid</code> 和 <code>appkey</code>，并设置 <code>enable: true</code></p></li></ul></li><li><p>pace 进度条插件</p><ul><li><p>教程：<a href="https://github.com/theme-next/theme-next-pace" target="_blank" rel="noopener">官方文档</a></p></li><li><p>配置主题文件中的：<code>pace: true</code></p></li><li><p>选择合适的主题</p><p><img src="http://upload-images.jianshu.io/upload_images/5308475-6d44a78e76dbf950.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p></li></ul></li><li><p>Theme-next-fancybox3 图片浏览重插件</p><ul><li><a href="https://github.com/theme-next/theme-next-fancybox3" target="_blank" rel="noopener">官方文档</a></li></ul></li></ul><ul><li><p>生成网站地图 </p><ul><li><p>教程：<a href="https://blog.csdn.net/xiaojiejie123s/article/details/77922625" target="_blank" rel="noopener">xiaojiejie123s</a></p></li><li><p>安装 sitemap 插件</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-sitemap --save     </span><br><span class="line">npm install hexo-generator-baidu-sitemap --save</span><br></pre></td></tr></table></figure></li><li><p>修改博客配置文件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># URL</span><br><span class="line">## If your site is put in a subdirectory, set url as &apos;http://yoursite.com/child&apos; and root as &apos;/child/&apos;</span><br><span class="line">url: http://ding.gq</span><br><span class="line">root: /</span><br><span class="line"># permalink: :year/:month/:day/:title/</span><br><span class="line">permalink: :posts/:category/:year-:month-:day-:title.html</span><br><span class="line">permalink_defaults:</span><br></pre></td></tr></table></figure></li><li><p>部署博客：<code>hexo d -g</code></p></li><li><p>部署完后可查看网站是否生成 siemap.xml 和 baidusitemap.xml 文件，可通过 <code>https://ding.gq/baidusitemap.xml</code> 查看</p></li><li><p>向百度提交链接(百度站长平台)：主动推送 &gt; 被动推送 &gt; sitemap</p></li></ul></li></ul><ul><li><p>设置首页不显示全文（只显示预览）</p><ul><li>Next 主题配置文件搜索 <code>auto_excerpt</code> enable设置成 true即可</li></ul></li><li><p>主页文章添加阴影</p><ul><li><p>打开 <code>\themes\next\source\css\_custom\custom.styl</code>，添加下列代码</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 主页文章添加阴影效果</span><br><span class="line"> <span class="selector-class">.post</span> &#123;</span><br><span class="line">   <span class="attribute">margin-top</span>: <span class="number">60px</span>;</span><br><span class="line">   <span class="attribute">margin-bottom</span>: <span class="number">60px</span>;</span><br><span class="line">   <span class="attribute">padding</span>: <span class="number">25px</span>;</span><br><span class="line">   <span class="attribute">-webkit-box-shadow</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">5px</span> <span class="built_in">rgba</span>(202, 203, 203, .5);</span><br><span class="line">   <span class="attribute">-moz-box-shadow</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">5px</span> <span class="built_in">rgba</span>(202, 203, 204, .5);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></li></ul></li><li><p>博客主页菜单设置</p><ul><li><p>找到主题配置中的 <code>menu</code> 开启所需选项</p></li><li><p>关于菜单内容为空的情况，可用下列代码添加菜单页面并设置页面类型</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page categories</span><br></pre></td></tr></table></figure></li><li><p>打开 <code>source/categories/index.md</code> 页面类型为 categories</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">title: categories</span><br><span class="line">date: 2018-09-24 00:55:04</span><br><span class="line">type: &quot;categories&quot;</span><br><span class="line">common: false</span><br><span class="line">---</span><br></pre></td></tr></table></figure></li><li><p>其他菜单选项的页面都是这样设置，例如 about、tags 等新建页面和设置类型分别对应即可</p></li></ul></li></ul><ul><li>其他详细配置<ul><li><a href="https://blog.csdn.net/shengshengshiwo/article/details/79350413" target="_blank" rel="noopener">生生是我</a> | <a href="https://blog.csdn.net/qq_32454537/article/details/79482896" target="_blank" rel="noopener">DimpleMe</a> | <a href="https://blog.csdn.net/sunshine940326/article/details/70936988" target="_blank" rel="noopener">SEO优化</a> | <a href="http://jeffyang.top/Hexo/Hexo%E4%B8%BB%E9%A2%98Next%E7%BE%8E%E5%8C%96/" target="_blank" rel="noopener">麻瓜码农</a> | <a href="https://www.jianshu.com/p/9f0e90cc32c2" target="_blank" rel="noopener">WenBo丨星空灬</a> | <a href="http://theme-next.iissnan.com/faqs.html" target="_blank" rel="noopener">官方帮助文档</a></li></ul></li></ul>]]></content>
+    <content type="html"><![CDATA[<h2 id=""><a href="#" class="headerlink" title=""></a><blockquote class="blockquote-center"><p>前言</p></blockquote></h2><p>​        突然想给自己的博客换主题，以前用的是 <code>Anisina</code> ，现在想换成 <code>Next</code> 了，毕竟以前的主题用的人不太多，想要自己打造要被折磨死。所以决定下狠心，换成 <code>Next</code> 了，直接一步到位。但就算是 Next 也让我折腾了两天，各种翻文档，搜博客，终于把自己想要的给折腾出来了。可算是花了些功夫，在这里记录一下我博客主题的配置方式，主要时插件的安装和设置，十分费心力，这里放上安装方式和参考博客。</p><h2 id="-1"><a href="#-1" class="headerlink" title=""></a><blockquote class="blockquote-center"><p>Hexo - Next 6.0配置</p></blockquote></h2><h3 id="根目录下的-config-yml"><a href="#根目录下的-config-yml" class="headerlink" title="根目录下的_config.yml"></a>根目录下的<code>_config.yml</code></h3><ul><li>博客站点的配置文件</li></ul><h3 id="Next主题下的-config-yml"><a href="#Next主题下的-config-yml" class="headerlink" title="Next主题下的 _config.yml"></a>Next主题下的 <code>_config.yml</code></h3><ul><li>Next 主题的配置文件</li></ul><h3 id="Next-插件的安装"><a href="#Next-插件的安装" class="headerlink" title="Next 插件的安装"></a>Next 插件的安装</h3><ul><li><p>Github官方文档：<a href="https://github.com/theme-next" target="_blank" rel="noopener">https://github.com/theme-next</a></p></li><li><p>Algolia搜索插件</p><ul><li><p><a href="https://github.com/theme-next/hexo-theme-next/blob/master/docs/ALGOLIA-SEARCH.md" target="_blank" rel="noopener">官方文档教程</a> | <a href="https://www.jianshu.com/p/00f4bc425249" target="_blank" rel="noopener">简书教程</a> | <a href="https://juejin.im/post/5af3f9d1518825673e35a6eb" target="_blank" rel="noopener">掘金教程</a></p></li><li><p>在<a href="https://link.jianshu.com/?t=https%3A%2F%2Fwww.algolia.com%2F" target="_blank" rel="noopener">Algolia官网</a>注册并在indices中添加一个index，记住填写的名字</p></li><li><p>在ApiKey中找到Search-Only API Key，再点击ALL API KEYS找到对应的Key并将personal_blog添加进去，在ACL中勾选如下，点击更新：</p><p><img src="https://upload-images.jianshu.io/upload_images/5999132-33c0996fd2b3e81d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/602" alt=""></p></li><li><p>修改站点配置文件，添加内容如下，在红线处填入你的Algolia中的Key，apikey即为Search-Only API Key：</p><p><img src="https://upload-images.jianshu.io/upload_images/5999132-252dfadd66ed1de6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/630" alt=""></p></li><li><p>修改 Next 主题配置文件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">algolia_search:</span><br><span class="line">enable: true</span><br></pre></td></tr></table></figure></li><li><p>安装插件</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-algolia --save</span><br></pre></td></tr></table></figure></li><li><p>配置环境变量</p></li><li><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export HEXO_ALGOLIA_INDEXING_KEY=你的API Key</span><br></pre></td></tr></table></figure></li><li><p>更新index</p></li><li><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo algolia</span><br></pre></td></tr></table></figure></li><li><p>若出现下列画面则成功</p><p><img src="https://upload-images.jianshu.io/upload_images/5999132-3870537e6625fc42.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/500" alt=""></p></li><li><p>然后在站点配置中找到package.json， 把里面的hexo-algolia， 換成 “hexo-algolia”: “^0.2.0”，如图：</p><p><img src="https://upload-images.jianshu.io/upload_images/5999132-a343e8a0df3b0df5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/507" alt=""></p></li></ul></li><li><p><code>encrypt</code> 加密插件</p><ul><li><p>参考教程：<a href="https://blog.bill.moe/encrypt/" target="_blank" rel="noopener">Bill Yang’s Blog</a> | [官方教程]</p></li><li><p>安装：<code>npm install hexo-encrypt --save</code></p></li><li><p>修改站点配置文件<code>_config.yml</code>，添加：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">encrypt:</span><br><span class="line">password: 123456</span><br></pre></td></tr></table></figure><p>此处的密码为默认密码，博客可以设置独立密码，在未设置独立密码时使用默认密码</p></li><li><p>在<code>package.json</code> 中修改插件的版本号为：<code>&quot;hexo-encrypt&quot;: &quot;^0.2.0&quot;</code></p></li><li><p>在写博客时，在需要加密的文章的头部加入下列代码：</p></li><li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">encrypt: true</span><br><span class="line">enc_pwd: 123456</span><br></pre></td></tr></table></figure><p>此处的独立密码可不加</p></li></ul></li><li><p>hexo-symbols-count-time 插件</p><ul><li><p><a href="https://github.com/theme-next/hexo-symbols-count-time" target="_blank" rel="noopener">官方文档</a></p></li><li><p>Next主题自带了本插件，无需下载</p></li><li><p>站点配置：</p></li><li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">symbols_count_time:</span><br><span class="line">  symbols: true # 文章字数</span><br><span class="line">  time: true # 阅读时长</span><br><span class="line">  total_symbols: true # 所有文章总字数</span><br><span class="line">  total_time: true # 所有文章阅读中时长</span><br></pre></td></tr></table></figure></li><li><p>Next主题配置</p></li><li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">symbols_count_time:</span><br><span class="line">  separated_meta: true  # 是否换行显示 字数统计 及 阅读时长</span><br><span class="line">  item_text_post: true  # 文章 字数统计 阅读时长 使用图标 还是 文本表示</span><br><span class="line">  item_text_total: false # 博客底部统计 字数统计 阅读时长 使用图标 还是 文本表示</span><br><span class="line">  awl: 4</span><br><span class="line">  wpm: 275</span><br></pre></td></tr></table></figure></li></ul></li><li><p>Hexo-leancloud-counter-security</p><ul><li><p>教程：<a href="https://github.com/theme-next/hexo-leancloud-counter-security" target="_blank" rel="noopener">官方文档</a></p></li><li><p>作用：访问记数插件和评论系统</p></li><li><p>注册 <a href="https://leancloud.cn" target="_blank" rel="noopener">leancloud</a> 账号，并在主题配置文件中填入 <code>appid</code> 和 <code>appkey</code>，并设置 <code>enable: true</code></p></li></ul></li><li><p>pace 进度条插件</p><ul><li><p>教程：<a href="https://github.com/theme-next/theme-next-pace" target="_blank" rel="noopener">官方文档</a></p></li><li><p>配置主题文件中的：<code>pace: true</code></p></li><li><p>选择合适的主题</p><p><img src="http://upload-images.jianshu.io/upload_images/5308475-6d44a78e76dbf950.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p></li></ul></li><li><p>Theme-next-fancybox3 图片浏览重插件</p><ul><li><a href="https://github.com/theme-next/theme-next-fancybox3" target="_blank" rel="noopener">官方文档</a></li></ul></li></ul><ul><li><p>生成网站地图 </p><ul><li><p>教程：<a href="https://blog.csdn.net/xiaojiejie123s/article/details/77922625" target="_blank" rel="noopener">xiaojiejie123s</a></p></li><li><p>安装 sitemap 插件</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-sitemap --save     </span><br><span class="line">npm install hexo-generator-baidu-sitemap --save</span><br></pre></td></tr></table></figure></li><li><p>修改博客配置文件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># URL</span><br><span class="line">## If your site is put in a subdirectory, set url as &apos;http://yoursite.com/child&apos; and root as &apos;/child/&apos;</span><br><span class="line">url: http://ding.gq</span><br><span class="line">root: /</span><br><span class="line"># permalink: :year/:month/:day/:title/</span><br><span class="line">permalink: :posts/:category/:year-:month-:day-:title.html</span><br><span class="line">permalink_defaults:</span><br></pre></td></tr></table></figure></li><li><p>部署博客：<code>hexo d -g</code></p></li><li><p>部署完后可查看网站是否生成 siemap.xml 和 baidusitemap.xml 文件，可通过 <code>https://ding.gq/baidusitemap.xml</code> 查看</p></li><li><p>向百度提交链接(百度站长平台)：主动推送 &gt; 被动推送 &gt; sitemap</p></li></ul></li></ul><ul><li><p>设置首页不显示全文（只显示预览）</p><ul><li>Next 主题配置文件搜索 <code>auto_excerpt</code> enable设置成 true即可</li></ul></li><li><p>主页文章添加阴影</p><ul><li><p>打开 <code>\themes\next\source\css\_custom\custom.styl</code>，添加下列代码</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 主页文章添加阴影效果</span><br><span class="line"> <span class="selector-class">.post</span> &#123;</span><br><span class="line">   <span class="attribute">margin-top</span>: <span class="number">60px</span>;</span><br><span class="line">   <span class="attribute">margin-bottom</span>: <span class="number">60px</span>;</span><br><span class="line">   <span class="attribute">padding</span>: <span class="number">25px</span>;</span><br><span class="line">   <span class="attribute">-webkit-box-shadow</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">5px</span> <span class="built_in">rgba</span>(202, 203, 203, .5);</span><br><span class="line">   <span class="attribute">-moz-box-shadow</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">5px</span> <span class="built_in">rgba</span>(202, 203, 204, .5);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></li></ul></li><li><p>博客主页菜单设置</p><ul><li><p>找到主题配置中的 <code>menu</code> 开启所需选项</p></li><li><p>关于菜单内容为空的情况，可用下列代码添加菜单页面并设置页面类型</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page categories</span><br></pre></td></tr></table></figure></li><li><p>打开 <code>source/categories/index.md</code> 页面类型为 categories</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">title: categories</span><br><span class="line">date: 2018-09-24 00:55:04</span><br><span class="line">type: &quot;categories&quot;</span><br><span class="line">common: false</span><br><span class="line">---</span><br></pre></td></tr></table></figure></li><li><p>其他菜单选项的页面都是这样设置，例如 about、tags 等新建页面和设置类型分别对应即可</p></li></ul></li></ul><ul><li>其他详细配置<ul><li><a href="https://blog.csdn.net/shengshengshiwo/article/details/79350413" target="_blank" rel="noopener">生生是我</a> | <a href="https://blog.csdn.net/qq_32454537/article/details/79482896" target="_blank" rel="noopener">DimpleMe</a> | <a href="https://blog.csdn.net/sunshine940326/article/details/70936988" target="_blank" rel="noopener">SEO优化</a> | <a href="https://blog.csdn.net/lzy98/article/details/81140704" target="_blank" rel="noopener">seo</a> | <a href="http://jeffyang.top/Hexo/Hexo%E4%B8%BB%E9%A2%98Next%E7%BE%8E%E5%8C%96/" target="_blank" rel="noopener">麻瓜码农</a> | <a href="https://www.jianshu.com/p/9f0e90cc32c2" target="_blank" rel="noopener">WenBo丨星空灬</a> | <a href="http://theme-next.iissnan.com/faqs.html" target="_blank" rel="noopener">官方帮助文档</a></li></ul></li></ul>]]></content>
     
     <summary type="html">
     
@@ -44,8 +44,8 @@
   
   <entry>
     <title>软路由CPU</title>
-    <link href="https://ding.gq/title.html"/>
-    <id>https://ding.gq/title.html</id>
+    <link href="https://ding.gq/%E8%BD%AF%E8%B7%AF%E7%94%B1CPU.html"/>
+    <id>https://ding.gq/软路由CPU.html</id>
     <published>2018-09-19T13:49:16.000Z</published>
     <updated>2018-09-24T03:29:35.737Z</updated>
     
@@ -72,8 +72,8 @@
   
   <entry>
     <title>Mac下使用Aria2</title>
-    <link href="https://ding.gq/title.html"/>
-    <id>https://ding.gq/title.html</id>
+    <link href="https://ding.gq/Mac%E4%B8%8B%E4%BD%BF%E7%94%A8Aria2.html"/>
+    <id>https://ding.gq/Mac下使用Aria2.html</id>
     <published>2018-09-12T06:29:13.000Z</published>
     <updated>2018-09-21T17:28:31.273Z</updated>
     
@@ -97,8 +97,8 @@
   
   <entry>
     <title>安装iTerm2及oh-my-zsh</title>
-    <link href="https://ding.gq/title.html"/>
-    <id>https://ding.gq/title.html</id>
+    <link href="https://ding.gq/%E5%AE%89%E8%A3%85iTerm2%E5%8F%8Aoh-my-zsh.html"/>
+    <id>https://ding.gq/安装iTerm2及oh-my-zsh.html</id>
     <published>2018-09-07T03:48:48.000Z</published>
     <updated>2018-09-24T15:32:51.546Z</updated>
     
@@ -124,8 +124,8 @@
   
   <entry>
     <title>JetBrains系列软件激活</title>
-    <link href="https://ding.gq/title.html"/>
-    <id>https://ding.gq/title.html</id>
+    <link href="https://ding.gq/JetBrains%E7%B3%BB%E5%88%97%E8%BD%AF%E4%BB%B6%E6%BF%80%E6%B4%BB.html"/>
+    <id>https://ding.gq/JetBrains系列软件激活.html</id>
     <published>2018-09-05T15:10:48.000Z</published>
     <updated>2018-09-24T03:32:43.212Z</updated>
     
@@ -150,8 +150,8 @@
   
   <entry>
     <title>Mac下更新Python至Python3.7.0</title>
-    <link href="https://ding.gq/title.html"/>
-    <id>https://ding.gq/title.html</id>
+    <link href="https://ding.gq/Mac%E4%B8%8B%E6%9B%B4%E6%96%B0Python%E8%87%B3Python3.7.0.html"/>
+    <id>https://ding.gq/Mac下更新Python至Python3.7.0.html</id>
     <published>2018-09-04T17:50:39.000Z</published>
     <updated>2018-09-21T17:28:10.696Z</updated>
     
@@ -177,8 +177,8 @@
   
   <entry>
     <title>网络系统集成</title>
-    <link href="https://ding.gq/title.html"/>
-    <id>https://ding.gq/title.html</id>
+    <link href="https://ding.gq/%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0.html"/>
+    <id>https://ding.gq/运维笔记.html</id>
     <published>2018-08-31T05:01:01.000Z</published>
     <updated>2018-09-24T03:31:28.242Z</updated>
     
@@ -205,8 +205,8 @@
   
   <entry>
     <title>Mac下终端走代理</title>
-    <link href="https://ding.gq/title.html"/>
-    <id>https://ding.gq/title.html</id>
+    <link href="https://ding.gq/Mac%E4%B8%8B%E7%BB%88%E7%AB%AF%E8%B5%B0%E4%BB%A3%E7%90%86.html"/>
+    <id>https://ding.gq/Mac下终端走代理.html</id>
     <published>2018-08-22T16:46:00.000Z</published>
     <updated>2018-09-21T17:28:46.279Z</updated>
     
@@ -231,8 +231,8 @@
   
   <entry>
     <title>Mac的QuickLook安装插件</title>
-    <link href="https://ding.gq/title.html"/>
-    <id>https://ding.gq/title.html</id>
+    <link href="https://ding.gq/Mac%E7%9A%84QuickLook%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6.html"/>
+    <id>https://ding.gq/Mac的QuickLook安装插件.html</id>
     <published>2018-08-22T16:00:02.000Z</published>
     <updated>2018-09-24T15:29:34.355Z</updated>
     
@@ -258,8 +258,8 @@
   
   <entry>
     <title>Mac 终端设置</title>
-    <link href="https://ding.gq/title.html"/>
-    <id>https://ding.gq/title.html</id>
+    <link href="https://ding.gq/Mac-%E7%BB%88%E7%AB%AF%E8%AE%BE%E7%BD%AE.html"/>
+    <id>https://ding.gq/Mac-终端设置.html</id>
     <published>2018-08-22T10:05:10.000Z</published>
     <updated>2018-09-21T17:30:27.902Z</updated>
     
@@ -283,8 +283,8 @@
   
   <entry>
     <title>Hexo博客从Windows迁移到Mac</title>
-    <link href="https://ding.gq/title.html"/>
-    <id>https://ding.gq/title.html</id>
+    <link href="https://ding.gq/Hexo%E5%8D%9A%E5%AE%A2%E4%BB%8EWindows%E8%BF%81%E7%A7%BB%E5%88%B0Mac.html"/>
+    <id>https://ding.gq/Hexo博客从Windows迁移到Mac.html</id>
     <published>2018-08-17T08:45:38.000Z</published>
     <updated>2018-09-24T03:34:47.746Z</updated>
     
@@ -308,8 +308,8 @@
   
   <entry>
     <title>Mac常用软件</title>
-    <link href="https://ding.gq/title.html"/>
-    <id>https://ding.gq/title.html</id>
+    <link href="https://ding.gq/Mac%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6.html"/>
+    <id>https://ding.gq/Mac常用软件.html</id>
     <published>2018-08-17T08:43:32.000Z</published>
     <updated>2018-09-21T17:28:22.217Z</updated>
     
@@ -334,8 +334,8 @@
   
   <entry>
     <title>VMWare 14 安装MacOS X 10.11.md</title>
-    <link href="https://ding.gq/title.html"/>
-    <id>https://ding.gq/title.html</id>
+    <link href="https://ding.gq/VMWare-14-%E5%AE%89%E8%A3%85MacOS-X-10-11-md.html"/>
+    <id>https://ding.gq/VMWare-14-安装MacOS-X-10-11-md.html</id>
     <published>2018-08-10T06:25:53.000Z</published>
     <updated>2018-09-24T03:34:19.405Z</updated>
     
@@ -363,8 +363,8 @@
   
   <entry>
     <title>系统引导修复</title>
-    <link href="https://ding.gq/title.html"/>
-    <id>https://ding.gq/title.html</id>
+    <link href="https://ding.gq/%E7%B3%BB%E7%BB%9F%E5%BC%95%E5%AF%BC%E4%BF%AE%E5%A4%8D.html"/>
+    <id>https://ding.gq/系统引导修复.html</id>
     <published>2018-08-04T11:41:44.000Z</published>
     <updated>2018-09-24T03:31:12.102Z</updated>
     
@@ -391,8 +391,8 @@
   
   <entry>
     <title>希码学习</title>
-    <link href="https://ding.gq/title.html"/>
-    <id>https://ding.gq/title.html</id>
+    <link href="https://ding.gq/%E5%B8%8C%E7%A0%81%E5%AD%A6%E4%B9%A0.html"/>
+    <id>https://ding.gq/希码学习.html</id>
     <published>2018-07-25T06:41:39.000Z</published>
     <updated>2018-09-24T14:06:02.920Z</updated>
     
@@ -421,8 +421,8 @@
   
   <entry>
     <title>Linux知识整理</title>
-    <link href="https://ding.gq/title.html"/>
-    <id>https://ding.gq/title.html</id>
+    <link href="https://ding.gq/Linux%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86.html"/>
+    <id>https://ding.gq/Linux知识整理.html</id>
     <published>2018-07-24T08:40:55.000Z</published>
     <updated>2018-09-24T03:32:51.754Z</updated>
     
@@ -450,8 +450,8 @@
   
   <entry>
     <title>Ubuntu下使用Python的坑</title>
-    <link href="https://ding.gq/title.html"/>
-    <id>https://ding.gq/title.html</id>
+    <link href="https://ding.gq/Ubuntu%E4%B8%8B%E4%BF%AE%E6%94%B9Python%E7%89%88%E6%9C%AC.html"/>
+    <id>https://ding.gq/Ubuntu下修改Python版本.html</id>
     <published>2018-07-16T08:15:30.000Z</published>
     <updated>2018-09-21T17:31:20.194Z</updated>
     
@@ -479,8 +479,8 @@
   
   <entry>
     <title>双拼输入法</title>
-    <link href="https://ding.gq/title.html"/>
-    <id>https://ding.gq/title.html</id>
+    <link href="https://ding.gq/%E5%8F%8C%E6%8B%BC%E8%BE%93%E5%85%A5%E6%B3%95.html"/>
+    <id>https://ding.gq/双拼输入法.html</id>
     <published>2018-07-09T12:28:44.000Z</published>
     <updated>2018-09-24T14:09:51.869Z</updated>
     
@@ -507,8 +507,8 @@
   
   <entry>
     <title>网络系统集成</title>
-    <link href="https://ding.gq/title.html"/>
-    <id>https://ding.gq/title.html</id>
+    <link href="https://ding.gq/%E7%BD%91%E7%BB%9C%E7%B3%BB%E7%BB%9F%E9%9B%86%E6%88%90.html"/>
+    <id>https://ding.gq/网络系统集成.html</id>
     <published>2018-07-08T13:22:24.000Z</published>
     <updated>2018-09-24T14:09:22.075Z</updated>
     
@@ -532,8 +532,8 @@
   
   <entry>
     <title>热点共享VPN</title>
-    <link href="https://ding.gq/title.html"/>
-    <id>https://ding.gq/title.html</id>
+    <link href="https://ding.gq/%E7%83%AD%E7%82%B9%E5%85%B1%E4%BA%ABVPN.html"/>
+    <id>https://ding.gq/热点共享VPN.html</id>
     <published>2018-07-08T05:54:13.000Z</published>
     <updated>2018-09-24T14:07:54.467Z</updated>
     

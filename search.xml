@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[小鹤双拼+双形挂接教程]]></title>
+    <url>%2F%E5%B0%8F%E9%B9%A4%E5%8F%8C%E6%8B%BC-%E5%8F%8C%E5%BD%A2%E6%8C%82%E6%8E%A5%E6%95%99%E7%A8%8B.html</url>
+    <content type="text"><![CDATA[小鹤双拼+双形 挂接教程 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;最近在折腾Mac上挂接小鹤双拼的问题，一直想在Mac上使用小鹤双拼+双形的方式，折腾了很久，一直在找挂接文件，一直为输入法不顺手感到烦恼。直到看到了一篇文章我才恍然大悟。这里记录以下我的挂接方式。 参考教程 fanqi 挂接方式 方法适用于Windows和Mac 下载搜狗输入法或手心输入法等一些能够自定义短语的输入法。 打开输入法的设置，找到自定义短语这一选项。 在自定义短语选项中随意添加一个词，然后导出自定义短语。 用编辑器打开导出的自定义短语文件，然后把小鹤双拼的词库复制进去。 关闭动态调频选项。]]></content>
+      <categories>
+        <category>输入法</category>
+      </categories>
+      <tags>
+        <tag>输入法</tag>
+        <tag>Blog</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[博客书写细节]]></title>
     <url>%2F%E5%8D%9A%E5%AE%A2%E4%B9%A6%E5%86%99%E7%BB%86%E8%8A%82.html</url>
     <content type="text"><![CDATA[前言 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;自从换博客的主题开始，历时两三天，终于搞明白了一些需要的东西。不孚所忘吧，把想要折腾的都折腾出来了。 设置博客模板 在博客根目录下的 scaffolds 目录下打开 post.md 文件 完善模板 123456789101112131415title: &#123;&#123; title &#125;&#125;date: &#123;&#123; date &#125;&#125;tags: categories: encrypt: description: ---&#123;% cq %&#125;&#123;% endcq %&#125;&#123;% note info %&#125;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&#123;% endnote %&#125;&lt;!-- more --&gt; 博客内建标签 教程：官方文档 文本居中引用 使用方式 1&#123;% cq %&#125; 两排引号横线之间的内容 &#123;% endcq %&#125; 显示效果： ![](http://theme-next.iissnan.com/uploads/tags/blockquote-center.png) Bootstrap Callout（标注） 使用方式 123456789&#123;% note class_name %&#125; Content (md partial supported) &#123;% endnote %&#125;# class_name的选项有： default primary success info warning danger 显示效果： 设置全文阅读按钮 教程：官方文档 在文章中使用 &lt;!-- more --&gt; 手动进行截断（推荐） 在主题目录中设置 auto_excerpt: 为 true（不推荐）]]></content>
@@ -106,7 +118,7 @@
   <entry>
     <title><![CDATA[Mac的QuickLook安装插件]]></title>
     <url>%2FMac%E7%9A%84QuickLook%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6.html</url>
-    <content type="text"><![CDATA[QuickLook安装插件 参考博客越前君crazy一笑 安装Homebrew 终端输入： 1$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" 若要卸载在终端把刚才的安装代码最后的install改为 uninstall 即可 安装QuickLook插件 安装QLColorCode 1homebrew cask install qlcolorcode 功能：预览代码语法高亮，（同时需要安装Highlight库，命令：brew install highlight） 安装qlImageSize 1homebrew cask install qlimagesize 功能：预览图片，同时显示图像大小和分辨率 安装QLMarkdown 1homebrew cask install QLMarkdown 功能：预览Markdown文件 安装QuickLookJSON 1brew cask install quicklook-json 功能：预览格式化的 JSON 文件 安装QLStephen 1brew cask install qlstephen 功能：预览无扩展名的纯文本文件 安装BetterZipQL 1brew cask install betterzipql 功能：预览Zip压缩文件的信息和目录 安装QLVideo 1brew cask install qlvideo 功能：预览 .mkv 等非原生支持的视频格式]]></content>
+    <content type="text"><![CDATA[QuickLook安装插件参考博客越前君crazy一笑 安装Homebrew 终端输入： 1$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" 若要卸载在终端把刚才的安装代码最后的install改为 uninstall 即可 安装QuickLook插件 安装QLColorCode 1homebrew cask install qlcolorcode 功能：预览代码语法高亮，（同时需要安装Highlight库，命令：brew install highlight） 安装qlImageSize 1homebrew cask install qlimagesize 功能：预览图片，同时显示图像大小和分辨率 安装QLMarkdown 1homebrew cask install QLMarkdown 功能：预览Markdown文件 安装QuickLookJSON 1brew cask install quicklook-json 功能：预览格式化的 JSON 文件 安装QLStephen 1brew cask install qlstephen 功能：预览无扩展名的纯文本文件 安装BetterZipQL 1brew cask install betterzipql 功能：预览Zip压缩文件的信息和目录 安装QLVideo 1brew cask install qlvideo 功能：预览 .mkv 等非原生支持的视频格式]]></content>
       <categories>
         <category>Mac</category>
       </categories>
@@ -181,8 +193,8 @@
         <category>输入法</category>
       </categories>
       <tags>
-        <tag>Blog</tag>
         <tag>输入法</tag>
+        <tag>Blog</tag>
       </tags>
   </entry>
   <entry>
@@ -216,8 +228,8 @@
         <category>输入法</category>
       </categories>
       <tags>
-        <tag>Blog</tag>
         <tag>输入法</tag>
+        <tag>Blog</tag>
       </tags>
   </entry>
   <entry>

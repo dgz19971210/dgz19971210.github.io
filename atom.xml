@@ -36,9 +36,9 @@
       <category term="输入法" scheme="https://ding.gq/categories/%E8%BE%93%E5%85%A5%E6%B3%95/"/>
     
     
-      <category term="输入法" scheme="https://ding.gq/tags/%E8%BE%93%E5%85%A5%E6%B3%95/"/>
-    
       <category term="Blog" scheme="https://ding.gq/tags/Blog/"/>
+    
+      <category term="输入法" scheme="https://ding.gq/tags/%E8%BE%93%E5%85%A5%E6%B3%95/"/>
     
   </entry>
   
@@ -212,9 +212,9 @@
     <link href="https://ding.gq/Mac%E4%B8%8B%E6%9B%B4%E6%96%B0Python%E8%87%B3Python3.7.0.html"/>
     <id>https://ding.gq/Mac下更新Python至Python3.7.0.html</id>
     <published>2018-09-04T17:50:39.000Z</published>
-    <updated>2018-09-26T04:43:03.386Z</updated>
+    <updated>2018-10-05T14:06:00.078Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="Mac下更新Python至Python3-7-0"><a href="#Mac下更新Python至Python3-7-0" class="headerlink" title="Mac下更新Python至Python3.7.0"></a>Mac下更新Python至Python3.7.0</h1><p>前言：</p><pre><code>因Mac自带的Python版本为Python2.7.10，但Python2几乎要淘汰了，所以更新到Python3.7.0版本。</code></pre><h2 id="所需环境"><a href="#所需环境" class="headerlink" title="所需环境"></a>所需环境</h2><ol><li>已安装Homebrew</li></ol><h2 id="更新步骤"><a href="#更新步骤" class="headerlink" title="更新步骤"></a>更新步骤</h2><ol><li><p>从Homebrew安装Python，默认安装最新版</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> brew install python</span><br></pre></td></tr></table></figure></li><li><p>设置别名</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">打开 .bash_profile 文件</span><br><span class="line"><span class="meta">#</span> vim ~/.bash_profile</span><br><span class="line"></span><br><span class="line">添加别名，可用 which 查询python和python3的安装路径</span><br><span class="line">alias python2="/usr/bin/python"</span><br><span class="line">alias python3="/usr/local/bin/python3"</span><br><span class="line">alias python=python3</span><br></pre></td></tr></table></figure></li><li><p>使修改后的设置生效</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> source ~/.bash_profile</span><br></pre></td></tr></table></figure></li><li><p>测试Python的版本</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> pyhton -V       或    </span><br><span class="line"><span class="meta">#</span> python -version</span><br></pre></td></tr></table></figure></li></ol><a id="more"></a>]]></content>
+    <content type="html"><![CDATA[<h1 id="Mac下更新Python至Python3-7-0"><a href="#Mac下更新Python至Python3-7-0" class="headerlink" title="Mac下更新Python至Python3.7.0"></a>Mac下更新Python至Python3.7.0</h1><p>前言：</p><pre><code>因Mac自带的Python版本为Python2.7.10，但Python2几乎要淘汰了，所以更新到Python3.7.0版本。</code></pre><h2 id="所需环境"><a href="#所需环境" class="headerlink" title="所需环境"></a>所需环境</h2><ol><li>已安装Homebrew</li></ol><h2 id="更新步骤"><a href="#更新步骤" class="headerlink" title="更新步骤"></a>更新步骤</h2><a id="more"></a><ol><li><p>从Homebrew安装Python，默认安装最新版</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> brew install python</span><br></pre></td></tr></table></figure></li><li><p>设置别名</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">打开 .bash_profile 文件</span><br><span class="line"><span class="meta">#</span> vim ~/.bash_profile</span><br><span class="line"></span><br><span class="line">添加别名，可用 which 查询python和python3的安装路径</span><br><span class="line">alias python2="/usr/bin/python"</span><br><span class="line">alias python3="/usr/local/bin/python3"</span><br><span class="line">alias python=python3</span><br></pre></td></tr></table></figure></li><li><p>使修改后的设置生效</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> source ~/.bash_profile</span><br></pre></td></tr></table></figure></li><li><p>测试Python的版本</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> pyhton -V       或    </span><br><span class="line"><span class="meta">#</span> python -version</span><br></pre></td></tr></table></figure></li></ol>]]></content>
     
     <summary type="html">
     
@@ -223,20 +223,7 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;所需环境&quot;&gt;&lt;a href=&quot;#所需环境&quot; class=&quot;headerlink&quot; title=&quot;所需环境&quot;&gt;&lt;/a&gt;所需环境&lt;/h2&gt;&lt;ol&gt;
 &lt;li&gt;已安装Homebrew&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id=&quot;更新步骤&quot;&gt;&lt;a href=&quot;#更新步骤&quot; class=&quot;headerlink&quot; title=&quot;更新步骤&quot;&gt;&lt;/a&gt;更新步骤&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;从Homebrew安装Python，默认安装最新版&lt;/p&gt;
-&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;/span&gt; brew install python&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;设置别名&lt;/p&gt;
-&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;打开 .bash_profile 文件&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;/span&gt; vim ~/.bash_profile&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;添加别名，可用 which 查询python和python3的安装路径&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;alias python2=&quot;/usr/bin/python&quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;alias python3=&quot;/usr/local/bin/python3&quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;alias python=python3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;使修改后的设置生效&lt;/p&gt;
-&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;/span&gt; source ~/.bash_profile&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;测试Python的版本&lt;/p&gt;
-&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;/span&gt; pyhton -V       或    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;/span&gt; python -version&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
+&lt;h2 id=&quot;更新步骤&quot;&gt;&lt;a href=&quot;#更新步骤&quot; class=&quot;headerlink&quot; title=&quot;更新步骤&quot;&gt;&lt;/a&gt;更新步骤&lt;/h2&gt;
     
     </summary>
     
@@ -538,9 +525,9 @@
       <category term="输入法" scheme="https://ding.gq/categories/%E8%BE%93%E5%85%A5%E6%B3%95/"/>
     
     
-      <category term="输入法" scheme="https://ding.gq/tags/%E8%BE%93%E5%85%A5%E6%B3%95/"/>
-    
       <category term="Blog" scheme="https://ding.gq/tags/Blog/"/>
+    
+      <category term="输入法" scheme="https://ding.gq/tags/%E8%BE%93%E5%85%A5%E6%B3%95/"/>
     
   </entry>
   
@@ -654,9 +641,9 @@
       <category term="输入法" scheme="https://ding.gq/categories/%E8%BE%93%E5%85%A5%E6%B3%95/"/>
     
     
-      <category term="输入法" scheme="https://ding.gq/tags/%E8%BE%93%E5%85%A5%E6%B3%95/"/>
-    
       <category term="Blog" scheme="https://ding.gq/tags/Blog/"/>
+    
+      <category term="输入法" scheme="https://ding.gq/tags/%E8%BE%93%E5%85%A5%E6%B3%95/"/>
     
   </entry>
   

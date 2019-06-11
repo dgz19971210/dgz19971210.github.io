@@ -127,7 +127,7 @@
 <meta property="og:site_name" content="Ding&#39;s Blog">
 <meta property="og:description" content="前言  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;完成了黑苹果的折腾，用上了黑苹果，本以为折腾完了，可以安心享受 Mac 带来的乐趣了，结果还是自己想太多。我正在面临的是一条无止境的路，Mac 上面有各种诱惑你的东西，让你了解的越多，也就感觉到自己的知识越来越匮乏，自己所感兴趣的和想折腾的也久越来越多。。 好了，不多废话，马上开始！">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-12T18:34:18.000Z">
+<meta property="og:updated_time" content="2019-06-11T13:19:18.573Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="安装iTerm2及oh-my-zsh">
 <meta name="twitter:description" content="前言  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;完成了黑苹果的折腾，用上了黑苹果，本以为折腾完了，可以安心享受 Mac 带来的乐趣了，结果还是自己想太多。我正在面临的是一条无止境的路，Mac 上面有各种诱惑你的东西，让你了解的越多，也就感觉到自己的知识越来越匮乏，自己所感兴趣的和想折腾的也久越来越多。。 好了，不多废话，马上开始！">
@@ -416,7 +416,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-10-13 02:34:18" itemprop="dateModified" datetime="2018-10-13T02:34:18+08:00">2018-10-13</time>
+                <time title="修改时间：2019-06-11 21:19:18" itemprop="dateModified" datetime="2019-06-11T21:19:18+08:00">2019-06-11</time>
               
             
           </span>
@@ -527,14 +527,14 @@
 <li><p>安装 <a href="https://www.iterm2.com/downloads.html" target="_blank" rel="noopener">iTerm2</a></p>
 </li>
 <li><p>安装powerline</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">	// 没有安装pip先安装pip</span><br><span class="line"><span class="meta">#</span> sudo easy_install pip</span><br><span class="line"></span><br><span class="line">// 之后安装powerline（这里可能会报错，可以参考问题解决）</span><br><span class="line"><span class="meta">#</span> pip install powerline-status</span><br><span class="line"></span><br><span class="line">// 若报错则执行下列命令</span><br><span class="line"><span class="meta">#</span> pip install powerline-status --user -U</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 没有安装pip先安装pip</span><br><span class="line">sudo easy_install pip</span><br><span class="line"></span><br><span class="line">// 之后安装powerline（这里可能会报错，可以参考问题解决）</span><br><span class="line">pip install powerline-status</span><br><span class="line"></span><br><span class="line">// 若报错则执行下列命令</span><br><span class="line">pip install powerline-status --user -U</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>安装oh-my-zsh</p>
 </li>
-<li><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh</span><br></pre></td></tr></table></figure>
+<li><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>安装字体库fonts</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 克隆字体库到本地</span><br><span class="line"><span class="meta">#</span> git clone https://github.com/powerline/fonts.git</span><br><span class="line"></span><br><span class="line">// 安装字体</span><br><span class="line"><span class="meta">#</span> cd fonts</span><br><span class="line"><span class="meta">#</span> ./install.sh</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 克隆字体库到本地</span><br><span class="line">git clone https://github.com/powerline/fonts.git</span><br><span class="line"></span><br><span class="line">// 安装字体</span><br><span class="line">cd fonts</span><br><span class="line">./install.sh</span><br></pre></td></tr></table></figure>
 <p>安装成功后输出：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">➜  fonts git:(master) ./install.sh</span><br><span class="line">Copying fonts...</span><br><span class="line">Powerline fonts installed to /Users/WENBO/Library/Fonts</span><br></pre></td></tr></table></figure>
 </li>
@@ -552,19 +552,19 @@
 <ul>
 <li><p>下载主题</p>
 </li>
-<li><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 克隆主题到本地</span><br><span class="line"><span class="meta">#</span> git clone  https://github.com/fcamblor/oh-my-zsh-agnoster-fcamblor</span><br><span class="line"></span><br><span class="line">// 安装主题</span><br><span class="line"><span class="meta">#</span> cd oh-my-zsh-agnoster-fcamblor</span><br><span class="line"><span class="meta">#</span> ./install</span><br></pre></td></tr></table></figure>
+<li><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 克隆主题到本地</span><br><span class="line">git clone  https://github.com/fcamblor/oh-my-zsh-agnoster-fcamblor</span><br><span class="line"></span><br><span class="line">// 安装主题</span><br><span class="line">cd oh-my-zsh-agnoster-fcamblor</span><br><span class="line">./install</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>编辑<code>~/.zshrc</code>文件，将<code>ZSH_THEME</code>的值改为<code>agnoster</code></p>
 </li>
 </ul>
 </li>
 <li><p>添加指令高亮效果：<a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fzsh-users%2Fzsh-syntax-highlighting" target="_blank" rel="noopener">zsh-syntax-highlighting</a></p>
- <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 克隆项目到本地</span><br><span class="line"><span class="meta">#</span> git clone git://github.com/zsh-users/zsh-syntax-highlighting.git</span><br><span class="line"></span><br><span class="line">// 编辑.zshrc文件，在最后添加如下内容</span><br><span class="line">source /Users/ding/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh</span><br><span class="line">plugins=(zsh-syntax-highlighting)</span><br></pre></td></tr></table></figure>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 克隆项目到本地</span><br><span class="line">git clone git://github.com/zsh-users/zsh-syntax-highlighting.git</span><br><span class="line"></span><br><span class="line">// 编辑.zshrc文件，在最后添加如下内容</span><br><span class="line">source /Users/ding/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh</span><br><span class="line">plugins=(zsh-syntax-highlighting)</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>解决oh-my-zsh对于<code>.bash_profile</code>自定义的配置失效问题</p>
 <ul>
 <li><p>修改 oh-my-zsh 的配置文件<code>.zshrc</code></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> vim ~/.zshrc</span><br><span class="line"></span><br><span class="line">// 在最后添加配置</span><br><span class="line">source ~/.bash_profile</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.zshrc</span><br><span class="line"></span><br><span class="line">// 在最后添加配置</span><br><span class="line">source ~/.bash_profile</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>终端执行：<code># source ~/.zshrc</code></p>
 </li>
@@ -573,17 +573,21 @@
 <li><p>解决 oh-my-zsh 的socks5代理问题</p>
 <ul>
 <li><p>设置代理</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">// 编辑配置文件</span><br><span class="line"><span class="meta">#</span> vim ~/.zshrc</span><br><span class="line"></span><br><span class="line">// 添加配置</span><br><span class="line">alias proxy='export all_proxy=socks5://127.0.0.1:1086'</span><br><span class="line">alias unproxy='unset all_proxy'</span><br><span class="line"></span><br><span class="line">// 另一种带提示的配置</span><br><span class="line">proxy () &#123;</span><br><span class="line">  export http_proxy="http://127.0.0.1:1086"</span><br><span class="line">  export https_proxy="http://127.0.0.1:1086"</span><br><span class="line">  echo "HTTP Proxy on"</span><br><span class="line">&#125;</span><br><span class="line">unproxy () &#123;</span><br><span class="line">  unset http_proxy</span><br><span class="line">  unset https_proxy</span><br><span class="line">  echo "HTTP Proxy off"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>保存退出并重新加载资源：<code># sourse ~/.zshrc</code></p>
-</li>
-<li><p>验证ip</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 二者皆可</span><br><span class="line"><span class="meta">#</span> curl ip.cn</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> curl cip.cc</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 编辑配置文件</span><br><span class="line">vim ~/.zshrc</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// 添加配置</span><br><span class="line">alias proxy='export all_proxy=socks5://127.0.0.1:1086'</span><br><span class="line">alias unproxy='unset all_proxy'</span><br><span class="line"></span><br><span class="line">// 另一种带提示的配置</span><br><span class="line">proxy () &#123;</span><br><span class="line">  export http_proxy="http://127.0.0.1:1086"</span><br><span class="line">  export https_proxy="http://127.0.0.1:1086"</span><br><span class="line">  echo "HTTP Proxy on"</span><br><span class="line">&#125;</span><br><span class="line">unproxy () &#123;</span><br><span class="line">  unset http_proxy</span><br><span class="line">  unset https_proxy</span><br><span class="line">  echo "HTTP Proxy off"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
-<li><p>iTerm2快捷键</p>
+</ol>
+<ul>
+<li><p>保存退出并重新加载资源：<code>sourse ~/.zshrc</code></p>
 </li>
+<li><p>验证ip</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 二者皆可</span><br><span class="line">curl ip.cn</span><br><span class="line"></span><br><span class="line">curl cip.cc</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol start="11">
+<li>iTerm2快捷键</li>
 </ol>
 <table>
 <thead>

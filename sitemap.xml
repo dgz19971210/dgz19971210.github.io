@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://ding.gq/about/index.html</loc>
+    
+    <lastmod>2019-06-11T16:17:38.942Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://ding.gq/%E5%AE%89%E8%A3%85iTerm2%E5%8F%8Aoh-my-zsh.html</loc>
     
     <lastmod>2019-06-11T13:19:18.573Z</lastmod>
@@ -191,7 +198,7 @@
   </url>
   
   <url>
-    <loc>https://ding.gq/Tags/index.html</loc>
+    <loc>https://ding.gq/tags/index.html</loc>
     
     <lastmod>2018-09-24T14:19:59.000Z</lastmod>
     
@@ -201,13 +208,6 @@
     <loc>https://ding.gq/categories/index.html</loc>
     
     <lastmod>2018-09-24T14:03:36.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://ding.gq/about/index.html</loc>
-    
-    <lastmod>2018-09-24T14:02:37.000Z</lastmod>
     
   </url>
   

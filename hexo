@@ -1,0 +1,11 @@
+Usage: hexo generate 
+
+Description:
+Generate static files.
+
+Options:
+  -b, --bail    Raise an error if any unhandled exception is thrown during generation
+  -d, --deploy  Deploy after generated
+  -f, --force   Force regenerate
+  -w, --watch   Watch file changes
+

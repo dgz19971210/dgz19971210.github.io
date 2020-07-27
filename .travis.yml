@@ -27,7 +27,7 @@ branches:
 # 指定博客的仓库地址
 env:
   global:
-    - GH_REF: github.com/dgzd/dgzd.github.io.git
+    - GH_REF: git@github.com:dgzd/dgzd.git
 
 # 设置git提交名，邮箱；替换真实token到_config.yml文件，最后depoy部署
 after_script:

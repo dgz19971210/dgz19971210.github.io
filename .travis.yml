@@ -19,7 +19,6 @@ script:
   - hexo clean
   - hexo g
   - hexo algolia
-  - hexo deploy
 
 # 指定博客分支
 branches:

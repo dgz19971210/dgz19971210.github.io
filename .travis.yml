@@ -26,7 +26,7 @@ branches:
 
 # 指定博客的仓库地址
 env:
- global:
+  global:
     - GH_REF: github.com/dgzd/dgzd.github.io.git
 
 # 设置git提交名，邮箱；替换真实token到_config.yml文件，最后depoy部署
@@ -36,5 +36,5 @@ after_script:
   - git config user.name "dgz"
   - git config user.email "dgz19971210@gmail.com"
   - git add .
-  - git commit -m "TravisCI 自动部署"
+  - git commit -m "TravisCI自动部署"
   - git push --force --quiet "https://${GITHUB_TOKEN}@${GH_REF}" hexo:master

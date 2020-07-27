@@ -49,7 +49,7 @@ permalink_defaults:
 # RSS:
 #weibo_username: 
 #zhihu_username: dgz19971210
-#github_username: dgz19971210
+#github_username: dgzd
 #twitter_username: dgz19971210
 #jianshu_username: 96d93c8aec3b
 #facebook_username: 100011668193436
@@ -162,7 +162,7 @@ theme: next
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://github.com/dgz19971210/dgz19971210.github.io.git
+  repo: https://github.com/dgzd/dgzd.github.io.git
   branch: master
 
 

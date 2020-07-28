@@ -185,7 +185,7 @@ categories: Hexo博客
     ```
     # URL
     ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-    url: http://ding.gq
+    url: https://dgzd.github.io
     root: /
     # permalink: :year/:month/:day/:title/
     permalink: :posts/:category/:year-:month-:day-:title.html
@@ -194,7 +194,7 @@ categories: Hexo博客
 
   * 部署博客：`hexo d -g`
 
-  * 部署完后可查看网站是否生成 siemap.xml 和 baidusitemap.xml 文件，可通过 `https://ding.gq/baidusitemap.xml` 查看
+  * 部署完后可查看网站是否生成 siemap.xml 和 baidusitemap.xml 文件，可通过 `https://dgzd.github.io/baidusitemap.xml` 查看
 
   * 向百度提交链接(百度站长平台)：主动推送 > 被动推送 > sitemap
 

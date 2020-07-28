@@ -53,7 +53,7 @@ description:
 
 ## Docker 安装和基础命令
 
-* 请阅读：[Ubuntu 安装及使用 Docker](https://ding.gq/Ubuntu%E5%AE%89%E8%A3%85Docker.html#more)
+* 请阅读：[Ubuntu 安装及使用 Docker](https://dgzd.github.io/Ubuntu%E5%AE%89%E8%A3%85Docker.html#more)
 
 
 

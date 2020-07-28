@@ -32,12 +32,12 @@ env:
 
 # 设置git提交名，邮箱；替换真实token到_config.yml文件，最后depoy部署
 after_script:
-  # - cd ./public
-  # - git init
+  - cd ./public
+  - git init
   - git config user.name "dgz"
   - git config user.email "dgz19971210@gmail.com"
-  # - git add .
-  # - git commit -m "travis auto deploy"
-  # - git push --force --quiet "https://${GITHUB_TOKEN}@${GH_REF}" master:master
+  - git add .
+  - git commit -m "travis auto deploy"
+  - git push --force --quiet "https://${GITHUB_TOKEN}@${GH_REF}" master:master
   # 除直接 push public 文件夹之外，也可以用 hexo 的 deploy 方式，使用下列方式
-  - hexo deploy
+  # - hexo deploy

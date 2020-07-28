@@ -50,7 +50,7 @@ description:
 
 # TCP 三次握手
 
-![](https://ws1.sinaimg.cn/large/006iOFs0gy1g0ukssf46mj30ed08gwei.jpg)
+<!-- ![](https://ws1.sinaimg.cn/large/006iOFs0gy1g0ukssf46mj30ed08gwei.jpg) -->
 
 
 
@@ -106,7 +106,7 @@ description:
 
 所谓四次挥手（Four-Way Wavehand）即终止TCP连接，就是指断开一个TCP连接时，需要客户端和服务端总共发送4个包以确认连接的断开。在socket编程中，这一过程由客户端或服务端任一方执行close来触发，整个流程如下图所示：
 
-![](https://ws1.sinaimg.cn/large/006iOFs0gy1g0ukuxutooj30e308zjrf.jpg)
+<!-- ![](https://ws1.sinaimg.cn/large/006iOFs0gy1g0ukuxutooj30e308zjrf.jpg) -->
 
 
 
@@ -121,7 +121,7 @@ description:
 
 被动关闭具体流程：
 
-![](https://ws1.sinaimg.cn/large/006iOFs0gy1g0unpy9lz2j30dz05b0sp.jpg)
+<!-- ![](https://ws1.sinaimg.cn/large/006iOFs0gy1g0unpy9lz2j30dz05b0sp.jpg) -->
 
 
 
@@ -161,7 +161,7 @@ description:
 
 
 
-![](https://ws1.sinaimg.cn/large/006iOFs0gy1g0uowyfpy6j30k00mbq3x.jpg)
+<!-- ![](https://ws1.sinaimg.cn/large/006iOFs0gy1g0uowyfpy6j30k00mbq3x.jpg) -->
 
 
 

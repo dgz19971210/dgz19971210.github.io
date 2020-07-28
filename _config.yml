@@ -38,7 +38,7 @@ favicon:  # your favicon png
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://ding.gq
+url: https://dgzd.github.io
 root: /
 # permalink: :year/:month/:day/:title/
 # permalink: :posts/:category/:year-:month-:day-:title.html
@@ -75,7 +75,7 @@ use_livere:
 ba_track_id: 960ff1a63fe6560d36e1793d804b529b
 # Google Analytics
 ga_track_id: UA-122001025-1    # Format: UA-xxxxxx-xx
-ga_domain: ding.gq
+ga_domain: dgzd.github.io
 
 # Sidebar settings
 sidebar: true
@@ -190,11 +190,11 @@ archive:
     title: archives
     description: 可以根据归档日期检索所有文件
 
-#search:                     # 实现文章搜索功能
-#  path: search.xml
-#  field: post
-#  format: html
-#  limit: 10000
+search:                     # 实现文章搜索功能
+ path: search.xml
+ field: post
+ format: html
+ limit: 10000
 
 symbols_count_time:
   symbols: true       # 文章字数
@@ -209,12 +209,12 @@ baidusitmap:                # 同上
   path: baidusitemap.xml
 
 # Algolia 搜索
-algolia:
-  applicationID: 'LEF5EMES60'
-  indexName: 'Search'
-  apiKey: 51179a44bb9bdc96dd14453b3050c3e2
-  adminApiKey: 6be6e6139dfe8e842cf595ba0f05cb07
-  chunkSize: 5000
+# algolia:
+#   applicationID: 'LEF5EMES60'
+#   indexName: 'Search'
+#   apiKey: 51179a44bb9bdc96dd14453b3050c3e2
+#   adminApiKey: 6be6e6139dfe8e842cf595ba0f05cb07
+#   chunkSize: 5000
 
 # encrypt 加密
 # password: Ding

@@ -190,11 +190,11 @@ archive:
     title: archives
     description: 可以根据归档日期检索所有文件
 
-search:                     # 实现文章搜索功能
- path: search.xml
- field: post
- format: html
- limit: 10000
+# search:                     # 实现文章搜索功能
+#  path: search.xml
+#  field: post
+#  format: html
+#  limit: 10000
 
 symbols_count_time:
   symbols: true       # 文章字数
@@ -209,12 +209,12 @@ baidusitmap:                # 同上
   path: baidusitemap.xml
 
 # Algolia 搜索
-# algolia:
-#   applicationID: 'LEF5EMES60'
-#   indexName: 'Search'
-#   apiKey: 51179a44bb9bdc96dd14453b3050c3e2
-#   adminApiKey: 6be6e6139dfe8e842cf595ba0f05cb07
-#   chunkSize: 5000
+algolia:
+  applicationID: 'LEF5EMES60'
+  indexName: 'Search'
+  apiKey: 51179a44bb9bdc96dd14453b3050c3e2
+  adminApiKey: 6be6e6139dfe8e842cf595ba0f05cb07
+  chunkSize: 5000
 
 # encrypt 加密
 # password: Ding

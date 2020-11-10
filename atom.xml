@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://dgzd.github.io</id>
     <title>轻尘</title>
-    <updated>2020-11-10T00:46:02.735Z</updated>
+    <updated>2020-11-10T02:52:58.241Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://dgzd.github.io"/>
     <link rel="self" href="https://dgzd.github.io/atom.xml"/>
@@ -11,35 +11,105 @@
     <icon>https://dgzd.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 轻尘</rights>
     <entry>
-        <title type="html"><![CDATA[Hello Gridea]]></title>
-        <id>https://dgzd.github.io/post/hello-gridea/</id>
-        <link href="https://dgzd.github.io/post/hello-gridea/">
+        <title type="html"><![CDATA[双拼输入法]]></title>
+        <id>https://dgzd.github.io/post/shuang-pin-shu-ru-fa/</id>
+        <link href="https://dgzd.github.io/post/shuang-pin-shu-ru-fa/">
         </link>
-        <updated>2018-12-11T16:00:00.000Z</updated>
-        <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+        <updated>2020-11-10T02:49:59.000Z</updated>
+        <summary type="html"><![CDATA[<h2 id="前言">前言</h2>
+<blockquote>
+<p>对于有码字需求的用户来说，可能早已经厌烦了全拼的输入方式了，今天，我写篇博客，随便说一说我了解的输入法吧！</p>
+</blockquote>
+<blockquote>
+<p>不详细介绍输入法，只是我的一些推荐</p>
+</blockquote>
+<blockquote>
+<p>致力于让 输入法懂我们的心意</p>
+</blockquote>
+<figure data-type="image" tabindex="1"><img src="https://ws1.sinaimg.cn/large/006iOFs0gy1fvkzh6ej4tj312w0dwwg8.jpg" alt="" loading="lazy"></figure>
 ]]></summary>
-        <content type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+        <content type="html"><![CDATA[<h2 id="前言">前言</h2>
+<blockquote>
+<p>对于有码字需求的用户来说，可能早已经厌烦了全拼的输入方式了，今天，我写篇博客，随便说一说我了解的输入法吧！</p>
+</blockquote>
+<blockquote>
+<p>不详细介绍输入法，只是我的一些推荐</p>
+</blockquote>
+<blockquote>
+<p>致力于让 输入法懂我们的心意</p>
+</blockquote>
+<figure data-type="image" tabindex="1"><img src="https://ws1.sinaimg.cn/large/006iOFs0gy1fvkzh6ej4tj312w0dwwg8.jpg" alt="" loading="lazy"></figure>
 <!-- more -->
-<p><a href="https://github.com/getgridea/gridea">Github</a><br>
-<a href="https://gridea.dev/">Gridea 主页</a><br>
-<a href="http://fehey.com/">示例网站</a></p>
-<h2 id="特性">特性👇</h2>
-<p>📝  你可以使用最酷的 <strong>Markdown</strong> 语法，进行快速创作</p>
-<p>🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片</p>
-<p>🏷️  你可以对文章进行标签分组</p>
-<p>📋  你可以自定义菜单，甚至可以创建外部链接菜单</p>
-<p>💻  你可以在 <strong>Windows</strong>，<strong>MacOS</strong> 或 <strong>Linux</strong> 设备上使用此客户端</p>
-<p>🌎  你可以使用 <strong>𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌</strong> 或 <strong>Coding Pages</strong> 向世界展示，未来将支持更多平台</p>
-<p>💬  你可以进行简单的配置，接入 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 或 <a href="https://github.com/SukkaW/DisqusJS">DisqusJS</a> 评论系统</p>
-<p>🇬🇧  你可以使用<strong>中文简体</strong>或<strong>英语</strong></p>
-<p>🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力</p>
-<p>🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步</p>
-<p>🌱 当然 <strong>Gridea</strong> 还很年轻，有很多不足，但请相信，它会不停向前 🏃</p>
-<p>未来，它一定会成为你离不开的伙伴</p>
-<p>尽情发挥你的才华吧！</p>
-<p>😘 Enjoy~</p>
+<h2 id="输入法推荐">输入法推荐</h2>
+<p>废话不多说，直开始荐吧。</p>
+<ul>
+<li>
+<p>如果能下得去决心练习，那就直接上形码输入法。关于形码输入法自己挑选吧。</p>
+</li>
+<li>
+<p>如果想更容易上手，那就双拼吧，在这里我推荐小鹤双拼。</p>
+</li>
+<li>
+<p>小鹤双拼的进阶可以加上鹤形，基本能做到不用选字了。</p>
+</li>
+</ul>
+<h2 id="个人经历">个人经历</h2>
+<ul>
+<li>
+<p>我接触的输入法有全拼，双拼，五笔。很长时间以来，都是用全拼输入法，速度的话还算过得去， 但是依靠词库依旧不能摆脱选词的烦恼，可谓是苦不堪言吧！在你正畅快的输入的时候，可能眼睛还没反应过来， 文本所对应的词或句子就被你按下了空格键，等你反应过来你输入的首选上屏的文本有问题的时候你就多次按删除键， 然后一直重复着这个步骤。所以换输入法的思绪萦绕在脑海中许久，所以有了接下来五笔的学习。</p>
+</li>
+<li>
+<p>五笔输入法其实是一个让人又爱又恨的输入法，因为它需要投入的精力和一段时间内获得的收获简直不成正比，在我初学五笔输入法的时候，其实算是入门了吧，因为想打的字我大部分都能打出来，但是使用五笔却一直也没赶上我用全拼的时候。学五笔，背完了字根，记住了一级简码，二级简码，了解了拆分原则， 这确依旧不够，如果按时间来算的话，完成这些你只相当于完成了整个五笔历程的百分之一，或许是距离百分之一也相差甚远， 因为要提高速度需要您及其大量的时间去练习每个字的拆分，直到形成肌肉记忆，提高击键和形成肌肉记忆，这没有几十万字是下不来的。可想而知这是一个多么大的工作量了。</p>
+</li>
+</ul>
+<h2 id="小鹤学习">小鹤学习</h2>
+<ul>
+<li>
+<p><a href="http://www.flypy.com">小鹤官网</a></p>
+</li>
+<li>
+<p>双拼简介：</p>
+<ul>
+<li>是一种建立在拼音输入法之上的输入法，可视为全拼的改进</li>
+<li>把拼音中的声母或韵母各自映射到某个按键上</li>
+<li>使得每个字音都可以用最多两次按键打出</li>
+<li>如：小：xn　鹤：he　双：ul　拼：pb</li>
+<li>相比于全拼，少了大部分击键，能极大的提升输入速度</li>
+</ul>
+</li>
+<li>
+<p>我目前所用的是小鹤音形（挂接搜狗输入法）</p>
+</li>
+<li>
+<p>入手的话我推荐从音形直接入手。因为这样可以节省很多选字的烦恼</p>
+</li>
+<li>
+<p>暂时不想学习形码的用户也可以学习小鹤纯双拼</p>
+</li>
+<li>
+<p>我于此只做一个引导，具体的折腾看你们自己的了。附上<a href="http://www.flypy.com">小鹤官网</a>，望自主学习。</p>
+</li>
+</ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[软路由的CPU]]></title>
+        <id>https://dgzd.github.io/post/ruan-lu-you-de-cpu/</id>
+        <link href="https://dgzd.github.io/post/ruan-lu-you-de-cpu/">
+        </link>
+        <updated>2020-11-10T02:02:41.000Z</updated>
+        <summary type="html"><![CDATA[<h2 id="前言">前言</h2>
+<blockquote>
+<p>今天无意中在 chiphell 看到一篇帖子，有一张常用软路由的CPU图，这里和大家分享一下。</p>
+</blockquote>
+]]></summary>
+        <content type="html"><![CDATA[<h2 id="前言">前言</h2>
+<blockquote>
+<p>今天无意中在 chiphell 看到一篇帖子，有一张常用软路由的CPU图，这里和大家分享一下。</p>
+</blockquote>
+<!-- more -->
+<hr>
+<figure data-type="image" tabindex="1"><img src="https://static.chiphell.com/forum/201808/06/191741r919cyy9n55b7ppg.png" alt="" loading="lazy"></figure>
 ]]></content>
     </entry>
 </feed>

@@ -9,7 +9,7 @@
 <meta name="description" content="是非在己，毁誉由人，得失不论">
 <meta name="theme-color" content="">
 <title>Hello Gridea | 轻尘</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1604914719134">
+<link rel="shortcut icon" href="/favicon.ico?v=1604969157834">
 <link rel="stylesheet" href="/styles/main.css">
 <link rel="stylesheet" href="/media/css/pisces.css">
 
@@ -323,6 +323,27 @@
   </div>
 </div>
             
+  
+    
+      <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: '52f48b7f1bd27b6abd4e',
+    clientSecret: '7c3a713d3d709f04c0215d29c2b2f874c9b4d9f2',
+    repo: 'dgzd.github.io',
+    owner: 'dgzd',
+    admin: ['dgzd'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+  gitalk.render('gitalk-container')
+</script>
+    
+    
   
 
           </div>

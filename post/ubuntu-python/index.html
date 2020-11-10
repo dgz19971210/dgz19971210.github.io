@@ -8,7 +8,7 @@
 <meta name="keywords" content="轻尘的个人博客">
 <meta name="description" content="是非在己，毁誉由人，得失不论">
 <meta name="theme-color" content="#000">
-<title>轻尘</title>
+<title>Ubuntu下修改Python版本 | 轻尘</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1604981539311">
 <link rel="stylesheet" href="/styles/main.css">
 <link rel="stylesheet" href="/media/css/gemini.css">
@@ -29,6 +29,8 @@
 
 
 
+  <meta name="description" content="Ubuntu下修改Python版本" />
+  <meta name="keywords" content="Python,Linux" />
 </head>
 
 <body>
@@ -156,8 +158,24 @@
     <div
       class="section-layout gemini ">
       <div class="section-layout-wrapper">
-        <div id="sidebarMeta" class="sidebar">
-    
+        
+
+<div class="sidebar">
+  
+    <div class="sidebar-box box-shadow-wrapper bg-color right-motion" id="sidebar">
+      
+        <div class="post-list-sidebar">
+          <div class="sidebar-title">
+            <span id="tocSideBar" class="sidebar-title-item sidebar-title-active">文章目录</span>
+            <span id="metaSideBar" class="sidebar-title-item">站点概览</span>
+          </div>
+        </div>
+      
+      <div class="sidebar-body gemini" id="sidebar_body">
+        
+          
+            <div class="post-side-meta" id="post_side_meta">
+              
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="/images/avatar.png"/>
@@ -208,51 +226,572 @@
 
 
 </div>
+            </div>
+            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
+              <div class="toc-box right-motion">
+  <div class="toc-wrapper auto-number auto"
+    id="toc_wrapper">
+    <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E5%89%8D%E8%A8%80">前言</a></li>
+<li><a href="#python%E7%89%88%E6%9C%AC%E6%9B%B4%E6%94%B9">Python版本更改</a>
+<ul>
+<li><a href="#%E5%9F%BA%E4%BA%8E%E7%94%A8%E6%88%B7%E4%BF%AE%E6%94%B9%E7%89%88%E6%9C%AC">基于用户修改版本</a></li>
+</ul>
+</li>
+<li><a href="#vim-%E4%B8%8B-python-%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8">VIM 下 Python 自动补全</a>
+<ul>
+<li><a href="#%E5%8F%82%E8%80%83%E6%96%87%E7%AB%A0niepangu%E5%92%8C%E8%BF%90%E7%BB%B4%E7%AC%94%E8%AE%B0%E5%92%8Cxpleaf">参考文章：niepangu和运维笔记和xpleaf</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BD%BF%E7%94%A8ssh%E8%BF%9E%E6%8E%A5ubuntu">使用SSH连接Ubuntu</a>
+<ul>
+<li><a href="#%E5%8F%82%E8%80%83%E6%96%87%E7%AB%A0rabbittinbee">参考文章：rabbittinbee</a></li>
+</ul>
+</li>
+<li><a href="#ubuntu%E5%AE%89%E8%A3%85fcitx%E4%BD%BF%E7%94%A8%E5%B0%8F%E9%B9%A4%E5%8F%8C%E6%8B%BC">Ubuntu安装fcitx使用小鹤双拼</a>
+<ul>
+<li><a href="#%E5%8F%82%E8%80%83%E6%96%87%E7%AB%A0%E7%82%B9%E5%87%BB%E8%BF%99%E9%87%8C">参考文章：点击这里</a></li>
+</ul>
+</li>
+<li><a href="#vmnet0-vmnet1%E5%92%8Cvmnet8%E7%9A%84%E5%8C%BA%E5%88%AB">VMNet0、VMNet1和VMNet8的区别</a></li>
+<li><a href="#vs-code-%E7%BC%96%E8%BE%91-python">VS Code 编辑 Python</a>
+<ul>
+<li><a href="#%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98">乱码问题</a></li>
+<li><a href="#%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B">配置教程</a></li>
+</ul>
+</li>
+<li><a href="#vim%E4%B8%8B%E6%8C%89-ctrls-%E5%90%8E%E5%81%87%E6%AD%BB%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95">VIM下按 Ctrl+s 后假死的解决方法</a>
+<ul>
+<li><a href="#ctrlq-%E9%80%80%E5%87%BA%E5%81%87%E6%AD%BB">Ctrl+q 退出假死</a></li>
+</ul>
+</li>
+<li><a href="#%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%E4%B8%AD">持续更新中。。。</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
 </div>
+
 <script>
-  let sidebarMeta = document.querySelector('#sidebarMeta');
-  let scheme = 'gemini';
-  let sidebarWrapper = document.querySelector('.sidebar-wrapper');
-  if (sidebarMeta && (scheme === 'pisces' || scheme === 'gemini')) {
-    document.addEventListener('scroll', function(e) {
-      if (document.scrollingElement.scrollTop > parseInt(sidebarMeta.style.marginTop) + 10) {
-        sidebarWrapper.classList.add('home-sidebar-fixed')
-      } else {
-        sidebarWrapper.classList.remove('home-sidebar-fixed')
+
+  let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1;
+  let active = 'active-show', activeClass = 'active-current';
+  let tocWrapper = document.querySelector('#toc_wrapper');
+  let tocContent = tocWrapper.children[0];
+  let autoNumber = tocWrapper && tocWrapper.classList.contains('auto-number');
+
+  function addTocNumber(elem, deep) {
+    if (!elem) {
+      return;
+    }
+    let prop = elem.__proto__;
+
+    if (prop === HTMLUListElement.prototype) {
+      for (let i = 0; i < elem.children.length; i++) {
+        addTocNumber(elem.children[i], deep + (i + 1) + '.');
       }
+    } else if (prop === HTMLLIElement.prototype) {
+      // 保存li元素
+      if (elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
+        lList.push(elem);
+      }
+      for (let i = 0; i < elem.children.length; i++) {
+        let cur = elem.children[i];
+        if (cur.__proto__ === HTMLAnchorElement.prototype) {
+          if (autoNumber) {
+            cur.text = deep + ' ' + cur.text;
+          }
+        } else if (cur.__proto__ === HTMLUListElement.prototype) {
+          addTocNumber(cur, deep);
+        }
+      }
+    }
+  }
+
+  function removeParentActiveClass() {
+    let parents = tocContent.querySelectorAll('.' + active)
+    parents.forEach(function (elem) {
+      elem.classList.remove(active);
     });
   }
-  </script>
-        <div class="section-box gemini box-shadow-wrapper">
-          <section class="friends-section bg-color slide-down-in">
-            <div class="firends-box">
-              <h1 class="firends-title" itemprop="name headline">友情链接</h1>
-              
-              
-              
+
+  function addActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.add(activeClass);
+    }
+  }
+
+  function removeActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.remove(activeClass);
+    }
+  }
+
+  function addActiveLiElemment(elem, parent) {
+    if (!elem || elem === parent) {
+      return;
+    } else {
+      if (elem.__proto__ === HTMLLIElement.prototype) {
+        elem.classList.add(active);
+      }
+      addActiveLiElemment(elem.parentElement, parent);
+    }
+  }
+
+  function showToc() {
+    if (tocWrapper) {
+      postBody = document.querySelector('#post_body');
+      for (let i = 0; i < postBody.children.length; i++) {
+        if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
+          hList.push(postBody.children[i]);
+        }
+      }
+      if (tocWrapper.classList.contains('compress')) {
+        tocContent.classList.add('closed');
+      } else if (tocWrapper.classList.contains('no_compress')) {
+        tocContent.classList.add('expanded');
+      } else {
+        if (hList.length > 10) {
+          active = 'active-hidden'
+          tocContent.classList.add('closed');
+        } else {
+          tocContent.classList.add('expanded');
+        }
+      }
+    }
+  }
+
+  (function () {
+    // 处理不是从#一级标题开始目录
+    if (tocContent.children.length === 1 && tocContent.children[0].__proto__ === HTMLLIElement.prototype) {
+      let con = tocContent.children[0].children[0];
+      tocContent.innerHTML = con.innerHTML;
+    }
+    let markdownItTOC = document.querySelector('.markdownIt-TOC');
+    let innerHeight = window.innerHeight;
+    markdownItTOC.style = `max-height: ${innerHeight - 80 > 0 ? innerHeight - 80 : innerHeight}px`
+    addTocNumber(tocContent, '');
+  })();
+
+  document.addEventListener('scroll', function (e) {
+    if (lList.length <= 0) {
+      return;
+    }
+    let scrollTop = document.scrollingElement.scrollTop + 10;
+    let dir;
+
+    if (lastTop - scrollTop > 0) {
+      dir = 'up';
+    } else {
+      dir = 'down';
+    }
+
+    lastTop = scrollTop;
+    if (scrollTop <= 0) {
+      if (lastIndex >= 0 && lastIndex < hList.length) {
+        lList[lastIndex].classList.remove(activeClass);
+      }
+      return;
+    }
+
+    let current = 0, hasFind = false;
+    for (let i = 0; i < hList.length; i++) {
+      if (hList[i].offsetTop > scrollTop) {
+        current = i;
+        hasFind = true;
+        break;
+      }
+    }
+    if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
+      current = hList.length - 1;
+    } else {
+      current--;
+    }
+    if (dir === 'down') {
+      if (current > lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex)
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    } else {
+      if (current < lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex);
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    }
+  });
+
+
+  window.addEventListener('load', function () {
+    showToc();
+    document.querySelector('#sidebar').style = 'display: block;';
+    tocWrapper.classList.add('toc-active');
+    setTimeout(function () {
+      if ("createEvent" in document) {
+        let evt = document.createEvent("HTMLEvents");
+        evt.initEvent("scroll", false, true);
+        document.dispatchEvent(evt);
+      }
+      else {
+        document.fireEvent("scroll");
+      }
+    }, 500)
+  })
+
+</script>
             </div>
-            <hr>
-            <div style="text-align:center">
-              <span class="with-love">
-                <i class="fa fa-heart"></i>
-              </span>
-              留言添加友链
-              <span class="with-love">
-                <i class="fa fa-heart"></i>
-              </span>
+          
+        
+      </div>
+    </div>
+  
+</div>
+<script>
+  const SIDEBAR_TITLE_ACTIVE = 'sidebar-title-active';
+  const SIDEBAR_BODY_ACTIVE = 'sidebar-body-active';
+  const SLIDE_UP_IN = 'slide-up-in';
+
+  let sidebar = document.querySelector('#sidebar'),
+  tocSideBar = document.querySelector('#tocSideBar'),
+  metaSideBar = document.querySelector('#metaSideBar'),
+  postToc = document.querySelector('#post_toc'),
+  postSiteMeta = document.querySelector('#post_side_meta'),
+  sidebarTitle = document.querySelector('.sidebar-title'),
+  sidebarBody = document.querySelector('#sidebar_body');
+
+  tocSideBar && tocSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  metaSideBar && metaSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  function toggleSidebar(e) {
+    let currentTitle = document.querySelector("."+SIDEBAR_TITLE_ACTIVE);
+    if (currentTitle == e.srcElement) {
+      return ;
+    }
+    let current, showElement, hideElement;
+    if (e.srcElement == metaSideBar) {
+      showElement = postSiteMeta;
+      hideElement = postToc;
+    } else if (e.srcElement == tocSideBar){
+      showElement = postToc;
+      hideElement = postSiteMeta;
+    }
+    currentTitle.classList.remove(SIDEBAR_TITLE_ACTIVE);
+    e.srcElement.classList.add(SIDEBAR_TITLE_ACTIVE);
+
+    window.Velocity(hideElement, 'stop');
+    window.Velocity(hideElement, 'transition.slideUpOut', {
+      display: 'none',
+      duration: 200,
+      complete: function () {
+        window.Velocity(showElement, 'transition.slideDownIn', {
+          duration: 200
+        });
+      }
+    })
+    hideElement.classList.remove(SIDEBAR_BODY_ACTIVE);
+    showElement.classList.add(SIDEBAR_BODY_ACTIVE);
+  }
+
+  postToc && postToc.addEventListener('transitionend', function() {
+    this.classList.remove(SLIDE_UP_IN);
+  });
+
+  if (sidebarBody) {
+    if (sidebarBody.classList.contains('pisces') || sidebarBody.classList.contains('gemini')) {
+      let hasFix = false;
+      let scrollEl = document.querySelector('.main-continer');
+      let limitTop = document.querySelector('#nav_ul').children.length * 42 + 162;
+      window.addEventListener('scroll', function(e) {
+        if (document.scrollingElement.scrollTop >= limitTop) {
+          if (!hasFix) {
+            sidebar.classList.add('sidebar-fixed');
+            hasFix = true;
+          }
+        } else {
+          if (hasFix) {
+            sidebar.classList.remove('sidebar-fixed');
+            hasFix = false;
+          }
+        }
+      });
+    }
+  }
+  
+</script>
+        <div class="section-box box-shadow-wrapper">
+          <div class="section bg-color post post-page">
+            <header class="post-header">
+  <h1 class="post-title">
+    <a class="post-title-link" href="https://dgzd.github.io/post/ubuntu-python/">
+      Ubuntu下修改Python版本
+    </a>
+  </h1>
+  <div class="post-meta">
+    
+    <span class="meta-item pc-show">
+      <i class="fa fa-calendar-o"></i>
+      <span>发布于</span>
+      <span>2018-07-16</span>
+      <span class="post-meta-divider pc-show">|</span>
+    </span>
+    
+    <span class="meta-item">
+      <i class="fa fa-folder-o"></i>
+      <span class="pc-show">分类于</span>
+      
+      
+      <a href="https://dgzd.github.io/tag/j0sauiBVm/">
+        <span>Python</span>
+      </a>、
+      
+      
+      
+      <a href="https://dgzd.github.io/tag/PmmJD2zWp/">
+        <span>Linux</span>
+      </a>
+      
+      
+    </span>
+    <span class="post-meta-divider">|</span>
+    
+    <span class="meta-item">
+      <i class="fa fa-clock-o"></i>
+      <span>5分钟</span>
+    </span>
+    <span class="meta-item">
+      <span class="post-meta-divider">|</span>
+      <i class="fa fa-file-word-o"></i>
+      <span>1125<span class="pc-show">字数</span></span>
+    </span>
+    
+  </div>
+</header>
+            <div class="post-body next-md-body" id="post_body">
+              <h2 id="前言">前言</h2>
+<blockquote>
+<p>学习Python，需要用Linux，这里说一下我我遇到的各种坑</p>
+</blockquote>
+<!-- more -->
+<h2 id="python版本更改">Python版本更改</h2>
+<p>参考文章：<a href="https://blog.csdn.net/fang_chuan/article/details/60958329">遥远的她</a> 和 <a href="https://github.com/eagleon/eagleon.github.com/issues/2">GitHub Issues</a></p>
+<h3 id="基于用户修改版本">基于用户修改版本</h3>
+<ol>
+<li>
+<p>查看所拥有的Python版本</p>
+<pre><code class="language-shell">ls /usr/bin/python*
+</code></pre>
+</li>
+<li>
+<p>查看默认版本信息</p>
+<pre><code class="language-shell">python --version
+</code></pre>
+</li>
+<li>
+<p>修改默认版本</p>
+<pre><code class="language-shell">alias python='/usr/bin/python3.6'
+</code></pre>
+</li>
+<li>
+<p>查看是否修改成功<br>
+重新登录或重新加载.bashrc文件</p>
+<pre><code class="language-shell">. ~/.bashrc
+</code></pre>
+<p>查看Python版本：参看上述第三步</p>
+ <!-- more -->
+</li>
+</ol>
+<hr>
+<h2 id="vim-下-python-自动补全">VIM 下 Python 自动补全</h2>
+<h3 id="参考文章niepangu和运维笔记和xpleaf">参考文章：<a href="https://blog.csdn.net/niepangu/article/details/78976243">niepangu</a>和<a href="https://blog.linuxeye.cn/324.html">运维笔记</a>和<a href="http://blog.51cto.com/xpleaf/1682449">xpleaf</a></h3>
+<ol>
+<li>
+<p>安装pydictin插件</p>
+<pre><code class="language-shell">    wget https://github.com/rkulla/pydiction/archive/master.zip
+    unzip -q master
+    mv pydiction-master pydiction
+    mkdir -p ~/.vim/tools/pydiction
+    cp -r pydiction/after ~/.vim
+    cp pydiction/complete-dict ~/.vim/tools/pydiction
+</code></pre>
+</li>
+<li>
+<p>创建~/.vimrc文件</p>
+<pre><code class="language-shell">    vim ~/.vimrc
+</code></pre>
+</li>
+<li>
+<p>添加配置</p>
+<pre><code class="language-shell">    filetype plugin on
+    let g:pydiction_location = '~/.vim/tools/pydiction/complete-dict'
+    let g:pydiction_menu_height = 3
+</code></pre>
+</li>
+<li>
+<p>编辑.py文件，测试是否成功</p>
+</li>
+</ol>
+<hr>
+<h2 id="使用ssh连接ubuntu">使用SSH连接Ubuntu</h2>
+<h3 id="参考文章rabbittinbee">参考文章：<a href="https://blog.csdn.net/rabbittinbee/article/details/52422790">rabbittinbee</a></h3>
+<ol>
+<li>
+<p>网络连通<br>
+Windows下查看ip cmd下:<code>ipconfig</code><br>
+Ubuntu下：<code>ifconfig</code><br>
+windows下ping Ubuntu的ip，查看是否ping通</p>
+</li>
+<li>
+<p>Ubuntu开启SSH</p>
+<ul>
+<li>查看是否开启SSH</li>
+</ul>
+<pre><code class="language-shell">    ssh localhost
+</code></pre>
+<p>如果出现下面提示表明还没有安装</p>
+<pre><code class="language-shell">    ssh: connect to hostlocalhost port 22: Connection refused 
+</code></pre>
+<ul>
+<li>开启SSH</li>
+</ul>
+<pre><code class="language-shell">sudo apt-getinstall –y openssh-server 
+</code></pre>
+</li>
+</ol>
+<hr>
+<h2 id="ubuntu安装fcitx使用小鹤双拼">Ubuntu安装fcitx使用小鹤双拼</h2>
+<h3 id="参考文章点击这里">参考文章：<a href="http://besky.me/2018/1/how-to-use-double-pinyin-with-fcitx-rime-on-ubuntu">点击这里</a></h3>
+<ol>
+<li>
+<p>安装fcitx</p>
+<pre><code class="language-shell"># 安装 fcitx-rime， 是 fcitx 社区维护的
+$ sudo apt-get install fcitx-rime
+
+# 安装双拼方案
+$ sudo apt-get insatll librime-data-double-pinyin
+
+# 配置 fcitx 为默认输入法，然后重新部署或者重启
+$ im-config
+$ sudo reboot # (如果已经装过 fcitx 就不需要重启啦，系统托盘 fcitx 图标右键重新启动即可)
+
+# 添加输入法
+$ fcitx-config-gtk3 # (一般安装好就有了，最好确认一下)
+</code></pre>
+</li>
+<li>
+<p>添加小鹤方案<br>
+添加配置文件：<code>~/.config/fcitx/rime/default.custom.yaml</code></p>
+<pre><code class="language-shell">patch:
+    schema_list:
+        - schema: luna_pinyin          # 朙月拼音
+        - schema: luna_pinyin_simp     # 朙月拼音 简化字模式
+        - schema: luna_pinyin_tw       # 朙月拼音 臺灣正體模式
+        - schema: terra_pinyin         # 地球拼音 dì qiú pīn yīn
+        - schema: bopomofo             # 注音
+        - schema: jyutping             # 粵拼
+        - schema: cangjie5             # 倉頡五代
+        - schema: cangjie5_express     # 倉頡 快打模式
+        - schema: quick5               # 速成
+        - schema: wubi86               # 五笔 86
+        - schema: wubi_pinyin          # 五笔拼音混合輸入
+        - schema: double_pinyin        # 自然碼雙拼
+        - schema: double_pinyin_mspy   # 微軟雙拼
+        - schema: double_pinyin_abc    # 智能 ABC 雙拼
+        - schema: double_pinyin_flypy  # 小鶴雙拼
+        - schema: wugniu               # 吳語上海話（新派）
+        - schema: wugniu_lopha         # 吳語上海話（老派）
+        - schema: sampheng             # 中古漢語三拼
+        - schema: zyenpheng            # 中古漢語全拼
+        - schema: ipa_xsampa           # X-SAMPA 國際音標
+        - schema: emoji                # emoji 表情
+</code></pre>
+</li>
+</ol>
+<hr>
+<h2 id="vmnet0-vmnet1和vmnet8的区别">VMNet0、VMNet1和VMNet8的区别</h2>
+<ul>
+<li>
+<p>vmnet0，实际上就是一个虚拟的网桥，这个网桥有很若干个端口，一个端口用于连接你的Host，一个端口用于连接你的虚拟机，他们的位置是对等的，谁也不是谁的网关。所以在Bridged模式下，你可以让虚拟机成为一台和你的Host相同地位的机器。</p>
+</li>
+<li>
+<p>vmnet1是host-only，也就是说，选择用vmnet1的话就相当于VMware给你提供了一个虚拟交换机，仅将虚拟机和真实系统连上了，虚拟机可以与真实系统相互共享文件，但是虚拟机无法访问外部互联；</p>
+</li>
+<li>
+<p>vmnet8是NAT，就是网络地址转换，相当于给你一个虚拟交换机，将虚拟机和真实系统连上去了，同时这台虚拟交换机又和外部互联网相连，这样虚拟机和真是系统可以相互共享，同时又都能访问外部互联网，而且虚拟机是借用真实系统的IP上网的，不会受到IP-MAC绑定的限制。</p>
+</li>
+<li>
+<p>注意：很多人把VMnet8在宿主机比作虚拟机的路由器，这个是不对的，如果比作路由器的话，那么，虚拟机若想上网，必须把虚拟机上面的IP地址和宿主机VMnet8的ip地址相同才可以，如果那样就没有意义了，显然是不对的。所以，我们把宿主机VMnet8比作：“一个交换机，同时和外部互联网相连”。</p>
+</li>
+</ul>
+<hr>
+<h2 id="vs-code-编辑-python">VS Code 编辑 Python</h2>
+<h3 id="乱码问题">乱码问题</h3>
+<p>参考文章：<a href="https://www.cnblogs.com/zhaoshizi/p/9050768.html">zhaoshizi</a></p>
+<p>首选项中把<code>code-runner.executorMap</code>设置为<code>&quot;python&quot;:&quot;set PYTHONIOENCODING=utf-8 &amp;&amp; python&quot;</code><br>
+完美解决</p>
+<h3 id="配置教程">配置教程</h3>
+<p>参考文章：<a href="https://zhuanlan.zhihu.com/p/31417084">浪晋</a></p>
+<hr>
+<h2 id="vim下按-ctrls-后假死的解决方法">VIM下按 Ctrl+s 后假死的解决方法</h2>
+<h3 id="ctrlq-退出假死">Ctrl+q 退出假死</h3>
+<ul>
+<li>使用vim时，如果你不小心按了 Ctrl + s后，你会发现不能输入任何东西了，像死掉了一般，其实vim并没有死掉，这时vim只是停止向终端输出而已，要想退出这种状态，只需按Ctrl + q 即可恢复正常。</li>
+</ul>
+<hr>
+<h2 id="持续更新中">持续更新中。。。</h2>
+
             </div>
-            <hr>
-            <div class="friends-note">
-              <p><strong>友链格式：</strong></p>
-              <ul>
-                <li>网站名称：枫糖</li>
-                <li>网站地址：<a href="https://blog.maplesugar.space" data-pjax-state="">https://blog.maplesugar.space</a>
-                </li>
-                <li> 网站描述：From rookie to master</li>
-                <li> 网站 Logo / 头像：<a href="https://blog.maplesugar.space/uploads/maple-leaf-avatar.jpg"
-                    data-pjax-state="">https://blog.maplesugar.space/uploads/maple-leaf-avatar.jpg</a></li>
-              </ul>
-            </div>
+            <div class="post-footer">
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      轻尘
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://dgzd.github.io/post/ubuntu-python/" title="Ubuntu下修改Python版本">https://dgzd.github.io/post/ubuntu-python/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i> BY-NC-SA</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+  <div class="tags">
+    
+      <a href="https://dgzd.github.io/tag/j0sauiBVm/"># Python</a>
+    
+      <a href="https://dgzd.github.io/tag/PmmJD2zWp/"># Linux</a>
+    
+  </div>
+  <div class="nav">
+    <div class="nav-prev">
+      
+        <i class="fa fa-chevron-left"></i>
+        <a class="nav-pc-next" title="Linux知识整理" href="https://dgzd.github.io/post/linux-zhi-shi-zheng-li/">Linux知识整理</a class="nav-pc-next">
+        <a class="nav-mobile-prev" title="Linux知识整理" href="https://dgzd.github.io/post/linux-zhi-shi-zheng-li/">上一篇</a>
+      
+    </div>
+    <div class="nav-next">
+      
+        <a class="nav-pc-next" title="双拼输入法" href="https://dgzd.github.io/post/shuang-pin/">双拼输入法</a>
+        <a class="nav-mobile-next" title="双拼输入法" href="https://dgzd.github.io/post/shuang-pin/">下一篇</a>
+        <i class="fa fa-chevron-right"></i>
+      
+    </div>
+  </div>
+</div>
             
   
     
@@ -277,7 +816,7 @@
     
   
 
-          </section>
+          </div>
         </div>
       </div>
     </div>
@@ -447,6 +986,36 @@
   // 代码高亮
   hljs.initHighlightingOnLoad();
 
+</script>
+    <div class="light-box" id="light_box"></div>
+<script>
+  let imgs = document.querySelectorAll('.post-body img');
+  let lightBox = document.querySelector('#light_box');
+  lightBox.addEventListener('mousedown', (e) => {
+    e.preventDefault()
+  })
+  lightBox.addEventListener('mousewheel', (e) => {
+    e.preventDefault()
+  })
+  let width = window.innerWidth * 0.8;
+  lightBox.onclick = () => {
+    let img = lightBox.querySelector('img');
+    lightBox.style = '';
+    img && img.remove();
+  }
+  imgs.forEach(item => {
+    item.onclick = function (e) {
+      let lightImg = document.createElement('img');
+      lightImg.src = this.src;
+      lightBox.style = `height: 100%; opacity: 1; background-color: rgba(0, 0, 0, 0.5);cursor: zoom-out;`;
+      lightImg.style = `width: ${width}px; border: 1px solid #fff; border-radius: 2px;`;
+      lightImg.onclick = function () {
+        lightBox.style = '';
+        this.remove();
+      }
+      lightBox.append(lightImg);
+    }
+  })
 </script>
   </div>
 </body>
@@ -3853,7 +4422,6 @@ $ git archives&lt;/code&gt;&lt;/pre&gt;
   escapeMap.set('&quot;', '"');
   escapeMap.set('&amp;', '&');
 </script> -->
-
 
 
 </html>

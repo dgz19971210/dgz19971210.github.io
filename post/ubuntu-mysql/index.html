@@ -8,7 +8,7 @@
 <meta name="keywords" content="轻尘的个人博客">
 <meta name="description" content="是非在己，毁誉由人，得失不论">
 <meta name="theme-color" content="#000">
-<title>轻尘</title>
+<title>Ubuntu安装MySql | 轻尘</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1604981539311">
 <link rel="stylesheet" href="/styles/main.css">
 <link rel="stylesheet" href="/media/css/gemini.css">
@@ -29,6 +29,8 @@
 
 
 
+  <meta name="description" content="Ubuntu安装MySql" />
+  <meta name="keywords" content="MySql,Linux" />
 </head>
 
 <body>
@@ -156,8 +158,24 @@
     <div
       class="section-layout gemini ">
       <div class="section-layout-wrapper">
-        <div id="sidebarMeta" class="sidebar">
-    
+        
+
+<div class="sidebar">
+  
+    <div class="sidebar-box box-shadow-wrapper bg-color right-motion" id="sidebar">
+      
+        <div class="post-list-sidebar">
+          <div class="sidebar-title">
+            <span id="tocSideBar" class="sidebar-title-item sidebar-title-active">文章目录</span>
+            <span id="metaSideBar" class="sidebar-title-item">站点概览</span>
+          </div>
+        </div>
+      
+      <div class="sidebar-body gemini" id="sidebar_body">
+        
+          
+            <div class="post-side-meta" id="post_side_meta">
+              
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="/images/avatar.png"/>
@@ -208,51 +226,580 @@
 
 
 </div>
+            </div>
+            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
+              <div class="toc-box right-motion">
+  <div class="toc-wrapper auto-number auto"
+    id="toc_wrapper">
+    <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E5%89%8D%E8%A8%80">前言</a></li>
+</ul>
+</li>
+<li><a href="#ubuntu-%E5%AE%89%E8%A3%85-mysql">Ubuntu 安装 MySQL</a>
+<ul>
+<li><a href="#%E5%AE%89%E8%A3%85">安装</a></li>
+<li><a href="#%E9%85%8D%E7%BD%AE">配置</a></li>
+<li><a href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4">常用命令</a></li>
+<li><a href="#%E9%83%A8%E7%BD%B2%E5%BA%94%E7%94%A8%E5%88%B0%E7%94%9F%E4%BA%A7%E7%8E%AF%E5%A2%83">部署应用到生产环境</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
 </div>
+
 <script>
-  let sidebarMeta = document.querySelector('#sidebarMeta');
-  let scheme = 'gemini';
-  let sidebarWrapper = document.querySelector('.sidebar-wrapper');
-  if (sidebarMeta && (scheme === 'pisces' || scheme === 'gemini')) {
-    document.addEventListener('scroll', function(e) {
-      if (document.scrollingElement.scrollTop > parseInt(sidebarMeta.style.marginTop) + 10) {
-        sidebarWrapper.classList.add('home-sidebar-fixed')
-      } else {
-        sidebarWrapper.classList.remove('home-sidebar-fixed')
+
+  let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1;
+  let active = 'active-show', activeClass = 'active-current';
+  let tocWrapper = document.querySelector('#toc_wrapper');
+  let tocContent = tocWrapper.children[0];
+  let autoNumber = tocWrapper && tocWrapper.classList.contains('auto-number');
+
+  function addTocNumber(elem, deep) {
+    if (!elem) {
+      return;
+    }
+    let prop = elem.__proto__;
+
+    if (prop === HTMLUListElement.prototype) {
+      for (let i = 0; i < elem.children.length; i++) {
+        addTocNumber(elem.children[i], deep + (i + 1) + '.');
       }
+    } else if (prop === HTMLLIElement.prototype) {
+      // 保存li元素
+      if (elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
+        lList.push(elem);
+      }
+      for (let i = 0; i < elem.children.length; i++) {
+        let cur = elem.children[i];
+        if (cur.__proto__ === HTMLAnchorElement.prototype) {
+          if (autoNumber) {
+            cur.text = deep + ' ' + cur.text;
+          }
+        } else if (cur.__proto__ === HTMLUListElement.prototype) {
+          addTocNumber(cur, deep);
+        }
+      }
+    }
+  }
+
+  function removeParentActiveClass() {
+    let parents = tocContent.querySelectorAll('.' + active)
+    parents.forEach(function (elem) {
+      elem.classList.remove(active);
     });
   }
-  </script>
-        <div class="section-box gemini box-shadow-wrapper">
-          <section class="friends-section bg-color slide-down-in">
-            <div class="firends-box">
-              <h1 class="firends-title" itemprop="name headline">友情链接</h1>
-              
-              
-              
+
+  function addActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.add(activeClass);
+    }
+  }
+
+  function removeActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.remove(activeClass);
+    }
+  }
+
+  function addActiveLiElemment(elem, parent) {
+    if (!elem || elem === parent) {
+      return;
+    } else {
+      if (elem.__proto__ === HTMLLIElement.prototype) {
+        elem.classList.add(active);
+      }
+      addActiveLiElemment(elem.parentElement, parent);
+    }
+  }
+
+  function showToc() {
+    if (tocWrapper) {
+      postBody = document.querySelector('#post_body');
+      for (let i = 0; i < postBody.children.length; i++) {
+        if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
+          hList.push(postBody.children[i]);
+        }
+      }
+      if (tocWrapper.classList.contains('compress')) {
+        tocContent.classList.add('closed');
+      } else if (tocWrapper.classList.contains('no_compress')) {
+        tocContent.classList.add('expanded');
+      } else {
+        if (hList.length > 10) {
+          active = 'active-hidden'
+          tocContent.classList.add('closed');
+        } else {
+          tocContent.classList.add('expanded');
+        }
+      }
+    }
+  }
+
+  (function () {
+    // 处理不是从#一级标题开始目录
+    if (tocContent.children.length === 1 && tocContent.children[0].__proto__ === HTMLLIElement.prototype) {
+      let con = tocContent.children[0].children[0];
+      tocContent.innerHTML = con.innerHTML;
+    }
+    let markdownItTOC = document.querySelector('.markdownIt-TOC');
+    let innerHeight = window.innerHeight;
+    markdownItTOC.style = `max-height: ${innerHeight - 80 > 0 ? innerHeight - 80 : innerHeight}px`
+    addTocNumber(tocContent, '');
+  })();
+
+  document.addEventListener('scroll', function (e) {
+    if (lList.length <= 0) {
+      return;
+    }
+    let scrollTop = document.scrollingElement.scrollTop + 10;
+    let dir;
+
+    if (lastTop - scrollTop > 0) {
+      dir = 'up';
+    } else {
+      dir = 'down';
+    }
+
+    lastTop = scrollTop;
+    if (scrollTop <= 0) {
+      if (lastIndex >= 0 && lastIndex < hList.length) {
+        lList[lastIndex].classList.remove(activeClass);
+      }
+      return;
+    }
+
+    let current = 0, hasFind = false;
+    for (let i = 0; i < hList.length; i++) {
+      if (hList[i].offsetTop > scrollTop) {
+        current = i;
+        hasFind = true;
+        break;
+      }
+    }
+    if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
+      current = hList.length - 1;
+    } else {
+      current--;
+    }
+    if (dir === 'down') {
+      if (current > lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex)
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    } else {
+      if (current < lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex);
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    }
+  });
+
+
+  window.addEventListener('load', function () {
+    showToc();
+    document.querySelector('#sidebar').style = 'display: block;';
+    tocWrapper.classList.add('toc-active');
+    setTimeout(function () {
+      if ("createEvent" in document) {
+        let evt = document.createEvent("HTMLEvents");
+        evt.initEvent("scroll", false, true);
+        document.dispatchEvent(evt);
+      }
+      else {
+        document.fireEvent("scroll");
+      }
+    }, 500)
+  })
+
+</script>
             </div>
-            <hr>
-            <div style="text-align:center">
-              <span class="with-love">
-                <i class="fa fa-heart"></i>
-              </span>
-              留言添加友链
-              <span class="with-love">
-                <i class="fa fa-heart"></i>
-              </span>
+          
+        
+      </div>
+    </div>
+  
+</div>
+<script>
+  const SIDEBAR_TITLE_ACTIVE = 'sidebar-title-active';
+  const SIDEBAR_BODY_ACTIVE = 'sidebar-body-active';
+  const SLIDE_UP_IN = 'slide-up-in';
+
+  let sidebar = document.querySelector('#sidebar'),
+  tocSideBar = document.querySelector('#tocSideBar'),
+  metaSideBar = document.querySelector('#metaSideBar'),
+  postToc = document.querySelector('#post_toc'),
+  postSiteMeta = document.querySelector('#post_side_meta'),
+  sidebarTitle = document.querySelector('.sidebar-title'),
+  sidebarBody = document.querySelector('#sidebar_body');
+
+  tocSideBar && tocSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  metaSideBar && metaSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  function toggleSidebar(e) {
+    let currentTitle = document.querySelector("."+SIDEBAR_TITLE_ACTIVE);
+    if (currentTitle == e.srcElement) {
+      return ;
+    }
+    let current, showElement, hideElement;
+    if (e.srcElement == metaSideBar) {
+      showElement = postSiteMeta;
+      hideElement = postToc;
+    } else if (e.srcElement == tocSideBar){
+      showElement = postToc;
+      hideElement = postSiteMeta;
+    }
+    currentTitle.classList.remove(SIDEBAR_TITLE_ACTIVE);
+    e.srcElement.classList.add(SIDEBAR_TITLE_ACTIVE);
+
+    window.Velocity(hideElement, 'stop');
+    window.Velocity(hideElement, 'transition.slideUpOut', {
+      display: 'none',
+      duration: 200,
+      complete: function () {
+        window.Velocity(showElement, 'transition.slideDownIn', {
+          duration: 200
+        });
+      }
+    })
+    hideElement.classList.remove(SIDEBAR_BODY_ACTIVE);
+    showElement.classList.add(SIDEBAR_BODY_ACTIVE);
+  }
+
+  postToc && postToc.addEventListener('transitionend', function() {
+    this.classList.remove(SLIDE_UP_IN);
+  });
+
+  if (sidebarBody) {
+    if (sidebarBody.classList.contains('pisces') || sidebarBody.classList.contains('gemini')) {
+      let hasFix = false;
+      let scrollEl = document.querySelector('.main-continer');
+      let limitTop = document.querySelector('#nav_ul').children.length * 42 + 162;
+      window.addEventListener('scroll', function(e) {
+        if (document.scrollingElement.scrollTop >= limitTop) {
+          if (!hasFix) {
+            sidebar.classList.add('sidebar-fixed');
+            hasFix = true;
+          }
+        } else {
+          if (hasFix) {
+            sidebar.classList.remove('sidebar-fixed');
+            hasFix = false;
+          }
+        }
+      });
+    }
+  }
+  
+</script>
+        <div class="section-box box-shadow-wrapper">
+          <div class="section bg-color post post-page">
+            <header class="post-header">
+  <h1 class="post-title">
+    <a class="post-title-link" href="https://dgzd.github.io/post/ubuntu-mysql/">
+      Ubuntu安装MySql
+    </a>
+  </h1>
+  <div class="post-meta">
+    
+    <span class="meta-item pc-show">
+      <i class="fa fa-calendar-o"></i>
+      <span>发布于</span>
+      <span>2019-02-28</span>
+      <span class="post-meta-divider pc-show">|</span>
+    </span>
+    
+    <span class="meta-item">
+      <i class="fa fa-folder-o"></i>
+      <span class="pc-show">分类于</span>
+      
+      
+      <a href="https://dgzd.github.io/tag/13DspYgf6/">
+        <span>MySql</span>
+      </a>、
+      
+      
+      
+      <a href="https://dgzd.github.io/tag/PmmJD2zWp/">
+        <span>Linux</span>
+      </a>
+      
+      
+    </span>
+    <span class="post-meta-divider">|</span>
+    
+    <span class="meta-item">
+      <i class="fa fa-clock-o"></i>
+      <span>5分钟</span>
+    </span>
+    <span class="meta-item">
+      <span class="post-meta-divider">|</span>
+      <i class="fa fa-file-word-o"></i>
+      <span>954<span class="pc-show">字数</span></span>
+    </span>
+    
+  </div>
+</header>
+            <div class="post-body next-md-body" id="post_body">
+              <h2 id="前言">前言</h2>
+<blockquote>
+<p>Ubuntu安装MySql</p>
+</blockquote>
+<!-- more -->
+<h1 id="ubuntu-安装-mysql">Ubuntu 安装 MySQL</h1>
+<h2 id="安装">安装</h2>
+<ul>
+<li>
+<p>修改 apt 源（已修改的可忽略）</p>
+<ol>
+<li>
+<p>备份原文件</p>
+<pre><code class="language-shell">sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
+</code></pre>
+</li>
+<li>
+<p>编辑源列表文件</p>
+<pre><code class="language-shell">sudo vim /etc/apt/sources.list
+</code></pre>
+</li>
+<li>
+<p>删除原来的文件内容，添加下列源</p>
+<pre><code class="language-list">deb http://mirrors.ustc.edu.cn/ubuntu/ xenial main restricted universe multiverse
+deb http://mirrors.ustc.edu.cn/ubuntu/ xenial-security main restricted universe multiverse
+deb http://mirrors.ustc.edu.cn/ubuntu/ xenial-updates main restricted universe multiverse
+deb http://mirrors.ustc.edu.cn/ubuntu/ xenial-proposed main restricted universe multiverse
+deb http://mirrors.ustc.edu.cn/ubuntu/ xenial-backports main restricted universe multiverse
+deb-src http://mirrors.ustc.edu.cn/ubuntu/ xenial main restricted universe multiverse
+deb-src http://mirrors.ustc.edu.cn/ubuntu/ xenial-security main restricted universe multiverse
+deb-src http://mirrors.ustc.edu.cn/ubuntu/ xenial-updates main restricted universe multiverse
+deb-src http://mirrors.ustc.edu.cn/ubuntu/ xenial-proposed main restricted universe multiverse
+deb-src http://mirrors.ustc.edu.cn/ubuntu/ xenial-backports main restricted universe multiverse
+</code></pre>
+</li>
+<li>
+<p>更新 apt-get 数据源</p>
+<pre><code class="language-shell">sudo apt-get update
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p>使用 apt-get 安装 <code>mysql-server</code></p>
+<pre><code class="language-shell">apt-get install mysql-server
+</code></pre>
+</li>
+</ul>
+<h2 id="配置">配置</h2>
+<ul>
+<li>
+<p>运行安全脚本</p>
+<pre><code class="language-shell">mysql_secure_installation
+</code></pre>
+<p>这将提示您输入您在之前步骤中创建的 root 密码。您可以按 Y，然后 ENTER 接受所有后续问题的默认值，但是要询问您是否要更改 root 密码。您只需在之前步骤中进行设置即可，因此无需现在更改。</p>
+</li>
+<li>
+<p>查看 MySQL 状态</p>
+<pre><code class="language-shell">systemctl status mysql.service
+</code></pre>
+</li>
+<li>
+<p>查看 MySQL 版本</p>
+<pre><code class="language-shell">mysqladmin -p -u root version
+</code></pre>
+</li>
+<li>
+<p>配置远程访问</p>
+<pre><code class="language-shell"># 修改配置文件
+vim /etc/mysql/mysql.conf.d/mysqld.cnf
+
+# 注释掉绑定的 IP地址
+bind-address = 127.0.0.1
+
+# 重启 MySQL
+service mysql restart
+
+</code></pre>
+</li>
+<li>
+<p>登录 MySQL，并在其中操作</p>
+<pre><code class="language-mysql">-- 登录
+mysql -u root -p
+
+-- 设置密码安全策略
+set global validate_password_policy=0;
+-- 设置密码最少长度
+set global validate_password_length=1;
+
+-- 允许root用户/密码“123456”,在localhost发起的访问
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost' IDENTIFIED BY '123456' WITH GRANT OPTION;
+-- 允许root用户/密码“123456”,在127.0.0.1发起的访问
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'127.0.0.1' IDENTIFIED BY '123456' WITH GRANT OPTION;
+-- 允许root用户/密码“123456”,在局域网所以ip发起的访问
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '123456' WITH GRANT OPTION;
+
+-- 刷新权限
+FLUSH PRIVILEGES;
+</code></pre>
+</li>
+<li>
+<p>修改 <code>mysqld.cnf</code> 配置文件</p>
+<pre><code class="language-shell"># 进入文件
+vi /etc/mysql/mysql.conf.d/mysqld.cnf
+</code></pre>
+<p>在 <code>[mysqld]</code> 节点上增加一个节点</p>
+<pre><code>[client]
+default-character-set=utf8
+</code></pre>
+<p>在 <code>[mysqld]</code> 节点底部增加如下配置</p>
+<pre><code>skip-grant-tables
+default-storage-engine=INNODB
+character-set-server=utf8
+collation-server=utf8_general_ci
+lower-case-table-names = 1
+</code></pre>
+</li>
+</ul>
+<p>​	注：出现拒绝访问root用户的解决方案，添加上述 <code>skip-grant-tables</code> 配置</p>
+<p>​      参考：<a href="https://blog.csdn.net/qq_36675754/article/details/81381341">CSDN</a></p>
+<p>​      配置文件详情：<a href="https://blog.csdn.net/lienfeng6/article/details/78140404">mysql配置文件详情</a></p>
+<h2 id="常用命令">常用命令</h2>
+<ul>
+<li>
+<p>启动</p>
+<pre><code class="language-shell"># 启动方式1 
+service mysql start
+
+# 启动方式2
+systemctl start mysql.service
+</code></pre>
+</li>
+<li>
+<p>停止</p>
+<pre><code class="language-shell">service mysql stop
+</code></pre>
+</li>
+<li>
+<p>重启</p>
+<pre><code class="language-shell">service mysql restart
+</code></pre>
+</li>
+<li>
+<p>查看 MySQL 状态</p>
+<pre><code class="language-shell">systemctl status mysql.service
+</code></pre>
+</li>
+</ul>
+<h2 id="部署应用到生产环境">部署应用到生产环境</h2>
+<ul>
+<li>
+<p>导入数据库</p>
+<p>使用 MySQL 工具导入即可</p>
+</li>
+<li>
+<p>设置 Tomcat 远程访问密码</p>
+<pre><code class="language-xml">1. 修改 Tomcat 下的 conf/tomcat-users.xml
+&lt;tomcat-users&gt; 
+&lt;role rolename=&quot;manager-gui&quot;/&gt; 
+&lt;role rolename=&quot;admin-gui&quot;/&gt; 
+&lt;role rolename=&quot;manager-script&quot;/&gt; 
+&lt;user username=&quot;admin&quot; password=&quot;admin&quot; roles=&quot;manager-gui,admin-gui,manager-script&quot;/&gt; 
+&lt;/tomcat-users&gt; 
+
+2. 同时还需要修改，如无新建conf/Catalina/localhost/manager.xml 内容如下：
+
+&lt;Context privileged=&quot;true&quot; antiResourceLocking=&quot;false&quot;
+         docBase=&quot;${catalina.home}/webapps/manager&quot;&gt;
+    &lt;Valve className=&quot;org.apache.catalina.valves.RemoteAddrValve&quot; allow=&quot;^.*$&quot; /&gt;
+&lt;/Context&gt;
+</code></pre>
+</li>
+<li>
+<p>部署 WEB 项目</p>
+<ol>
+<li>
+<p>手动发布</p>
+<p>访问地址：<code>http://10.3.133.33:8080/manager</code> 页面，利用 Tomcat 进行发布</p>
+</li>
+<li>
+<p>Maven 插件发布</p>
+<p>在项目最顶层添加插件，运行插件即可</p>
+<pre><code class="language-xml"> &lt;build&gt;
+        &lt;plugins&gt;
+            &lt;!-- tomcat插件 --&gt;
+            &lt;plugin&gt;
+                &lt;groupId&gt;org.apache.tomcat.maven&lt;/groupId&gt;
+                &lt;artifactId&gt;tomcat7-maven-plugin&lt;/artifactId&gt;
+                &lt;version&gt;2.2&lt;/version&gt;
+                &lt;configuration&gt;
+                    &lt;url&gt;http://10.3.50.119:8080/manager/text&lt;/url&gt;
+                    &lt;username&gt;admin&lt;/username&gt;
+                    &lt;password&gt;admin&lt;/password&gt;
+                    &lt;update&gt;true&lt;/update&gt;
+                    &lt;path&gt;/test&lt;/path&gt;
+                &lt;/configuration&gt;
+            &lt;/plugin&gt;
+        &lt;/plugins&gt;
+    &lt;/build&gt;
+</code></pre>
+</li>
+</ol>
+</li>
+</ul>
+
             </div>
-            <hr>
-            <div class="friends-note">
-              <p><strong>友链格式：</strong></p>
-              <ul>
-                <li>网站名称：枫糖</li>
-                <li>网站地址：<a href="https://blog.maplesugar.space" data-pjax-state="">https://blog.maplesugar.space</a>
-                </li>
-                <li> 网站描述：From rookie to master</li>
-                <li> 网站 Logo / 头像：<a href="https://blog.maplesugar.space/uploads/maple-leaf-avatar.jpg"
-                    data-pjax-state="">https://blog.maplesugar.space/uploads/maple-leaf-avatar.jpg</a></li>
-              </ul>
-            </div>
+            <div class="post-footer">
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      轻尘
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://dgzd.github.io/post/ubuntu-mysql/" title="Ubuntu安装MySql">https://dgzd.github.io/post/ubuntu-mysql/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i> BY-NC-SA</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+  <div class="tags">
+    
+      <a href="https://dgzd.github.io/tag/13DspYgf6/"># MySql</a>
+    
+      <a href="https://dgzd.github.io/tag/PmmJD2zWp/"># Linux</a>
+    
+  </div>
+  <div class="nav">
+    <div class="nav-prev">
+      
+        <i class="fa fa-chevron-left"></i>
+        <a class="nav-pc-next" title="Ubuntu安装及使用Docker" href="https://dgzd.github.io/post/ubuntu-docker/">Ubuntu安装及使用Docker</a class="nav-pc-next">
+        <a class="nav-mobile-prev" title="Ubuntu安装及使用Docker" href="https://dgzd.github.io/post/ubuntu-docker/">上一篇</a>
+      
+    </div>
+    <div class="nav-next">
+      
+        <a class="nav-pc-next" title="Ubuntu安装Tomcat" href="https://dgzd.github.io/post/ubuntu-tomcat/">Ubuntu安装Tomcat</a>
+        <a class="nav-mobile-next" title="Ubuntu安装Tomcat" href="https://dgzd.github.io/post/ubuntu-tomcat/">下一篇</a>
+        <i class="fa fa-chevron-right"></i>
+      
+    </div>
+  </div>
+</div>
             
   
     
@@ -277,7 +824,7 @@
     
   
 
-          </section>
+          </div>
         </div>
       </div>
     </div>
@@ -447,6 +994,36 @@
   // 代码高亮
   hljs.initHighlightingOnLoad();
 
+</script>
+    <div class="light-box" id="light_box"></div>
+<script>
+  let imgs = document.querySelectorAll('.post-body img');
+  let lightBox = document.querySelector('#light_box');
+  lightBox.addEventListener('mousedown', (e) => {
+    e.preventDefault()
+  })
+  lightBox.addEventListener('mousewheel', (e) => {
+    e.preventDefault()
+  })
+  let width = window.innerWidth * 0.8;
+  lightBox.onclick = () => {
+    let img = lightBox.querySelector('img');
+    lightBox.style = '';
+    img && img.remove();
+  }
+  imgs.forEach(item => {
+    item.onclick = function (e) {
+      let lightImg = document.createElement('img');
+      lightImg.src = this.src;
+      lightBox.style = `height: 100%; opacity: 1; background-color: rgba(0, 0, 0, 0.5);cursor: zoom-out;`;
+      lightImg.style = `width: ${width}px; border: 1px solid #fff; border-radius: 2px;`;
+      lightImg.onclick = function () {
+        lightBox.style = '';
+        this.remove();
+      }
+      lightBox.append(lightImg);
+    }
+  })
 </script>
   </div>
 </body>
@@ -3853,7 +4430,6 @@ $ git archives&lt;/code&gt;&lt;/pre&gt;
   escapeMap.set('&quot;', '"');
   escapeMap.set('&amp;', '&');
 </script> -->
-
 
 
 </html>

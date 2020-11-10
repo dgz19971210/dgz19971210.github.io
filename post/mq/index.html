@@ -8,7 +8,7 @@
 <meta name="keywords" content="轻尘的个人博客">
 <meta name="description" content="是非在己，毁誉由人，得失不论">
 <meta name="theme-color" content="#000">
-<title>轻尘</title>
+<title>消息队列 | 轻尘</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1604981539311">
 <link rel="stylesheet" href="/styles/main.css">
 <link rel="stylesheet" href="/media/css/gemini.css">
@@ -29,6 +29,8 @@
 
 
 
+  <meta name="description" content="消息队列" />
+  <meta name="keywords" content="Java" />
 </head>
 
 <body>
@@ -156,8 +158,24 @@
     <div
       class="section-layout gemini ">
       <div class="section-layout-wrapper">
-        <div id="sidebarMeta" class="sidebar">
-    
+        
+
+<div class="sidebar">
+  
+    <div class="sidebar-box box-shadow-wrapper bg-color right-motion" id="sidebar">
+      
+        <div class="post-list-sidebar">
+          <div class="sidebar-title">
+            <span id="tocSideBar" class="sidebar-title-item sidebar-title-active">文章目录</span>
+            <span id="metaSideBar" class="sidebar-title-item">站点概览</span>
+          </div>
+        </div>
+      
+      <div class="sidebar-body gemini" id="sidebar_body">
+        
+          
+            <div class="post-side-meta" id="post_side_meta">
+              
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="/images/avatar.png"/>
@@ -208,51 +226,504 @@
 
 
 </div>
+            </div>
+            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
+              <div class="toc-box right-motion">
+  <div class="toc-wrapper auto-number auto"
+    id="toc_wrapper">
+    <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E5%89%8D%E8%A8%80">前言</a></li>
+<li><a href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97">什么是消息队列</a></li>
+<li><a href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E4%BD%BF%E7%94%A8%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97">为什么要使用消息队列</a>
+<ul>
+<li><a href="#%E8%A7%A3%E8%80%A6">解耦</a></li>
+<li><a href="#%E5%BC%82%E6%AD%A5">异步</a></li>
+<li><a href="#%E5%89%8A%E5%B3%B0">削峰</a></li>
+</ul>
+</li>
+<li><a href="#%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9">消息队列的优缺点</a>
+<ul>
+<li><a href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%88%86%E5%B8%83%E5%BC%8F%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97">为什么要分布式消息队列</a></li>
+<li><a href="#%E4%BC%98%E7%82%B9">优点</a></li>
+<li><a href="#%E7%BC%BA%E7%82%B9">缺点</a></li>
+</ul>
+</li>
+<li><a href="#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98">常见问题</a>
+<ul>
+<li><a href="#%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E6%98%AF%E9%AB%98%E5%8F%AF%E7%94%A8">如何保证消息队列是高可用</a></li>
+<li><a href="#%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81%E6%B6%88%E6%81%AF%E4%B8%8D%E8%A2%AB%E9%87%8D%E5%A4%8D%E6%B6%88%E8%B4%B9">如何保证消息不被重复消费</a></li>
+<li><a href="#%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81%E6%B6%88%E8%B4%B9%E7%9A%84%E5%8F%AF%E9%9D%A0%E6%80%A7%E4%BC%A0%E8%BE%93">如何保证消费的可靠性传输</a></li>
+<li><a href="#%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81%E6%B6%88%E6%81%AF%E7%9A%84%E9%A1%BA%E5%BA%8F%E6%80%A7">如何保证消息的顺序性</a></li>
+</ul>
+</li>
+<li><a href="#%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E9%80%89%E5%9E%8B">消息队列选型</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
 </div>
+
 <script>
-  let sidebarMeta = document.querySelector('#sidebarMeta');
-  let scheme = 'gemini';
-  let sidebarWrapper = document.querySelector('.sidebar-wrapper');
-  if (sidebarMeta && (scheme === 'pisces' || scheme === 'gemini')) {
-    document.addEventListener('scroll', function(e) {
-      if (document.scrollingElement.scrollTop > parseInt(sidebarMeta.style.marginTop) + 10) {
-        sidebarWrapper.classList.add('home-sidebar-fixed')
-      } else {
-        sidebarWrapper.classList.remove('home-sidebar-fixed')
+
+  let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1;
+  let active = 'active-show', activeClass = 'active-current';
+  let tocWrapper = document.querySelector('#toc_wrapper');
+  let tocContent = tocWrapper.children[0];
+  let autoNumber = tocWrapper && tocWrapper.classList.contains('auto-number');
+
+  function addTocNumber(elem, deep) {
+    if (!elem) {
+      return;
+    }
+    let prop = elem.__proto__;
+
+    if (prop === HTMLUListElement.prototype) {
+      for (let i = 0; i < elem.children.length; i++) {
+        addTocNumber(elem.children[i], deep + (i + 1) + '.');
       }
+    } else if (prop === HTMLLIElement.prototype) {
+      // 保存li元素
+      if (elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
+        lList.push(elem);
+      }
+      for (let i = 0; i < elem.children.length; i++) {
+        let cur = elem.children[i];
+        if (cur.__proto__ === HTMLAnchorElement.prototype) {
+          if (autoNumber) {
+            cur.text = deep + ' ' + cur.text;
+          }
+        } else if (cur.__proto__ === HTMLUListElement.prototype) {
+          addTocNumber(cur, deep);
+        }
+      }
+    }
+  }
+
+  function removeParentActiveClass() {
+    let parents = tocContent.querySelectorAll('.' + active)
+    parents.forEach(function (elem) {
+      elem.classList.remove(active);
     });
   }
-  </script>
-        <div class="section-box gemini box-shadow-wrapper">
-          <section class="friends-section bg-color slide-down-in">
-            <div class="firends-box">
-              <h1 class="firends-title" itemprop="name headline">友情链接</h1>
-              
-              
-              
+
+  function addActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.add(activeClass);
+    }
+  }
+
+  function removeActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.remove(activeClass);
+    }
+  }
+
+  function addActiveLiElemment(elem, parent) {
+    if (!elem || elem === parent) {
+      return;
+    } else {
+      if (elem.__proto__ === HTMLLIElement.prototype) {
+        elem.classList.add(active);
+      }
+      addActiveLiElemment(elem.parentElement, parent);
+    }
+  }
+
+  function showToc() {
+    if (tocWrapper) {
+      postBody = document.querySelector('#post_body');
+      for (let i = 0; i < postBody.children.length; i++) {
+        if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
+          hList.push(postBody.children[i]);
+        }
+      }
+      if (tocWrapper.classList.contains('compress')) {
+        tocContent.classList.add('closed');
+      } else if (tocWrapper.classList.contains('no_compress')) {
+        tocContent.classList.add('expanded');
+      } else {
+        if (hList.length > 10) {
+          active = 'active-hidden'
+          tocContent.classList.add('closed');
+        } else {
+          tocContent.classList.add('expanded');
+        }
+      }
+    }
+  }
+
+  (function () {
+    // 处理不是从#一级标题开始目录
+    if (tocContent.children.length === 1 && tocContent.children[0].__proto__ === HTMLLIElement.prototype) {
+      let con = tocContent.children[0].children[0];
+      tocContent.innerHTML = con.innerHTML;
+    }
+    let markdownItTOC = document.querySelector('.markdownIt-TOC');
+    let innerHeight = window.innerHeight;
+    markdownItTOC.style = `max-height: ${innerHeight - 80 > 0 ? innerHeight - 80 : innerHeight}px`
+    addTocNumber(tocContent, '');
+  })();
+
+  document.addEventListener('scroll', function (e) {
+    if (lList.length <= 0) {
+      return;
+    }
+    let scrollTop = document.scrollingElement.scrollTop + 10;
+    let dir;
+
+    if (lastTop - scrollTop > 0) {
+      dir = 'up';
+    } else {
+      dir = 'down';
+    }
+
+    lastTop = scrollTop;
+    if (scrollTop <= 0) {
+      if (lastIndex >= 0 && lastIndex < hList.length) {
+        lList[lastIndex].classList.remove(activeClass);
+      }
+      return;
+    }
+
+    let current = 0, hasFind = false;
+    for (let i = 0; i < hList.length; i++) {
+      if (hList[i].offsetTop > scrollTop) {
+        current = i;
+        hasFind = true;
+        break;
+      }
+    }
+    if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
+      current = hList.length - 1;
+    } else {
+      current--;
+    }
+    if (dir === 'down') {
+      if (current > lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex)
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    } else {
+      if (current < lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex);
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    }
+  });
+
+
+  window.addEventListener('load', function () {
+    showToc();
+    document.querySelector('#sidebar').style = 'display: block;';
+    tocWrapper.classList.add('toc-active');
+    setTimeout(function () {
+      if ("createEvent" in document) {
+        let evt = document.createEvent("HTMLEvents");
+        evt.initEvent("scroll", false, true);
+        document.dispatchEvent(evt);
+      }
+      else {
+        document.fireEvent("scroll");
+      }
+    }, 500)
+  })
+
+</script>
             </div>
-            <hr>
-            <div style="text-align:center">
-              <span class="with-love">
-                <i class="fa fa-heart"></i>
-              </span>
-              留言添加友链
-              <span class="with-love">
-                <i class="fa fa-heart"></i>
-              </span>
+          
+        
+      </div>
+    </div>
+  
+</div>
+<script>
+  const SIDEBAR_TITLE_ACTIVE = 'sidebar-title-active';
+  const SIDEBAR_BODY_ACTIVE = 'sidebar-body-active';
+  const SLIDE_UP_IN = 'slide-up-in';
+
+  let sidebar = document.querySelector('#sidebar'),
+  tocSideBar = document.querySelector('#tocSideBar'),
+  metaSideBar = document.querySelector('#metaSideBar'),
+  postToc = document.querySelector('#post_toc'),
+  postSiteMeta = document.querySelector('#post_side_meta'),
+  sidebarTitle = document.querySelector('.sidebar-title'),
+  sidebarBody = document.querySelector('#sidebar_body');
+
+  tocSideBar && tocSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  metaSideBar && metaSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  function toggleSidebar(e) {
+    let currentTitle = document.querySelector("."+SIDEBAR_TITLE_ACTIVE);
+    if (currentTitle == e.srcElement) {
+      return ;
+    }
+    let current, showElement, hideElement;
+    if (e.srcElement == metaSideBar) {
+      showElement = postSiteMeta;
+      hideElement = postToc;
+    } else if (e.srcElement == tocSideBar){
+      showElement = postToc;
+      hideElement = postSiteMeta;
+    }
+    currentTitle.classList.remove(SIDEBAR_TITLE_ACTIVE);
+    e.srcElement.classList.add(SIDEBAR_TITLE_ACTIVE);
+
+    window.Velocity(hideElement, 'stop');
+    window.Velocity(hideElement, 'transition.slideUpOut', {
+      display: 'none',
+      duration: 200,
+      complete: function () {
+        window.Velocity(showElement, 'transition.slideDownIn', {
+          duration: 200
+        });
+      }
+    })
+    hideElement.classList.remove(SIDEBAR_BODY_ACTIVE);
+    showElement.classList.add(SIDEBAR_BODY_ACTIVE);
+  }
+
+  postToc && postToc.addEventListener('transitionend', function() {
+    this.classList.remove(SLIDE_UP_IN);
+  });
+
+  if (sidebarBody) {
+    if (sidebarBody.classList.contains('pisces') || sidebarBody.classList.contains('gemini')) {
+      let hasFix = false;
+      let scrollEl = document.querySelector('.main-continer');
+      let limitTop = document.querySelector('#nav_ul').children.length * 42 + 162;
+      window.addEventListener('scroll', function(e) {
+        if (document.scrollingElement.scrollTop >= limitTop) {
+          if (!hasFix) {
+            sidebar.classList.add('sidebar-fixed');
+            hasFix = true;
+          }
+        } else {
+          if (hasFix) {
+            sidebar.classList.remove('sidebar-fixed');
+            hasFix = false;
+          }
+        }
+      });
+    }
+  }
+  
+</script>
+        <div class="section-box box-shadow-wrapper">
+          <div class="section bg-color post post-page">
+            <header class="post-header">
+  <h1 class="post-title">
+    <a class="post-title-link" href="https://dgzd.github.io/post/mq/">
+      消息队列
+    </a>
+  </h1>
+  <div class="post-meta">
+    
+    <span class="meta-item pc-show">
+      <i class="fa fa-calendar-o"></i>
+      <span>发布于</span>
+      <span>2019-03-28</span>
+      <span class="post-meta-divider pc-show">|</span>
+    </span>
+    
+    <span class="meta-item">
+      <i class="fa fa-folder-o"></i>
+      <span class="pc-show">分类于</span>
+      
+      
+      <a href="https://dgzd.github.io/tag/GMzyxFnFy/">
+        <span>Java</span>
+      </a>
+      
+      
+    </span>
+    <span class="post-meta-divider">|</span>
+    
+    <span class="meta-item">
+      <i class="fa fa-clock-o"></i>
+      <span>11分钟</span>
+    </span>
+    <span class="meta-item">
+      <span class="post-meta-divider">|</span>
+      <i class="fa fa-file-word-o"></i>
+      <span>3239<span class="pc-show">字数</span></span>
+    </span>
+    
+  </div>
+</header>
+            <div class="post-body next-md-body" id="post_body">
+              <h2 id="前言">前言</h2>
+<blockquote>
+<p>消息队列简介</p>
+</blockquote>
+<!-- more -->
+<h2 id="什么是消息队列">什么是消息队列</h2>
+<p>例如：</p>
+<ol>
+<li>服务员点菜快，厨师做菜慢，服务员只需要给厨师点菜单即可，然后就可以继续去服务谷歌，不需要等待厨师把菜做完。点菜单就相当于消息，放单子的位置就相当少队列。</li>
+<li>业务系统需要发短信，但短信发送模块速度跟不上，业务系统就可以吧发送短信的两个人信息封装为一个消息，放入队列，短信发送模块从队列中获取消息进行处理</li>
+</ol>
+<p>MQ，是一种跨进程的通信机制，用于上下游传递消息。</p>
+<p>在互联网架构中，MQ是一种非常常见的上下游“逻辑解耦+物理解耦”的消息通信服务。</p>
+<p>使用了MQ之后，消息发送上游只需要依赖MQ，不用依赖其他服务。</p>
+<p><a href="https://blog.csdn.net/qq_35152037/article/details/80012961">使用场景</a></p>
+<p>消息队列（Message Queue）是一种不同应用程序之间（跨进程）的通信方式。应用程序通过写入和检索出入列队的数据（消息）来通信，而无需通过专用链接来连接它们。</p>
+<p>消息发送后可以立即返回，由消息系统来确保信息的可靠传递，消息发布者只管把消息发布到 MQ 中而不管谁来取，消息使用者只管从 MQ 中区消息而不管谁发布的，发布者和使用者都不知道对方的存在</p>
+<p><strong>消息传递指的是程序之间通过在消息中发送数据进行通信，而不是通过直接调用彼此来通信。</strong></p>
+<p>直接调用通常是用于诸如 <strong>远程过程调用</strong> (Remote Procedure Call. RPC)的技术。</p>
+<p>排队指的是应用程序通过队列来通信。队列的使用除去了接收和发送应用程序同时执行的要求，这样天然的就实现了异步的目标。</p>
+<h2 id="为什么要使用消息队列">为什么要使用消息队列</h2>
+<ul>
+<li>解耦、异步、削峰</li>
+<li>参考：<a href="https://blog.csdn.net/weixin_40753536/article/details/82383304">为什么要使用 MQ</a>、<a href="https://blog.csdn.net/qq_34288630/article/details/79411529">什么是消息队列</a>、<a href="https://www.liangzl.com/get-article-detail-1992.html">消息队列的功能场景 - 京东技术</a> 、<a href="https://blog.csdn.net/alinshen/article/details/80583214">消息队列会遇到的问题</a></li>
+</ul>
+<h3 id="解耦">解耦</h3>
+<p><strong>传统模式的缺点</strong>：系统间耦合性太强，</p>
+<p><strong>中间件模式的优点</strong>：将消息写入消息队列，需要消息的系统自己从消息队列中订阅，从而实现解耦。</p>
+<figure data-type="image" tabindex="1"><img src="https://ws1.sinaimg.cn/large/006iOFs0gy1g1om5zqkf1j30hi06xmy0.jpg" alt="" loading="lazy"></figure>
+<p><strong>业务中的使用场景</strong>：订单系统生成订单，推送到 MQ 后立即返回，结算系统从 MQ 拉取订单并处理</p>
+<p>MQ最直接的使用场景就是可以将两个系统进行解耦，比如我们的货款抵扣业务场景，用户生成订单发送MQ后立即返回，结算系统去消费该MQ进行用户账户金额的扣款。这样订单系统只需要关注把订单创建成功，最大可能的提高订单量，并且生成订单后立即返回用户。而结算系统重点关心的是账户金额的扣减，保证账户金额最终一致。这个场景里面还会涉及到重试幂等性问题</p>
+<h3 id="异步">异步</h3>
+<p><strong>传统模式</strong>：一些非必要的业务逻辑以同步的方式运行，太耗费时间。</p>
+<p><strong>中间件模式</strong>：将消息写入消息队列，使非必要的业务逻辑以异步的方式运行，加快响应速度</p>
+<p><strong>业务中的使用场景</strong>：订单系统</p>
+<p>用户点击 【下单】按钮后的业务逻辑包括：扣减库存、生成相应的订单数据、下单、发送消息通知等</p>
+<p>在业务发展的初期，这些逻辑可能放在一起同步执行，但随着业务的整张，，需要提升系统服务的性能，这时候可以将一些不需要立即生效的操作拆分出来异步执行，比如发送消息等。这种场景就可以使用 MQ，在下单的主流程(比如扣减库存、生成相应的单据) 完成之后，发送一条消息到 MQ 让主流程快速完结，而由另外的单独线程拉取 MQ 的消息 ( 或者让 MQ 推送消息 )</p>
+<p>上述订单系统中，把下单后发送消息通知存放到 MQ ，通过另外的线程单独调用，就是异步的体现</p>
+<h3 id="削峰">削峰</h3>
+<p><strong>传统模式</strong>：并发量大的时候，所有的请求直接怼到数据库，造成数据库连接异常</p>
+<p><strong>中间件模式</strong>：把要处理的请求放入MQ，系统慢慢的按照数据库能处理的并发量，从消息队列中慢慢拉取消息。在生产中，这个短暂的高峰期积压是允许的。</p>
+<p><strong>业务中的使用场景</strong>：平衡高并发时期的流量</p>
+<p>还是以订单系统和结算系统场景为例，如果订单系统通过RPC框架来调用结算系统，在有高峰促销的情况下生成订单的量会非常大，而且由于生成订单的速度也非常快，这样势必会给结算系统造成系统压力，服务器利用率则会偏高，但在不是高峰的时间点订单量比较小，结算系统的服务器利用率则会偏低。</p>
+<h2 id="消息队列的优缺点">消息队列的优缺点</h2>
+<p>参考：<a href="https://blog.csdn.net/qq_34288630/article/details/79411529">什么是消息队列</a></p>
+<h3 id="为什么要分布式消息队列">为什么要分布式消息队列</h3>
+<ol>
+<li>
+<p>多系统协作需要分布式</p>
+<p>例如消息队列的数据需要在多个系统之间共享，所以需要提供分布式通信机制，协同机制</p>
+</li>
+<li>
+<p>可靠</p>
+<p>消息会被持久化到分布式存储中，这样避免了单台机器存储的消息由于机器问题导致的消息丢失</p>
+</li>
+<li>
+<p>可扩展</p>
+<p>分布式消息队列，会随着访问量的增加而方便的增加处理服务器</p>
+</li>
+</ol>
+<h3 id="优点">优点</h3>
+<ol>
+<li>
+<p>提高系统响应速度</p>
+<p>使用消息队列，生产者一方把消息往消息队列里一扔，就可以立马返回响应用户，无需等待处理结果</p>
+</li>
+<li>
+<p>保证消息的传递</p>
+<p>如果发送消息时接收者不可用，消息队列就会保留消息，直到成功的传递它</p>
+</li>
+<li>
+<p>解耦</p>
+<p>只要信息格式不变，即使接收者的接口、位置、或者配置改变，也不会给发送者带来任何改变<br>
+消息发送者无需知道消息接收者是谁，使得系统设计更清晰</p>
+</li>
+</ol>
+<h3 id="缺点">缺点</h3>
+<p><strong>系统可用性降低</strong></p>
+<p>本来其他系统只要运行好好的，那你的系统就是正常的。现在你非要加个消息队列进去，那消息队列挂了，你的系统不是呵呵了。因此，系统可用性降低</p>
+<p><strong>系统复杂性增加</strong></p>
+<p>要多考虑很多方面的问题，比如一致性问题、如何保证消息不被重复消费，如何保证保证消息可靠传输。因此，需要考虑的东西更多，系统复杂性增大。</p>
+<p>但是，我们该用还是要用的。</p>
+<h2 id="常见问题">常见问题</h2>
+<p>参考：<a href="https://blog.csdn.net/alinshen/article/details/80583214">消息队列会遇到的问题</a></p>
+<h3 id="如何保证消息队列是高可用">如何保证消息队列是高可用</h3>
+<p>分析：引入消息队列后，系统的可用性下降。在生产中，没人使用单机模式的消息队列。因此，作为一个合格的程序员，应该对消息队列的高可用有很深刻的了解。<br>
+回答:这问题，其实要对消息队列的集群模式要有深刻了解，才好回答。<br>
+以rcoketMQ为例，他的集群就有多master 模式、多master多slave异步复制模式、多 master多slave同步双写模式。</p>
+<p>至于rabbitMQ,也有普通集群和镜像集群模式，自行去了解，比较简单，两小时即懂。<br>
+要求，在回答高可用的问题时，应该能逻辑清晰的画出自己的MQ集群架构或清晰的叙述出来。</p>
+<h3 id="如何保证消息不被重复消费">如何保证消息不被重复消费</h3>
+<p>这个问题其实换一种问法就是 —— 如何保证消息队列的幂等性?</p>
+<p>这个问题可以认为是消息队列领域的基本问题。换句话来说，是在考察你的设计能力，这个问题的回答可以根据具体的业务场景来答，没有固定的答案。</p>
+<p>先来说一下为什么会造成重复消费?</p>
+<p>其实无论是那种消息队列，造成重复消费原因其实都是类似的。正常情况下，消费者在消费消息时候，消费完毕后，会发送一个确认信息给消息队列，消息队列就知道该消息被消费了，就会将该消息从消息队列中删除。只是不同的消息队列发送的确认信息形式不同,例如RabbitMQ是发送一个ACK确认消息，RocketMQ是返回一个CONSUME_SUCCESS成功标志，kafka实际上有个offset的概念，简单说一下，就是每一个消息都有一个offset，kafka消费过消息后，需要提交offset，让消息队列知道自己已经消费过了。那造成重复消费的原因，就是<strong>因为网络传输等等故障，确认信息没有传送到消息队列，导致消息队列不知道自己已经消费过该消息了，再次将该消息分发给其他的消费者。</strong></p>
+<p>如何解决?这个问题针对业务场景来答分以下几点</p>
+<p>1. 比如，你拿到这个消息做数据库的insert操作。那就容易了，给这个消息做一个唯一主键，那么就算出现重复消费的情况，就会导致主键冲突，避免数据库出现脏数据。<br>
+  2. 再比如，你拿到这个消息做redis的set的操作，那就容易了，不用解决，因为你无论set几次结果都是一样的，set操作本来就算幂等操作。<br>
+  3. 如果上面两种情况还不行，上大招。准备一个第三方介质,来做消费记录。以redis为例，给消息分配一个全局id，只要消费过该消息，将</p>
+<h3 id="如何保证消费的可靠性传输">如何保证消费的可靠性传输</h3>
+<p>其实这个可靠性传输，每种MQ都要从三个角度来分析:生产者弄丢数据、消息队列弄丢数据、消费者弄丢数据</p>
+<ol>
+<li>
+<p>生产者弄丢数据</p>
+<p>从生产者弄丢数据来看，RabbitMQ 提供 transaction 和 confirm 模式来确保生产者不丢失消息</p>
+<p>transaction机制就是说，发送消息前，开启事务(channel.txSelect())，然后发送消息，如果发送过程中出现什么异常，事务就会回滚(channel.txRollback())，如果发送成功则提交事务(channel.txCommit())。</p>
+<p>然而缺点就是吞吐量下降了。生产上用confirm模式的居多</p>
+</li>
+<li>
+<p>消息队列弄丢数据</p>
+<p>针对消息队列丢数据的情况，无外乎就是，数据还没同步，leader就挂了，这时zookpeer会将其他的follwer切换为leader,那数据就丢失了。</p>
+<p>开启持久化磁盘的配置。这个持久化配置可以和 confirm 机制配合使用，你可以在消息持久化磁盘后，再给生产者发送一个 ACK 信号。这样，如果消息持久化磁盘之前，RabbitMQ阵亡了，那么生产者收不到Ack信号，生产者会自动重发。</p>
+</li>
+<li>
+<p>消费者弄丢数据</p>
+<p>消费者丢失数据一般是因为采用了自动确认消息模式。这种模式下消费者会自动确认收到消息。这时rahbitMQ会立即将消息删除，这种情况下如果消费者出现异常而没能处理该消息，就会丢失该消息。</p>
+</li>
+</ol>
+<h3 id="如何保证消息的顺序性">如何保证消息的顺序性</h3>
+<p>通过某种算法，<strong>将需要保持先后顺序的消息放到同一个消息队列中</strong> (kafka中就是partition,rabbitMq中就是queue)。<strong>然后只用一个消费者去消费该队列</strong>。</p>
+<p>有的人会问:那如果为了吞吐量，有多个消费者去消费怎么办？</p>
+<p>这个问题，没有固定回答的套路。比如我们有一个微博的操作，发微博、写评论、删除微博，这三个异步操作。如果是这样一个业务场景，那只要重试就行。比如你一个消费者先执行了写评论的操作，但是这时候，微博都还没发，写评论一定是失败的，等一段时间。等另一个消费者，先执行写评论的操作后，再执行，就可以成功。<br>
+总之，针对这个问题，我的观点是<strong>保证入队有序就行，出队以后的顺序交给消费者自己去保证</strong>，没有固定套路。</p>
+<h2 id="消息队列选型">消息队列选型</h2>
+
             </div>
-            <hr>
-            <div class="friends-note">
-              <p><strong>友链格式：</strong></p>
-              <ul>
-                <li>网站名称：枫糖</li>
-                <li>网站地址：<a href="https://blog.maplesugar.space" data-pjax-state="">https://blog.maplesugar.space</a>
-                </li>
-                <li> 网站描述：From rookie to master</li>
-                <li> 网站 Logo / 头像：<a href="https://blog.maplesugar.space/uploads/maple-leaf-avatar.jpg"
-                    data-pjax-state="">https://blog.maplesugar.space/uploads/maple-leaf-avatar.jpg</a></li>
-              </ul>
-            </div>
+            <div class="post-footer">
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      轻尘
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://dgzd.github.io/post/mq/" title="消息队列">https://dgzd.github.io/post/mq/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i> BY-NC-SA</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+  <div class="tags">
+    
+      <a href="https://dgzd.github.io/tag/GMzyxFnFy/"># Java</a>
+    
+  </div>
+  <div class="nav">
+    <div class="nav-prev">
+      
+    </div>
+    <div class="nav-next">
+      
+        <a class="nav-pc-next" title="Docker 概述" href="https://dgzd.github.io/post/docker-gai-shu/">Docker 概述</a>
+        <a class="nav-mobile-next" title="Docker 概述" href="https://dgzd.github.io/post/docker-gai-shu/">下一篇</a>
+        <i class="fa fa-chevron-right"></i>
+      
+    </div>
+  </div>
+</div>
             
   
     
@@ -277,7 +748,7 @@
     
   
 
-          </section>
+          </div>
         </div>
       </div>
     </div>
@@ -447,6 +918,36 @@
   // 代码高亮
   hljs.initHighlightingOnLoad();
 
+</script>
+    <div class="light-box" id="light_box"></div>
+<script>
+  let imgs = document.querySelectorAll('.post-body img');
+  let lightBox = document.querySelector('#light_box');
+  lightBox.addEventListener('mousedown', (e) => {
+    e.preventDefault()
+  })
+  lightBox.addEventListener('mousewheel', (e) => {
+    e.preventDefault()
+  })
+  let width = window.innerWidth * 0.8;
+  lightBox.onclick = () => {
+    let img = lightBox.querySelector('img');
+    lightBox.style = '';
+    img && img.remove();
+  }
+  imgs.forEach(item => {
+    item.onclick = function (e) {
+      let lightImg = document.createElement('img');
+      lightImg.src = this.src;
+      lightBox.style = `height: 100%; opacity: 1; background-color: rgba(0, 0, 0, 0.5);cursor: zoom-out;`;
+      lightImg.style = `width: ${width}px; border: 1px solid #fff; border-radius: 2px;`;
+      lightImg.onclick = function () {
+        lightBox.style = '';
+        this.remove();
+      }
+      lightBox.append(lightImg);
+    }
+  })
 </script>
   </div>
 </body>
@@ -3853,7 +4354,6 @@ $ git archives&lt;/code&gt;&lt;/pre&gt;
   escapeMap.set('&quot;', '"');
   escapeMap.set('&amp;', '&');
 </script> -->
-
 
 
 </html>

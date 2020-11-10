@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://dgzd.github.io</id>
     <title>轻尘</title>
-    <updated>2020-11-10T02:52:58.241Z</updated>
+    <updated>2020-11-10T02:59:00.124Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://dgzd.github.io"/>
     <link rel="self" href="https://dgzd.github.io/atom.xml"/>
@@ -11,11 +11,128 @@
     <icon>https://dgzd.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 轻尘</rights>
     <entry>
-        <title type="html"><![CDATA[双拼输入法]]></title>
-        <id>https://dgzd.github.io/post/shuang-pin-shu-ru-fa/</id>
-        <link href="https://dgzd.github.io/post/shuang-pin-shu-ru-fa/">
+        <title type="html"><![CDATA[搜索引擎使用]]></title>
+        <id>https://dgzd.github.io/post/search-engine/</id>
+        <link href="https://dgzd.github.io/post/search-engine/">
         </link>
-        <updated>2020-11-10T02:49:59.000Z</updated>
+        <updated>2018-11-10T02:53:15.000Z</updated>
+        <content type="html"><![CDATA[<blockquote>
+<p>记录一些搜索引擎使用技巧</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">表达式</th>
+<th style="text-align:left">用途</th>
+<th style="text-align:left">实例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">“”(双引号)</td>
+<td style="text-align:left">搜索词放在双引号中，代表完全匹配搜索</td>
+<td style="text-align:left">“keyword”</td>
+</tr>
+<tr>
+<td style="text-align:center">*（通配符）</td>
+<td style="text-align:left">代表任何文字，比如想查找“锤*手机&quot;，可以搜索到锤子手机，锤xx手机等</td>
+<td style="text-align:left">“锤*手机”</td>
+</tr>
+<tr>
+<td style="text-align:center">+（与）</td>
+<td style="text-align:left">搜索所有包含关键词“keyword1”和“keyword2**”的中文网页</td>
+<td style="text-align:left">“keyword1 keyword2” 或者“keyword1+keyword2”</td>
+</tr>
+<tr>
+<td style="text-align:center">-（非）(A -B)</td>
+<td style="text-align:left">搜索去除keyword2的keyword1</td>
+<td style="text-align:left">“keyword1 -keyword2”</td>
+</tr>
+<tr>
+<td style="text-align:center">OR(或)</td>
+<td style="text-align:left">搜索 A 或者 B</td>
+<td style="text-align:left">“keyword1 OR keyword2”</td>
+</tr>
+<tr>
+<td style="text-align:center">~keyword1</td>
+<td style="text-align:left">搜索它的同义词</td>
+<td style="text-align:left">~喜欢</td>
+</tr>
+<tr>
+<td style="text-align:center">~keyword1-keyword2</td>
+<td style="text-align:left">只搜索同义词,不要原词</td>
+<td style="text-align:left">~WORD-WORD</td>
+</tr>
+<tr>
+<td style="text-align:center">site:</td>
+<td style="text-align:left">搜索指定域名的内容</td>
+<td style="text-align:left">site:www.github.com keyword 或者keyword site:www.github.com</td>
+</tr>
+<tr>
+<td style="text-align:center">filetype:</td>
+<td style="text-align:left">限制搜索的词语是网页中链接内包含的关键词</td>
+<td style="text-align:left">filetype:pdf ios开发</td>
+</tr>
+<tr>
+<td style="text-align:center">link:</td>
+<td style="text-align:left">搜索网页中含有某链接的结果,实例中的结果为包含百度这个链接的页面</td>
+<td style="text-align:left">link:http://baidu.com</td>
+</tr>
+<tr>
+<td style="text-align:center">inurl:</td>
+<td style="text-align:left">搜索网站地址中包含关键词词的结果</td>
+<td style="text-align:left">inurl:搜索引擎优化</td>
+</tr>
+<tr>
+<td style="text-align:center">intitle</td>
+<td style="text-align:left">搜索标题中包含关键词词的结果</td>
+<td style="text-align:left">intitle:搜索引擎优化</td>
+</tr>
+<tr>
+<td style="text-align:center">related:</td>
+<td style="text-align:left">搜索相关网站</td>
+<td style="text-align:left">related:qidian.com</td>
+</tr>
+<tr>
+<td style="text-align:center">intext:</td>
+<td style="text-align:left">限制搜索的词语是网页内文包含的关键词</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">index of</td>
+<td style="text-align:left">根据输入的内容返回一些资源列表</td>
+<td style="text-align:left">index of mp3</td>
+</tr>
+<tr>
+<td style="text-align:center">inanchor:keyword</td>
+<td style="text-align:left">指令返回的结果是导入链接锚文字中包含搜索词的页面</td>
+<td style="text-align:left">inanchor:关于我们</td>
+</tr>
+<tr>
+<td style="text-align:center">-filetype:</td>
+<td style="text-align:left">-filetype:SOMEFILETYPE = 剔除指定文件类型</td>
+<td style="text-align:left">-filetype:SOMEFILETYPE</td>
+</tr>
+<tr>
+<td style="text-align:center">allinanchor:</td>
+<td style="text-align:left">限制搜索的词语是网页中链接内包含的关键词（可使用多个关键词）</td>
+<td style="text-align:left">allinanchor:keyword1 keyword2</td>
+</tr>
+<tr>
+<td style="text-align:center">allintext:</td>
+<td style="text-align:left">限制搜索的词语是网页内文包含的关键词（可使用多个关键词）</td>
+<td style="text-align:left">allintext:keyword1 keyword2</td>
+</tr>
+</tbody>
+</table>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[双拼输入法]]></title>
+        <id>https://dgzd.github.io/post/shuang-pin/</id>
+        <link href="https://dgzd.github.io/post/shuang-pin/">
+        </link>
+        <updated>2018-11-10T02:49:59.000Z</updated>
         <summary type="html"><![CDATA[<h2 id="前言">前言</h2>
 <blockquote>
 <p>对于有码字需求的用户来说，可能早已经厌烦了全拼的输入方式了，今天，我写篇博客，随便说一说我了解的输入法吧！</p>
@@ -94,10 +211,10 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[软路由的CPU]]></title>
-        <id>https://dgzd.github.io/post/ruan-lu-you-de-cpu/</id>
-        <link href="https://dgzd.github.io/post/ruan-lu-you-de-cpu/">
+        <id>https://dgzd.github.io/post/nas/</id>
+        <link href="https://dgzd.github.io/post/nas/">
         </link>
-        <updated>2020-11-10T02:02:41.000Z</updated>
+        <updated>2018-11-10T02:02:41.000Z</updated>
         <summary type="html"><![CDATA[<h2 id="前言">前言</h2>
 <blockquote>
 <p>今天无意中在 chiphell 看到一篇帖子，有一张常用软路由的CPU图，这里和大家分享一下。</p>

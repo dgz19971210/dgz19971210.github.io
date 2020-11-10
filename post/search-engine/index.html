@@ -8,7 +8,7 @@
 <meta name="keywords" content="轻尘的个人博客">
 <meta name="description" content="是非在己，毁誉由人，得失不论">
 <meta name="theme-color" content="#000">
-<title>关于 | 轻尘</title>
+<title>搜索引擎使用 | 轻尘</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1604977126575">
 <link rel="stylesheet" href="/styles/main.css">
 <link rel="stylesheet" href="/media/css/gemini.css">
@@ -29,8 +29,8 @@
 
 
 
-  <meta name="description" content="关于" />
-  <meta name="keywords" content="" />
+  <meta name="description" content="搜索引擎使用" />
+  <meta name="keywords" content="输入法" />
 </head>
 
 <body>
@@ -174,8 +174,7 @@
       <div class="sidebar-body gemini" id="sidebar_body">
         
           
-            <div class="post-side-meta" id="post_side_meta">
-              
+            
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="/images/avatar.png"/>
@@ -226,195 +225,6 @@
 
 
 </div>
-            </div>
-            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
-              <div class="toc-box right-motion">
-  <div class="toc-wrapper auto-number auto"
-    id="toc_wrapper">
-    <ul class="markdownIt-TOC">
-<li>
-<ul>
-<li><a href="#%E5%85%B3%E4%BA%8E%E6%9C%AC%E7%AB%99">🏠 关于本站</a></li>
-</ul>
-</li>
-</ul>
-
-  </div>
-</div>
-
-<script>
-
-  let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1;
-  let active = 'active-show', activeClass = 'active-current';
-  let tocWrapper = document.querySelector('#toc_wrapper');
-  let tocContent = tocWrapper.children[0];
-  let autoNumber = tocWrapper && tocWrapper.classList.contains('auto-number');
-
-  function addTocNumber(elem, deep) {
-    if (!elem) {
-      return;
-    }
-    let prop = elem.__proto__;
-
-    if (prop === HTMLUListElement.prototype) {
-      for (let i = 0; i < elem.children.length; i++) {
-        addTocNumber(elem.children[i], deep + (i + 1) + '.');
-      }
-    } else if (prop === HTMLLIElement.prototype) {
-      // 保存li元素
-      if (elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
-        lList.push(elem);
-      }
-      for (let i = 0; i < elem.children.length; i++) {
-        let cur = elem.children[i];
-        if (cur.__proto__ === HTMLAnchorElement.prototype) {
-          if (autoNumber) {
-            cur.text = deep + ' ' + cur.text;
-          }
-        } else if (cur.__proto__ === HTMLUListElement.prototype) {
-          addTocNumber(cur, deep);
-        }
-      }
-    }
-  }
-
-  function removeParentActiveClass() {
-    let parents = tocContent.querySelectorAll('.' + active)
-    parents.forEach(function (elem) {
-      elem.classList.remove(active);
-    });
-  }
-
-  function addActiveClass(index) {
-    if (index >= 0 && index < hList.length) {
-      lList[index].classList.add(activeClass);
-    }
-  }
-
-  function removeActiveClass(index) {
-    if (index >= 0 && index < hList.length) {
-      lList[index].classList.remove(activeClass);
-    }
-  }
-
-  function addActiveLiElemment(elem, parent) {
-    if (!elem || elem === parent) {
-      return;
-    } else {
-      if (elem.__proto__ === HTMLLIElement.prototype) {
-        elem.classList.add(active);
-      }
-      addActiveLiElemment(elem.parentElement, parent);
-    }
-  }
-
-  function showToc() {
-    if (tocWrapper) {
-      postBody = document.querySelector('#post_body');
-      for (let i = 0; i < postBody.children.length; i++) {
-        if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
-          hList.push(postBody.children[i]);
-        }
-      }
-      if (tocWrapper.classList.contains('compress')) {
-        tocContent.classList.add('closed');
-      } else if (tocWrapper.classList.contains('no_compress')) {
-        tocContent.classList.add('expanded');
-      } else {
-        if (hList.length > 10) {
-          active = 'active-hidden'
-          tocContent.classList.add('closed');
-        } else {
-          tocContent.classList.add('expanded');
-        }
-      }
-    }
-  }
-
-  (function () {
-    // 处理不是从#一级标题开始目录
-    if (tocContent.children.length === 1 && tocContent.children[0].__proto__ === HTMLLIElement.prototype) {
-      let con = tocContent.children[0].children[0];
-      tocContent.innerHTML = con.innerHTML;
-    }
-    let markdownItTOC = document.querySelector('.markdownIt-TOC');
-    let innerHeight = window.innerHeight;
-    markdownItTOC.style = `max-height: ${innerHeight - 80 > 0 ? innerHeight - 80 : innerHeight}px`
-    addTocNumber(tocContent, '');
-  })();
-
-  document.addEventListener('scroll', function (e) {
-    if (lList.length <= 0) {
-      return;
-    }
-    let scrollTop = document.scrollingElement.scrollTop + 10;
-    let dir;
-
-    if (lastTop - scrollTop > 0) {
-      dir = 'up';
-    } else {
-      dir = 'down';
-    }
-
-    lastTop = scrollTop;
-    if (scrollTop <= 0) {
-      if (lastIndex >= 0 && lastIndex < hList.length) {
-        lList[lastIndex].classList.remove(activeClass);
-      }
-      return;
-    }
-
-    let current = 0, hasFind = false;
-    for (let i = 0; i < hList.length; i++) {
-      if (hList[i].offsetTop > scrollTop) {
-        current = i;
-        hasFind = true;
-        break;
-      }
-    }
-    if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
-      current = hList.length - 1;
-    } else {
-      current--;
-    }
-    if (dir === 'down') {
-      if (current > lastIndex) {
-        addActiveClass(current);
-        removeActiveClass(lastIndex)
-        lastIndex = current;
-        removeParentActiveClass();
-        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
-      }
-    } else {
-      if (current < lastIndex) {
-        addActiveClass(current);
-        removeActiveClass(lastIndex);
-        lastIndex = current;
-        removeParentActiveClass();
-        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
-      }
-    }
-  });
-
-
-  window.addEventListener('load', function () {
-    showToc();
-    document.querySelector('#sidebar').style = 'display: block;';
-    tocWrapper.classList.add('toc-active');
-    setTimeout(function () {
-      if ("createEvent" in document) {
-        let evt = document.createEvent("HTMLEvents");
-        evt.initEvent("scroll", false, true);
-        document.dispatchEvent(evt);
-      }
-      else {
-        document.fireEvent("scroll");
-      }
-    }, 500)
-  })
-
-</script>
-            </div>
           
         
       </div>
@@ -502,8 +312,8 @@
           <div class="section bg-color post post-page">
             <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://dgzd.github.io/post/about/">
-      关于
+    <a class="post-title-link" href="https://dgzd.github.io/post/search-engine/">
+      搜索引擎使用
     </a>
   </h1>
   <div class="post-meta">
@@ -511,28 +321,145 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span>发布于</span>
-      <span>2019-01-25</span>
+      <span>2018-11-10</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
     <span class="meta-item">
+      <i class="fa fa-folder-o"></i>
+      <span class="pc-show">分类于</span>
+      
+      
+      <a href="https://dgzd.github.io/tag/m7l0z5_Xq/">
+        <span>输入法</span>
+      </a>
+      
+      
+    </span>
+    <span class="post-meta-divider">|</span>
+    
+    <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>1分钟</span>
+      <span>2分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>32<span class="pc-show">字数</span></span>
+      <span>430<span class="pc-show">字数</span></span>
     </span>
     
   </div>
 </header>
             <div class="post-body next-md-body" id="post_body">
               <blockquote>
-<p>欢迎来到我的小站呀，很高兴遇见你！🤝</p>
+<p>记录一些搜索引擎使用技巧</p>
 </blockquote>
-<h2 id="关于本站">🏠 关于本站</h2>
-<p>轻尘的博客，记录工作，记录生活</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">表达式</th>
+<th style="text-align:left">用途</th>
+<th style="text-align:left">实例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">“”(双引号)</td>
+<td style="text-align:left">搜索词放在双引号中，代表完全匹配搜索</td>
+<td style="text-align:left">“keyword”</td>
+</tr>
+<tr>
+<td style="text-align:center">*（通配符）</td>
+<td style="text-align:left">代表任何文字，比如想查找“锤*手机&quot;，可以搜索到锤子手机，锤xx手机等</td>
+<td style="text-align:left">“锤*手机”</td>
+</tr>
+<tr>
+<td style="text-align:center">+（与）</td>
+<td style="text-align:left">搜索所有包含关键词“keyword1”和“keyword2**”的中文网页</td>
+<td style="text-align:left">“keyword1 keyword2” 或者“keyword1+keyword2”</td>
+</tr>
+<tr>
+<td style="text-align:center">-（非）(A -B)</td>
+<td style="text-align:left">搜索去除keyword2的keyword1</td>
+<td style="text-align:left">“keyword1 -keyword2”</td>
+</tr>
+<tr>
+<td style="text-align:center">OR(或)</td>
+<td style="text-align:left">搜索 A 或者 B</td>
+<td style="text-align:left">“keyword1 OR keyword2”</td>
+</tr>
+<tr>
+<td style="text-align:center">~keyword1</td>
+<td style="text-align:left">搜索它的同义词</td>
+<td style="text-align:left">~喜欢</td>
+</tr>
+<tr>
+<td style="text-align:center">~keyword1-keyword2</td>
+<td style="text-align:left">只搜索同义词,不要原词</td>
+<td style="text-align:left">~WORD-WORD</td>
+</tr>
+<tr>
+<td style="text-align:center">site:</td>
+<td style="text-align:left">搜索指定域名的内容</td>
+<td style="text-align:left">site:www.github.com keyword 或者keyword site:www.github.com</td>
+</tr>
+<tr>
+<td style="text-align:center">filetype:</td>
+<td style="text-align:left">限制搜索的词语是网页中链接内包含的关键词</td>
+<td style="text-align:left">filetype:pdf ios开发</td>
+</tr>
+<tr>
+<td style="text-align:center">link:</td>
+<td style="text-align:left">搜索网页中含有某链接的结果,实例中的结果为包含百度这个链接的页面</td>
+<td style="text-align:left">link:http://baidu.com</td>
+</tr>
+<tr>
+<td style="text-align:center">inurl:</td>
+<td style="text-align:left">搜索网站地址中包含关键词词的结果</td>
+<td style="text-align:left">inurl:搜索引擎优化</td>
+</tr>
+<tr>
+<td style="text-align:center">intitle</td>
+<td style="text-align:left">搜索标题中包含关键词词的结果</td>
+<td style="text-align:left">intitle:搜索引擎优化</td>
+</tr>
+<tr>
+<td style="text-align:center">related:</td>
+<td style="text-align:left">搜索相关网站</td>
+<td style="text-align:left">related:qidian.com</td>
+</tr>
+<tr>
+<td style="text-align:center">intext:</td>
+<td style="text-align:left">限制搜索的词语是网页内文包含的关键词</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">index of</td>
+<td style="text-align:left">根据输入的内容返回一些资源列表</td>
+<td style="text-align:left">index of mp3</td>
+</tr>
+<tr>
+<td style="text-align:center">inanchor:keyword</td>
+<td style="text-align:left">指令返回的结果是导入链接锚文字中包含搜索词的页面</td>
+<td style="text-align:left">inanchor:关于我们</td>
+</tr>
+<tr>
+<td style="text-align:center">-filetype:</td>
+<td style="text-align:left">-filetype:SOMEFILETYPE = 剔除指定文件类型</td>
+<td style="text-align:left">-filetype:SOMEFILETYPE</td>
+</tr>
+<tr>
+<td style="text-align:center">allinanchor:</td>
+<td style="text-align:left">限制搜索的词语是网页中链接内包含的关键词（可使用多个关键词）</td>
+<td style="text-align:left">allinanchor:keyword1 keyword2</td>
+</tr>
+<tr>
+<td style="text-align:center">allintext:</td>
+<td style="text-align:left">限制搜索的词语是网页内文包含的关键词（可使用多个关键词）</td>
+<td style="text-align:left">allintext:keyword1 keyword2</td>
+</tr>
+</tbody>
+</table>
 
             </div>
             <div class="post-footer">
@@ -543,7 +470,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://dgzd.github.io/post/about/" title="关于">https://dgzd.github.io/post/about/</a>
+      <a href="https://dgzd.github.io/post/search-engine/" title="搜索引擎使用">https://dgzd.github.io/post/search-engine/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -552,12 +479,18 @@
   </ul>
   <div class="tags">
     
+      <a href="https://dgzd.github.io/tag/m7l0z5_Xq/"># 输入法</a>
+    
   </div>
   <div class="nav">
     <div class="nav-prev">
       
     </div>
     <div class="nav-next">
+      
+        <a class="nav-pc-next" title="双拼输入法" href="https://dgzd.github.io/post/shuang-pin/">双拼输入法</a>
+        <a class="nav-mobile-next" title="双拼输入法" href="https://dgzd.github.io/post/shuang-pin/">下一篇</a>
+        <i class="fa fa-chevron-right"></i>
       
     </div>
   </div>
